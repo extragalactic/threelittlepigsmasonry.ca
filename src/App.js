@@ -1,19 +1,49 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import styled from 'styled-components';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import './App.css';
+import TopBar from './TopBar';
+import TopCarousel from './TopCarousel';
+import ServicesGrid from './ServicesGrid';
+import Footer from './Footer';
+import AboutUs from './AboutUs';
+import Testimonials from './Testimonials';
+import Contact from './Contact';
+
+const StyledApp = styled.section`
+  text-align: center;
+  position: relative;
+  margin: auto;
+  width: 95%;
+  flex: 1;
+`;
+const muiTheme = getMuiTheme({
+  palette: {
+    primary1Color: '#841F27',
+    primary2Color: '#0f0',
+  },
+  appBar: {
+    height: '100%',
+  },
+});
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <StyledApp>
+        <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
+          <div>
+            <TopBar/>
+            <TopCarousel/>
+            <div id="Services"><ServicesGrid /></div>
+            <div id="AboutUs"><AboutUs /></div>
+            <div id="Testimonials"><Testimonials /></div>
+            <div id="Contact"><Contact /></div>
+           <Footer/>
+          </div>
+        </MuiThemeProvider>  
+      </StyledApp>
     );
   }
 }

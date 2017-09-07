@@ -3,8 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "material-ui": "^0.19.1",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-lazyload": "^2.2.7",
+    "react-slick": "^0.15.0",
+    "slick-carousel": "^1.7.1",
+    "styled-components": "^2.1.2"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"
