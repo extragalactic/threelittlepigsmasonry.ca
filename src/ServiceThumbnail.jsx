@@ -1,31 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
-import './App.css';
-import LazyLoad from 'react-lazyload'; // not sure if working
+import LazyLoad from 'react-lazyload'; // *** not working yet ***
 import PropTypes from 'prop-types';
+import './App.css';
 
 const StyledServiceThumbnail = styled.section`
-  padding: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 240px;
+
+  .p {
+    font-size: 6px;
+  }
 `;
 
-class ServiceThumbnail extends React.Component {
-  static propTypes = {
-    title: PropTypes.string.isRequired,
-    imgSrc: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-  }
+const ServiceThumbnail = (props) => {
+  return (
+    <LazyLoad height={100}>
+      <StyledServiceThumbnail>
+        <h3>{props.title}</h3>
+        <a href={props.link}><img src={props.imgSrc} alt="" /></a>
+        <p>{props.description}</p>
+        <a href={props.link}><p>Read More...</p></a>
+      </StyledServiceThumbnail>
+    </LazyLoad>
+  );
+};
 
-  render() {
-    return(
-      <LazyLoad height={50} offset={-100}>
-        <StyledServiceThumbnail>
-          <h3>{this.props.title}</h3>
-          <img src={this.props.imgSrc} alt=""/>
-          <p>{this.props.description}</p>
-        </StyledServiceThumbnail>
-      </LazyLoad>
-    );
-  }
-}
+ServiceThumbnail.propTypes = {
+  title: PropTypes.string.isRequired,
+  imgSrc: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+};
 
 export default ServiceThumbnail;
