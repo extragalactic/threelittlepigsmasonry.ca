@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import './App.css';
 import TopBar from './TopBar';
 import TopCarousel from './TopCarousel';
@@ -18,34 +19,35 @@ const StyledApp = styled.section`
   width: 95%;
   flex: 1;
 `;
+
 const muiTheme = getMuiTheme({
   palette: {
     primary1Color: '#841F27',
-    primary2Color: '#0f0',
+    accent1Color: '#0a0',
   },
   appBar: {
     height: '100%',
   },
 });
 
-class App extends Component {
-  render() {
-    return (
-      <StyledApp>
-        <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
-          <div>
-            <TopBar/>
-            <TopCarousel/>
-            <div id="Services"><ServicesGrid /></div>
-            <div id="AboutUs"><AboutUs /></div>
-            <div id="Testimonials"><Testimonials /></div>
-            <div id="Contact"><Contact /></div>
-           <Footer/>
-          </div>
-        </MuiThemeProvider>  
-      </StyledApp>
-    );
-  }
-}
+injectTapEventPlugin();
+
+const App = () => {
+  return (
+    <StyledApp>
+      <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
+        <div>
+          <TopBar />
+          <TopCarousel />
+          <div id="Services"><ServicesGrid /></div>
+          <div id="AboutUs"><AboutUs /></div>
+          <div id="Testimonials"><Testimonials /></div>
+          <div id="Contact"><Contact /></div>
+          <Footer />
+        </div>
+      </MuiThemeProvider>
+    </StyledApp>
+  );
+};
 
 export default App;
