@@ -5,6 +5,7 @@ import TestimonialCard from './TestimonialCard';
 
 const StyledTestimonials = styled.section`
   width: 100%;
+  padding-top: 20px;
 `;
 
 class Testimonials extends React.Component {
@@ -26,7 +27,7 @@ class Testimonials extends React.Component {
   }
 
   render() {
-    const childElements = this.state.elements.map((element, i) => {
+    const testimonialCollection = this.state.elements.map((element, i) => {
       return (
         <TestimonialCard element={element} key={i} />
       );
@@ -37,7 +38,7 @@ class Testimonials extends React.Component {
         <h2>Testimonials</h2>
         <ResponsiveMasonry columnsCountBreakPoints={{ 200: 1, 450: 2, 700: 3, 1000: 4 }}>
           <Masonry>
-            {childElements}
+            {testimonialCollection}
           </Masonry>
         </ResponsiveMasonry>
       </StyledTestimonials>
