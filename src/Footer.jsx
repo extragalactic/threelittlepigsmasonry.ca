@@ -6,15 +6,12 @@ const StyledFooter = styled.section`
   color: #888;
 `;
 
-class Footer extends React.Component {
-
-  render() {
-    return(
-      <StyledFooter>
-       <p>Copyright 2017 Three Little Pigs Masonry</p>
-      </StyledFooter>
-    );
-  }
-}
+const Footer = () => {
+  return (
+    <StyledFooter>
+      <p>Copyright &#169; 2017 Three Little Pigs Masonry</p>
+    </StyledFooter>
+  );
+};
 
 export default Footer;

@@ -27,7 +27,12 @@ const StyledTopBar = styled.section`
 class TopBar extends React.Component {
   static goToAnchor(anchor) {
     const loc = document.location.toString().split('#')[0];
-    document.location = loc + '#' + anchor;
+    console.log(loc);
+    console.log(document.location.host);
+    console.log(document.location.protocol);
+    console.log(document.location.hostname);
+
+    document.location = `${document.location.protocol}//${document.location.host}/#${anchor}`;
     return false;
   }
 
@@ -35,7 +40,7 @@ class TopBar extends React.Component {
     return (
       <StyledTopBar>
         <AppBar
-          title={<div><a href=""><img src="./images/3lp-header-bar.png" alt="Three Little Pigs Masonry" /></a></div>}
+          title={<div><a href=""><img src="/images/3lp-header-bar.png" alt="Three Little Pigs Masonry" /></a></div>}
           showMenuIconButton={false}
           iconElementRight={<MainMenu />}
         />
@@ -57,7 +62,7 @@ const MainMenu = (props) => {
       <MenuItem primaryText="Services" onClick={() => { TopBar.goToAnchor('Services'); }} />
       <MenuItem primaryText="About Us" onClick={() => { TopBar.goToAnchor('AboutUs'); }} />
       <MenuItem primaryText="Testimonials" onClick={() => { TopBar.goToAnchor('Testimonials'); }} />
-      <MenuItem primaryText="Contact" onClick={() => { TopBar.goToAnchor('Contact'); }} />
+      <MenuItem primaryText="Service Area" onClick={() => { TopBar.goToAnchor('ServiceArea'); }} />
     </IconMenu>
   );
 };

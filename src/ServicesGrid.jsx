@@ -4,25 +4,42 @@ import './App.css';
 import ServiceThumbnail from './ServiceThumbnail';
 
 const StyledServicesGrid = styled.section`
-  padding-top: 15px;
+  padding-top: 20px;
 `;
 const StyledGridContainer = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: -20px;
 `;
+
+const services = [
+  { pageName: 'Brick', imgSrc: 'http://lorempixel.com/240/150/city/1', title: 'Chimneys & Brick', description: 'The condition of your chimney is very important for many reasons. Even an unused chimney must be maintained to avoid water penetration that can cause exterior as well as interior damage. The chimney requires several key components to be present in order for it to resist the harsh elements. Remember, the chimney stands above the structure and is exposed to the elements.', link: '' },
+
+  { pageName: 'Concrete', imgSrc: 'http://lorempixel.com/240/150/city/2', title: 'Concrete', description: 'Concrete cracks are a common problem throughout the GTA. The majority of these cracks are caused by the failure to ensure proper reinforcement at time of installation. Concrete is useless without reinforcement. It is important to repair these cracks as when left unattended the cracks will widen with time and the freeze / thaw cycles will leave the concrete porous to the environment, especially water.', link: '' },
+
+  { pageName: 'Foundation', imgSrc: 'http://lorempixel.com/240/150/city/3', title: 'Foundation', description: 'When Three Little Pigs Masonry is hired to install flagstone, the existing foundation must be sound or the life of the final product will be short. What is a sound foundation? The foundation must have been installed with all the necessary and essential components for it to withstand the earth’s shifting and our climate (frost).', link: '' },
+
+  { pageName: 'Stone', imgSrc: 'http://lorempixel.com/240/150/city/4', title: 'Stone', description: 'Stone refacing has become a popular way to enhance the exterior beauty of your home using stone products. Real stone refacing allows us to change the look of your home through custom stone renovations eliminating the need to move away from your existing neighbourhood while achieving an updated look for your home or business.', link: '' },
+
+  { pageName: 'Walls', imgSrc: 'http://lorempixel.com/240/150/city/5', title: 'Walls & Windows', description: 'Properly installed window sills are essential for the complete building envelope. Brick window sills tend to breakdown for a number of reasons. They are installed with an insufficient slope downwards and water sits on the brick instead of flowing away from the window. There are so many mortar joints and therefore too many possible entries for water to penetrate.', link: '' },
+
+  { pageName: 'Basement', imgSrc: 'http://lorempixel.com/240/150/city/6', title: 'Basement', description: 'With basement waterproofing, usually we have to excavate the problem area or areas right down to the footing. We then check the weeping tile to make sure that after we leave the area that it is in good shape. If it too is defective, we must repair it.', link: '' },
+
+];
+
+const allServices = services.map((service, i) => {
+  return (
+    <ServiceThumbnail service={service} key={i} />
+  );
+});
 
 const ServicesGrid = () => {
   return (
     <StyledServicesGrid>
-      <div><h2>Our Services</h2></div>
+      <h2>Our Services</h2>
       <StyledGridContainer>
-        <ServiceThumbnail imgSrc="http://lorempixel.com/240/150/city/1" title="Chimneys & Brick" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nulla libero, ultricies sed magna sit amet, placerat tincidunt sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas." link="" />
-        <ServiceThumbnail imgSrc="http://lorempixel.com/240/150/city/2" title="Concrete" description="Vivamus sed egestas libero. Duis dictum ultrices tristique. Aliquam volutpat molestie risus. Donec commodo nunc augue, ac elementum felis accumsan ut. Integer dapibus, libero quis placerat faucibus, turpis dolor molestie justo, vel sodales eros tortor a eros. Nam ut varius leo" link="" />
-        <ServiceThumbnail imgSrc="http://lorempixel.com/240/150/city/3" title="Foundation" description="Vestibulum molestie, nulla sodales scelerisque condimentum, erat elit varius ligula, vitae euismod quam tellus a augue. In venenatis velit justo, nec vulputate massa maximus eget. Suspendisse eget diam vel ligula sollicitudin aliquam non volutpat augue." link="" />
-        <ServiceThumbnail imgSrc="http://lorempixel.com/240/150/city/4" title="Stone" description="Proin augue mi, viverra nec laoreet ut, luctus ac sapien. Donec sit amet nulla sit amet nunc dapibus bibendum. Ut eu consequat purus. Etiam odio tortor, maximus at volutpat et, tempor nec nulla." link="" />
-        <ServiceThumbnail imgSrc="http://lorempixel.com/240/150/city/5" title="Walls & Windows" description="Suspendisse commodo neque ut convallis egestas. Ut eu condimentum enim. Ut enim ligula, molestie sed dignissim vel, eleifend a purus. Vivamus molestie id felis eget mollis." link="" />
-        <ServiceThumbnail imgSrc="http://lorempixel.com/240/150/city/6" title="Foundation/Basement" description="Curabitur at leo luctus leo commodo gravida. In suscipit felis imperdiet magna sagittis tristique. Integer enim purus, facilisis eu massa vel, vulputate fermentum mi. Sed scelerisque erat vehicula laoreet tincidunt. Nulla sollicitudin aliquet nibh eget finibus." link="" />
+        {allServices}
       </StyledGridContainer>
     </StyledServicesGrid>
   );

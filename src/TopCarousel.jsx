@@ -4,20 +4,20 @@ import styled from 'styled-components';
 import SlideShow from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import PhoneIcon from 'material-ui/svg-icons/communication/call';
 import GetQuote from './GetQuote';
 
 const TopDiv = styled.div`
   width: 100%;
   height: 0px;
   position: relative;
-  padding-bottom: 74%;  
+  padding-bottom: 62%;  
   @media (max-width: 1000px) {
-    padding-bottom: 72%;  
+    padding-bottom: 60%;  
   }
   @media (max-width: 600px) {
-    padding-bottom: 70%;  
+    padding-bottom: 56%;  
   }  
-
 `;
 const SlickSlide = styled.img`
   width: 100%;
@@ -29,6 +29,9 @@ const StyledCarouselContent = styled.section`
   margin-left: 20px;
 `;
 const StyledTagline = styled.img`
+  margin-top: -20px;
+  margin-left: -15px;
+  padding-bottom: 10px;
   width: 700px;
   @media (max-width: 1000px) {
     width: 500px;
@@ -39,8 +42,16 @@ const StyledTagline = styled.img`
 `;
 const StyledQuoteRequest = styled.div`
   text-align: left;
-`;
 
+  h4 {
+    color: #fff;
+    padding: 0;
+    margin: 0;
+  }
+  p {
+    color: #fff;
+  }
+`;
 
 const TopCarousel = () => {
   const settings = {
@@ -59,16 +70,19 @@ const TopCarousel = () => {
   return (
     <TopDiv>
       <SlideShow {...settings}>
-        <div><SlickSlide src="http://lorempixel.com/800/600/nature/1" alt="" /></div>
-        <div><SlickSlide src="http://lorempixel.com/800/600/nature/2" alt="" /></div>
+        <div><SlickSlide src="./images/sample-photo-1.jpg" alt="" /></div>
+        <div><SlickSlide src="./images/sample-photo-2.jpg" alt="" /></div>
+        <div><SlickSlide src="./images/sample-photo-3.jpg" alt="" /></div>
       </SlideShow>
       <StyledCarouselContent>
-        <StyledTagline src="./images/tagline.png" alt="" />
+        <StyledTagline src="./images/tagline-modified.png" alt="Warranties that blow the others away!" />
         <StyledQuoteRequest>
-          <h4>Click here for a quote
-            <GetQuote />
-            <br />
-          or give us a call at 905-508-0500</h4>
+          <h4>Click here for a quote!
+            <GetQuote /><br />
+          </h4>
+          <PhoneIcon color={'#fff'} style={{ width: 50, height: 50, float: 'left' }} />
+          <p>or give us a call at:</p>
+          <h4>905-508-0500 or 416-595-0100</h4>
         </StyledQuoteRequest>
       </StyledCarouselContent>
     </TopDiv>

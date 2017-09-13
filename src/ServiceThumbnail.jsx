@@ -1,37 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
-import LazyLoad from 'react-lazyload'; // *** not working yet ***
+import RaisedButton from 'material-ui/RaisedButton';
+import LazyLoad from 'react-lazyload';
 import PropTypes from 'prop-types';
 import './App.css';
 
 const StyledServiceThumbnail = styled.section`
   padding-left: 5px;
   padding-right: 5px;
-  width: 240px;
+  width: 250px;
 
-  .p {
-    font-size: 6px;
+  p {
+    font-size: 1.0em;
+    text-align: left;
+    text-justify: auto;    
   }
 `;
 
 const ServiceThumbnail = (props) => {
   return (
-    <LazyLoad height={100}>
+    <LazyLoad height={200}>
       <StyledServiceThumbnail>
-        <h3>{props.title}</h3>
-        <a href={props.link}><img src={props.imgSrc} alt="" /></a>
-        <p>{props.description}</p>
-        <a href={props.link}><p>Read More...</p></a>
+        <h3>{props.service.title}</h3>
+        <a href={props.service.link}><img src={props.service.imgSrc} alt="" /></a>
+        <p>{props.service.description}</p>
+        <RaisedButton style={{ padding: '10px' }} labelStyle={{ fontSize: '0.8em' }} label="Learn more..." primary onClick={() => {}} />
       </StyledServiceThumbnail>
     </LazyLoad>
   );
 };
 
 ServiceThumbnail.propTypes = {
-  title: PropTypes.string.isRequired,
-  imgSrc: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
+  service: PropTypes.object.isRequired,
 };
 
 export default ServiceThumbnail;

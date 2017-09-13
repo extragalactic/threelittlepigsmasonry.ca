@@ -1,16 +1,14 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import './App.css';
 import TopBar from './TopBar';
-import TopCarousel from './TopCarousel';
-import ServicesGrid from './ServicesGrid';
 import Footer from './Footer';
-import AboutUs from './AboutUs';
-import Testimonials from './Testimonials';
-import Contact from './Contact';
+import MainPage from './MainPage';
+import ServicePage from './ServicePage';
 
 const StyledApp = styled.section`
   text-align: center;
@@ -38,11 +36,11 @@ const App = () => {
       <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
         <div>
           <TopBar />
-          <TopCarousel />
-          <div id="Services"><ServicesGrid /></div>
-          <div id="AboutUs"><AboutUs /></div>
-          <div id="Testimonials"><Testimonials /></div>
-          <div id="Contact"><Contact /></div>
+          <Switch>
+            <Route exact path="/" component={MainPage} />
+            <Route path="/services/:type" component={ServicePage} />
+            <Route component={MainPage} />
+          </Switch>
           <Footer />
         </div>
       </MuiThemeProvider>
