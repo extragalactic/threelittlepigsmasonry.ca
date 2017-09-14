@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import GetQuote from './GetQuote';
 
 const StyledContact = styled.section`
-  padding-top: 20px;
+  padding: 20px 0px;
 
   section {
     display: flex;
@@ -26,6 +26,9 @@ const StyledArea = styled.div`
   } 
 `;
 
+/* NOTE: This component needs to be renamed 
+(is not longer for contact, and is confusing) */
+
 const Contact = () => {
   return (
     <StyledContact>
@@ -35,7 +38,7 @@ const Contact = () => {
           <img src="./images/service-area-map.jpg" alt="service area" />
         </StyledArea>
         <StyledArea style={{ paddingLeft: '10px' }}>
-          <p>Three Little Pigs services a large part of the Greater Toronto Area. If you live inside the red area on the map, let&#39;s get started! You can call us at <b>905-508-0500</b> or <b>416-595-0100</b>, or for an immediate quote just click on the green button below.</p>
+          <p>Three Little Pigs Masonry services a large part of the Greater Toronto Area. If you live inside the red area on the map, let&#39;s get started! <br /><br />You can call us at <b>905-508-0500</b> or <b>416-595-0100</b>, or for an immediate quote just click on the green button below.</p>
           <GetQuote />
         </StyledArea>
       </section>

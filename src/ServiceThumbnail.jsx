@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import RaisedButton from 'material-ui/RaisedButton';
 import LazyLoad from 'react-lazyload';
 import PropTypes from 'prop-types';
+import history from './history';
+
 import './App.css';
 
 const StyledServiceThumbnail = styled.section`
@@ -23,8 +25,14 @@ const ServiceThumbnail = (props) => {
       <StyledServiceThumbnail>
         <h3>{props.service.title}</h3>
         <a href={props.service.link}><img src={props.service.imgSrc} alt="" /></a>
-        <p>{props.service.description}</p>
-        <RaisedButton style={{ padding: '10px' }} labelStyle={{ fontSize: '0.8em' }} label="Learn more..." primary onClick={() => {}} />
+        <p>{props.service.summary}</p>
+        <RaisedButton
+          style={{ padding: '10px' }}
+          labelStyle={{ fontSize: '0.8em' }}
+          label="Learn more..."
+          primary
+          onClick={() => { history.push(`/services/${props.service.pageName}`); }}
+        />
       </StyledServiceThumbnail>
     </LazyLoad>
   );

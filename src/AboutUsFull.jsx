@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import Dialog from 'material-ui/Dialog';
 // import FullscreenDialog from 'material-ui-fullscreen-dialog'
@@ -37,7 +38,7 @@ class AboutUsFull extends React.Component {
     ];
     return (
       <StyledAbout>
-        <RaisedButton label="Read the full story" primary onClick={this.openModal} />
+        <FlatButton labelStyle={{ fontSize: '1.0em', padding: '5px 10px' }} label="Read the full story" primary onClick={this.openModal} />
         <Dialog
           title="The History of Three Little Pigs Masonry"
           actions={actions}
