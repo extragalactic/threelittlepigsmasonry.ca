@@ -1,11 +1,11 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+// import history from './history';
 
 const StyledTopBar = styled.section`
   display: flex;
@@ -26,12 +26,6 @@ const StyledTopBar = styled.section`
 
 class TopBar extends React.Component {
   static goToAnchor(anchor) {
-    const loc = document.location.toString().split('#')[0];
-    console.log(loc);
-    console.log(document.location.host);
-    console.log(document.location.protocol);
-    console.log(document.location.hostname);
-
     document.location = `${document.location.protocol}//${document.location.host}/#${anchor}`;
     return false;
   }
@@ -46,6 +40,10 @@ class TopBar extends React.Component {
         />
       </StyledTopBar>
     );
+    /*
+      Logo should link back to main page...
+          title={<div><button onClick={() => { history.push('/'); }} style={{ cursor: 'pointer' }}><img src="/images/3lp-header-bar.png" alt="Three Little Pigs Masonry logo" /></button></div>}
+    */
   }
 }
 
