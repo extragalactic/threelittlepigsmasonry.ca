@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import FlatButton from 'material-ui/FlatButton';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import TestimonialCard from './TestimonialCard';
 
@@ -41,6 +42,8 @@ class Testimonials extends React.Component {
             {testimonialCollection}
           </Masonry>
         </ResponsiveMasonry>
+        <h3>. . .</h3>
+        <FlatButton labelStyle={{ fontSize: '1.0em', padding: '5px 10px' }} label="Read more testimonials" primary onClick={() => {}} />
       </StyledTestimonials>
     );
   }

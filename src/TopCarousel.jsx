@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-// import PropTypes from 'prop-types';
 import SlideShow from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -13,10 +12,10 @@ const TopDiv = styled.div`
   position: relative;
   padding-bottom: 62%;  
   @media (max-width: 1000px) {
-    padding-bottom: 60%;  
+    padding-bottom: 61%;  
   }
   @media (max-width: 600px) {
-    padding-bottom: 56%;  
+    padding-bottom: 59%;  
   }  
 `;
 const SlickSlide = styled.img`
@@ -38,18 +37,27 @@ const StyledTagline = styled.img`
   }
   @media (max-width: 600px) {
     width: 300px;
+    margin-top: -50px;
   }
 `;
 const StyledQuoteRequest = styled.div`
   text-align: left;
-
   h4 {
     color: #fff;
     padding: 0;
     margin: 0;
+    text-shadow: 2px 2px #444;
   }
   p {
     color: #fff;
+    text-shadow: 1px 1px #444;    
+  }
+
+  @media (max-width: 600px) {
+    margin-top: -10px;
+    h4 {
+      font-size: 1.0em;
+    }
   }
 `;
 

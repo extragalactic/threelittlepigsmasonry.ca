@@ -1,3 +1,4 @@
+
 import React from 'react';
 import styled from 'styled-components';
 import LazyLoad from 'react-lazyload';
@@ -8,7 +9,7 @@ const StyledItem = styled.div`
 padding-left: 10px;
 padding-right: 10px;
 
-h5 {
+h6 {
   text-align: left;
   margin: 0;
   padding: 0;
@@ -29,7 +30,7 @@ const TestimonialCard = (props) => {
   return (
     <LazyLoad height={200}>
       <StyledItem>
-        <h5>{props.element.title}</h5>
+        <h6>{props.element.title}</h6>
         <p>{props.element.text}</p>
         <StyledSignature>{props.element.name} -- {props.element.location}</StyledSignature>
       </StyledItem>
