@@ -24,7 +24,7 @@ const ServiceThumbnail = (props) => {
     <LazyLoad height={200}>
       <StyledServiceThumbnail>
         <h3>{props.service.title}</h3>
-        <a href={props.service.link}><img src={props.service.imgSrc} alt="" /></a>
+        <button onClick={() => { history.push(`/services/${props.service.pageName}`); }} style={{ cursor: 'pointer' }}><img src={props.service.imgSrc} alt="" /></button>
         <p>{props.service.summary}</p>
         <RaisedButton
           style={{ padding: '10px' }}

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import SlideShow from 'react-slick';
+import { Tabs, Tab } from 'material-ui/Tabs';
 import './App.css';
 import ServiceData from './ServiceData';
 import GetQuote from './GetQuote';
@@ -72,7 +73,34 @@ const ServicePage = (props) => {
 
   return (
     <StyledServicePage>
-      <h1>{serviceType}</h1>
+      <Tabs style={{ marginTop: '30px' }}>
+        <Tab label="Chimneys" >
+          <div>
+          </div>
+        </Tab>
+        <Tab label="Concrete" >
+          <div>
+          </div>
+        </Tab>
+        <Tab label="Foundation">
+          <div>
+          </div>
+        </Tab>
+        <Tab label="Stone" >
+          <div>
+          </div>
+        </Tab>
+        <Tab label="Walls" >
+          <div>
+          </div>
+        </Tab>
+        <Tab label="Basement">
+          <div>
+          </div>
+        </Tab>        
+      </Tabs>
+          
+      <h1>{serviceData.title}</h1>
       <StyledSlideshow {...settings}>
         <div><SlickSlide src="/images/sample-photo-1.jpg" alt="" /></div>
         <div><SlickSlide src="/images/sample-photo-2.jpg" alt="" /></div>
