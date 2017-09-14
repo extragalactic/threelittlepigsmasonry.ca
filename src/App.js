@@ -1,6 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import styled from 'styled-components';
+import logo from '../public/tplogo.png';
 import './App.css';
+
+const Button = styled.button`
+  background: palevioletred;
+  border-radius: 3px;
+  border: none;
+  color: white;
+  width: 100px;  
+  height: 100px; 
+  margin: auto;
+}
+  display: flex;
+  justify-content: flex-end;
+`;
+
 
 class App extends Component {
   render() {
@@ -8,11 +23,12 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div
+        
+        >
+      <Button />
+      </div>
       </div>
     );
   }
