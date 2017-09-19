@@ -2,10 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import SlideShow from 'react-slick';
-import { Tabs, Tab } from 'material-ui/Tabs';
+import ArrowIcon from 'material-ui/svg-icons/image/navigate-next';
+
+// import RaisedButton from 'material-ui/RaisedButton';
 import './App.css';
 import ServiceData from './ServiceData';
-import GetQuote from './GetQuote';
+import history from './history';
 
 
 const StyledServicePage = styled.section`
@@ -22,13 +24,13 @@ const StyledServicePage = styled.section`
   }
 `;
 const StyledSlideshow = styled(SlideShow)`
-  margin: 0px 30px;
+  margin: -20px 30px;
 `;
 const SlickSlide = styled.img`
   width: 97%;
 `;
 const StyledMain = styled.div`
-  padding: 20px 20px;
+  padding: 20px 5px;
   text-align: left;
 
   div {
@@ -39,89 +41,77 @@ const StyledMain = styled.div`
 
 
 const Arrow = (props) => {
-  const {className, style, onClick} = props;
+  const { className, style, onClick } = props;
   return (
     <div
       className={className}
       style={{ ...style, display: 'block', background: '#841F27' }}
       onClick={onClick}
     />
+    // <ArrowIcon color={'#841F27'} style={{ width: 15, height: 15, float: 'left' }} />
   );
 };
-
-const ServicePage = (props) => {
-
-  const serviceType = props.match.params.type;
-  const serviceData = ServiceData.find((service) => { return service.pageName === serviceType; });
-
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    arrows: true,
-    fade: false,
-    autoplay: false,
-    lazyLoad: false,
-    swipe: true,
-    swipeToSlide: true,
-    nextArrow: <Arrow />,
-    prevArrow: <Arrow />,
-    responsive: [{ breakpoint: 600, settings: { slidesToShow: 1 } }, { breakpoint: 1000, settings: { slidesToShow: 3 } }],
-  };
-
-  return (
-    <StyledServicePage>
-      <Tabs style={{ marginTop: '30px' }}>
-        <Tab label="Chimneys" >
-          <div>
-          </div>
-        </Tab>
-        <Tab label="Concrete" >
-          <div>
-          </div>
-        </Tab>
-        <Tab label="Foundation">
-          <div>
-          </div>
-        </Tab>
-        <Tab label="Stone" >
-          <div>
-          </div>
-        </Tab>
-        <Tab label="Walls" >
-          <div>
-          </div>
-        </Tab>
-        <Tab label="Basement">
-          <div>
-          </div>
-        </Tab>        
-      </Tabs>
-          
-      <h1>{serviceData.title}</h1>
-      <StyledSlideshow {...settings}>
-        <div><SlickSlide src="/images/sample-photo-1.jpg" alt="" /></div>
-        <div><SlickSlide src="/images/sample-photo-2.jpg" alt="" /></div>
-        <div><SlickSlide src="/images/sample-photo-3.jpg" alt="" /></div>
-        <div><SlickSlide src="/images/sample-photo-4.jpg" alt="" /></div>
-        <div><SlickSlide src="/images/sample-photo-5.jpg" alt="" /></div>
-        <div><SlickSlide src="/images/sample-photo-6.jpg" alt="" /></div>
-      </StyledSlideshow>
-      <StyledMain>
-        <h4>{serviceData.subtitle1}</h4>
-        <div><p>{serviceData.content1}</p></div>
-        <h6>{serviceData.subtitle2}</h6>
-        <div><p>{serviceData.content2}</p></div>
-      </StyledMain>
-      <GetQuote />
-    </StyledServicePage>
-  );
+Arrow.propTypes = {
+  className: PropTypes.string.isRequired,
+  style: PropTypes.object.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
+
+
+class ServicePage extends React.Component {
+  static gotoSection(section) {
+    history.push(`/services/${section}`);
+  }
+
+  constructor(props) {
+    super(props);
+
+    this.serviceType = props.serviceType;
+    this.serviceData = ServiceData.find((service) => { return service.pageName === this.serviceType; });
+
+    this.settings = {
+      dots: true,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 2,
+      slidesToScroll: 2,
+      arrows: true,
+      fade: false,
+      autoplay: false,
+      lazyLoad: false,
+      swipe: true,
+      swipeToSlide: true,
+      nextArrow: <Arrow />,
+      prevArrow: <Arrow />,
+      responsive: [{ breakpoint: 600, settings: { slidesToShow: 2 } }, { breakpoint: 1000, settings: { slidesToShow: 2 } }],
+    };
+  }
+
+  render() {
+    return (
+      <StyledServicePage>
+        <h1>{this.serviceData.title}</h1>
+        <StyledSlideshow {...this.settings}>
+          <div><SlickSlide src="/images/before-and-after-pics/parging1-before.jpg" alt="" /></div>
+          <div><SlickSlide src="/images/before-and-after-pics/parging1-after.jpg" alt="" /></div>
+          <div><SlickSlide src="/images/before-and-after-pics/parging2-before.jpg" alt="" /></div>
+          <div><SlickSlide src="/images/before-and-after-pics/parging2-after.jpg" alt="" /></div>
+          <div><SlickSlide src="/images/before-and-after-pics/wall1-before.jpg" alt="" /></div>
+          <div><SlickSlide src="/images/before-and-after-pics/wall1-after.jpg" alt="" /></div>
+        </StyledSlideshow>
+        <StyledMain>
+          <h4>{this.serviceData.subtitle1}</h4>
+          <div><p>{this.serviceData.content1}</p></div>
+          <h6>{this.serviceData.subtitle2}</h6>
+          <div><p>{this.serviceData.content2}</p></div>
+        </StyledMain>
+      </StyledServicePage>
+    );
+  }
+}
 
 ServicePage.propTypes = {
-  match: PropTypes.object.isRequired,
+  serviceType: PropTypes.string.isRequired,
 };
 
 export default ServicePage;

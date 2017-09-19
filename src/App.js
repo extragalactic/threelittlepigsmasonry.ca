@@ -8,7 +8,7 @@ import './App.css';
 import TopBar from './TopBar';
 import Footer from './Footer';
 import MainPage from './MainPage';
-import ServicePage from './ServicePage';
+import ServicePageMain from './ServicePageMain';
 
 const StyledApp = styled.section`
   text-align: center;
@@ -21,24 +21,35 @@ const StyledApp = styled.section`
 const muiTheme = getMuiTheme({
   palette: {
     primary1Color: '#841F27',
-    accent1Color: '#0a0',
+    accent1Color: '#fff',
+    alternateTextColor: '#0a0',
   },
   appBar: {
     height: '100%',
   },
+  inkBar: {
+    backgroundColor: '#f00',
+  },
+  tabs: {
+    backgroundColor: '#fff',
+    textColor: '#000',
+    fontSize: '1.0em',
+  },
 });
+const myMuiTheme = getMuiTheme(muiTheme);
 
 injectTapEventPlugin();
+
 
 const App = () => {
   return (
     <StyledApp>
-      <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
+      <MuiThemeProvider muiTheme={myMuiTheme}>
         <div>
           <TopBar />
           <Switch>
             <Route exact path="/" component={MainPage} />
-            <Route path="/services/:type" component={ServicePage} />
+            <Route path="/services/:type" component={ServicePageMain} />
             <Route component={MainPage} />
           </Switch>
           <Footer />

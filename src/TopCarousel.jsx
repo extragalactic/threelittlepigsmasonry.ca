@@ -1,16 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import SlideShow from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import RaisedButton from 'material-ui/RaisedButton';
 import PhoneIcon from 'material-ui/svg-icons/communication/call';
-import GetQuote from './GetQuote';
 
 const TopDiv = styled.div`
   width: 100%;
   height: 0px;
   position: relative;
   padding-bottom: 62%;  
+  zIndex: 100;
   @media (max-width: 1000px) {
     padding-bottom: 61%;  
   }
@@ -61,7 +63,9 @@ const StyledQuoteRequest = styled.div`
   }
 `;
 
-const TopCarousel = () => {
+const TopCarousel = (props) => {
+  const openChat = props.openChat;
+
   const settings = {
     dots: false,
     infinite: true,
@@ -85,9 +89,9 @@ const TopCarousel = () => {
       <StyledCarouselContent>
         <StyledTagline src="./images/tagline-modified.png" alt="Warranties that blow the others away!" />
         <StyledQuoteRequest>
-          <h4>Click here for a quote!
-            <GetQuote /><br />
-          </h4>
+          <h4>Click here for a quote!</h4>
+          <RaisedButton label="Get Quote" secondary onClick={openChat} />
+          <br />
           <PhoneIcon color={'#fff'} style={{ width: 50, height: 50, float: 'left' }} />
           <p>or give us a call at:</p>
           <h4>905-508-0500 or 416-595-0100</h4>
@@ -95,6 +99,10 @@ const TopCarousel = () => {
       </StyledCarouselContent>
     </TopDiv>
   );
+};
+
+TopCarousel.propTypes = {
+  openChat: PropTypes.func.isRequired,
 };
 
 export default TopCarousel;

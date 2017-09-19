@@ -6,6 +6,9 @@ import Dialog from 'material-ui/Dialog';
 // import FullscreenDialog from 'material-ui-fullscreen-dialog'
 
 const StyledAbout = styled.section`
+  p {
+    font-size: 0.9em;
+  }
 `;
 
 class AboutUsFull extends React.Component {

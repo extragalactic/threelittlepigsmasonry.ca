@@ -5,7 +5,7 @@ import AboutUsFull from './AboutUsFull';
 const StyledAboutUs = styled.section`
   background-color: #fff;
   min-height: 200px;
-  padding-top: 20px;
+  padding-top: 5px;
 
   img {
     float: left;

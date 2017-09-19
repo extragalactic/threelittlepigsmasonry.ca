@@ -1,54 +1,64 @@
 import React from 'react';
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
+// import styled from 'styled-components';
 import RaisedButton from 'material-ui/RaisedButton';
-import Dialog from 'material-ui/Dialog';
+// import Dialog from 'material-ui/Dialog';
+import Iframe from 'react-iframe';
+import Dimensions from 'react-dimensions';
+// import FullscreenDialog from 'material-ui-fullscreen-dialog';
+// import Modal from 'react-modal';
+import AriaModal from 'react-aria-modal';
 
-const StyledGetQuote = styled.section`
+/*
+const modalHeader = styled.div`
+  z-index: 100;
+  margin-top: 200px;
 `;
+*/
 
 class GetQuote extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       modalIsOpen: false,
     };
-
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-  }
-
-  openModal() {
-    this.setState({ modalIsOpen: true });
-  }
-
-  closeModal() {
-    this.setState({ modalIsOpen: false });
   }
 
   render() {
-    const actions = [
-      <RaisedButton
-        label="Cancel"
-        primary
-        onTouchTap={this.closeModal}
-      />,
-    ];
     return (
-      <StyledGetQuote>
-        <RaisedButton label="Get Quote" secondary onClick={this.openModal} />
-        <Dialog
-          title="Get a Quote"
-          actions={actions}
-          modal
-          open={this.state.modalIsOpen}
-          onRequestClose={this.closeModal}
+      <div>
+        <AriaModal
+          titleText="Three Little Pigs Quote Tool"
+          /* initialFocus="#user-input" */
+          verticalyCenter
+          underlayStyle={{ paddingTop: '0em', top: '0px', left: '0px' }}
         >
-          <p>Insert fancy AI chatbot here.</p>
-        </Dialog>
-
-      </StyledGetQuote>
+          <div className="modal">
+            <div className="modal-body">
+              <Iframe
+                url="http://localhost:8000"
+                width="95%"
+                height="85%"
+                display="initial"
+                position="absolute"
+                styles={{ top: '60px', left: '2.5%' }}
+              />
+            </div>
+            <div className="modalHeader">
+              <RaisedButton
+                label="Close"
+                primary
+                onTouchTap={this.props.closeModal}
+              />
+            </div>
+          </div>
+        </AriaModal>
+      </div>
     );
   }
 }
+GetQuote.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+};
 
-export default GetQuote;
+export default Dimensions()(GetQuote);
