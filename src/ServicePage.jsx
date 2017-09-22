@@ -2,10 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import SlideShow from 'react-slick';
-import ArrowIcon from 'material-ui/svg-icons/image/navigate-next';
-
+// import ArrowIcon from 'material-ui/svg-icons/image/navigate-next';
 // import RaisedButton from 'material-ui/RaisedButton';
-import './App.css';
 import ServiceData from './ServiceData';
 import history from './history';
 
@@ -13,10 +11,11 @@ import history from './history';
 const StyledServicePage = styled.section`
   padding: 5px;
   padding-bottom: 30px;
-  margin-top: -20px;
+  margin-top: -40px;
 
   h1 {
     text-align: left;
+    padding-left: 5px;
   }
   p {
     font-size: 1.0em;
@@ -52,9 +51,9 @@ const Arrow = (props) => {
   );
 };
 Arrow.propTypes = {
-  className: PropTypes.string.isRequired,
-  style: PropTypes.object.isRequired,
-  onClick: PropTypes.func.isRequired,
+  className: PropTypes.string,
+  style: PropTypes.object,
+  onClick: PropTypes.func,
 };
 
 
@@ -68,6 +67,9 @@ class ServicePage extends React.Component {
 
     this.serviceType = props.serviceType;
     this.serviceData = ServiceData.find((service) => { return service.pageName === this.serviceType; });
+
+    console.log(this.serviceType);
+    console.log(this.serviceData);
 
     this.settings = {
       dots: true,

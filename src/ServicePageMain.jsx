@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import RaisedButton from 'material-ui/RaisedButton';
 // import { Tabs, Tab } from 'material-ui/Tabs';
 import { Tabs, Tab } from 'material-ui-scrollable-tabs/Tabs';
-import './App.css';
 import ServiceData from './ServiceData';
 import ServicePage from './ServicePage';
 import GetQuote from './GetQuote';
@@ -13,7 +12,7 @@ import GetQuote from './GetQuote';
 const StyledServicePage = styled.section`
   padding: 5px;
   padding-bottom: 30px;
-  margin-top: -20px;
+  margin-top: -30px;
 
   h1 {
     text-align: left;
@@ -45,7 +44,7 @@ class ServicePageMain extends React.Component {
     this.closeChat = this.closeChat.bind(this);
 
     this.serviceType = props.match.params.type;
-    this.serviceData = ServiceData.find((service) => { return service.pageName === this.serviceType; });
+    // this.serviceData = ServiceData.find((service) => { return service.pageName === this.serviceType; });
   }
 
   openChat() {

@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import './App.css';
 import TopBar from './TopBar';
 import Footer from './Footer';
 import MainPage from './MainPage';
@@ -18,6 +17,40 @@ const StyledApp = styled.section`
   flex: 1;
 `;
 
+const GlobalStyles = styled.div`
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+  h1 {
+    font-size: 2.0em;
+    color: #999;
+    background-color: #eee;
+  }
+  h2 {
+    color: #fff;
+    background-color: #841F27;
+    background: linear-gradient(#841F27, #b9202c);
+    font-size: 1.5em;
+    padding: 5px 0px;
+  }
+  h3 {
+    font-size: 1.2em;
+  }
+  h4 {
+    font-size: 1.3em;
+  }
+  h5 {
+    font-size: 1.3em;
+    color: #841F27; 
+  }
+  h6 {
+    font-size: 1.1em; 
+    color: #841F27;
+  }  
+`;
+
 const muiTheme = getMuiTheme({
   palette: {
     primary1Color: '#841F27',
@@ -28,7 +61,7 @@ const muiTheme = getMuiTheme({
     height: '100%',
   },
   inkBar: {
-    backgroundColor: '#f00',
+    backgroundColor: '#b9202c',
   },
   tabs: {
     backgroundColor: '#fff',
@@ -45,7 +78,7 @@ const App = () => {
   return (
     <StyledApp>
       <MuiThemeProvider muiTheme={myMuiTheme}>
-        <div>
+        <GlobalStyles>
           <TopBar />
           <Switch>
             <Route exact path="/" component={MainPage} />
@@ -53,7 +86,7 @@ const App = () => {
             <Route component={MainPage} />
           </Switch>
           <Footer />
-        </div>
+        </GlobalStyles>
       </MuiThemeProvider>
     </StyledApp>
   );

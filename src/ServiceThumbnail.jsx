@@ -5,8 +5,6 @@ import LazyLoad from 'react-lazyload';
 import PropTypes from 'prop-types';
 import history from './history';
 
-import './App.css';
-
 const StyledServiceThumbnail = styled.section`
   padding-left: 5px;
   padding-right: 5px;
@@ -49,10 +47,6 @@ const ServiceThumbnail = (props) => {
     </LazyLoad>
   );
 };
-
-/*
-        <button onClick={() => { history.push(`/services/${props.service.pageName}`); }} style={{ cursor: 'pointer' }}><img src={props.service.imgSrc} alt="" /></button>
-*/
 
 ServiceThumbnail.propTypes = {
   service: PropTypes.object.isRequired,

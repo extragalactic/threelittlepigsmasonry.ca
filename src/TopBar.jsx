@@ -11,6 +11,7 @@ const StyledTopBar = styled.section`
   display: flex;
   justify-content: 'left';
   background-color: #841F27;
+  background: linear-gradient(#841F27, #b9202c);
 
   img { 
     float: left;

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Columns from 'react-columns';
 import RaisedButton from 'material-ui/RaisedButton';
+import Ionicon from 'react-ionicons';
 
 
 const StyledContact = styled.section`
@@ -23,14 +24,33 @@ const StyledArea = styled.div`
     width: 95%;
     min-width: 310px;
   }
-
+  div {
+    text-align: center;
+    margin-bottom: 10px;   
+  }  
   img {
     width: 100%;
-  } 
+    box-shadow: 3px 3px #aaa;
+  }
 `;
 const StyledColumns = styled(Columns)`
   width: 100%;
   margin: 20px;
+  color: #777;
+`;
+const StyledSocialIcons = styled.div`
+  width: 100%;
+  text-align: center;
+
+  p {
+    text-transform: uppercase;
+    color: #777;
+    font-size: 0.9em;
+  }
+  button {
+    cursor: pointer;
+    margin: 5px;
+  }
 `;
 
 const queries = [{
@@ -59,9 +79,11 @@ const Contact = (props) => {
         <StyledArea>
           <img src="./images/service-area-map.jpg" alt="service area" />
         </StyledArea>
-        <StyledArea style={{ paddingLeft: '10px' }}>
+        <StyledArea style={{ paddingLeft: '15px' }}>
           <p>Three Little Pigs Masonry services a large part of the Greater Toronto Area. If you live in one of the areas listed below, let&#39;s get started! <br /><br />You can call us at <b>905-508-0500</b> or <b>416-595-0100</b>, or for an immediate quote just click on the green button below.</p>
-          <RaisedButton label="Get Quote" secondary onClick={openChat} />
+          <div>
+            <RaisedButton label="Get Quote" secondary onClick={openChat} />
+          </div>
         </StyledArea>
         <StyledColumns queries={queries}>
           {serviceAreaList.map((area) => {
@@ -69,6 +91,15 @@ const Contact = (props) => {
           })
           }
         </StyledColumns>
+        <StyledSocialIcons>
+          <p>You can also check us out on social media!</p>
+          <button onClick={() => { window.open('https://twitter.com/3PigsMasonry', '_blank'); }}>
+            <Ionicon icon="ion-social-twitter" fontSize="35px" color="#55acee" />
+          </button>
+          <button onClick={() => { window.open('https://www.facebook.com/Three-Little-Pigs-Masonry-301425343309473', '_blank'); }}>
+            <Ionicon icon="ion-social-facebook" fontSize="35px" color="#3b5999" />
+          </button>
+        </StyledSocialIcons>
       </section>
     </StyledContact>
   );

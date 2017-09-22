@@ -82,9 +82,9 @@ const TopCarousel = (props) => {
   return (
     <TopDiv>
       <SlideShow {...settings}>
+        <div><SlickSlide src="./images/sample-photo-3.jpg" alt="" /></div>
         <div><SlickSlide src="./images/sample-photo-1.jpg" alt="" /></div>
         <div><SlickSlide src="./images/sample-photo-2.jpg" alt="" /></div>
-        <div><SlickSlide src="./images/sample-photo-3.jpg" alt="" /></div>
       </SlideShow>
       <StyledCarouselContent>
         <StyledTagline src="./images/tagline-modified.png" alt="Warranties that blow the others away!" />

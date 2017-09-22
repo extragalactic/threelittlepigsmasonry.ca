@@ -1,24 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Tabs, Tab } from 'material-ui/Tabs';
-// import { Tabs, Tab } from 'material-ui-scrollable-tabs/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import MediaQuery from 'react-responsive';
-import './App.css';
 import ServiceThumbnail from './ServiceThumbnail';
 import ServiceData from './ServiceData';
 
-/*
-const StyledServicesGrid = styled.section`
-  padding-top: 0px;
-`;
-const StyledGridContainer = styled.section`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: -20px;
-`;
-*/
+
 const StyledServicesGrid = styled.section`
   padding-top: 5px;
 `;
@@ -26,25 +14,30 @@ const StyledGridContainer = styled.section`
   margin-top: -15px;
 `;
 
+
 const allServicesTabs = ServiceData.map((service, i) => {
   return (
     <Tab label={service.pageName} value={i} key={service.pageName} />
   );
 });
-const allServicesTabs1 = ServiceData.map((service, i) => {
-  if (i <= 2) {
-    return (
-      <Tab label={service.pageName} value={i} key={service.pageName} />
-    );
+
+// split the tabs menu into 2 rows on small screens
+const servicesTabsRow1 = ServiceData.map((service, i) => {
+  let val = <Tab label={service.pageName} value={i} key={service.pageName} />;
+  if (i > 2) {
+    val = null;
   }
+  return val;
 });
-const allServicesTabs2 = ServiceData.map((service, i) => {
-  if (i >= 3) {
-    return (
-      <Tab label={service.pageName} value={i} key={service.pageName} />
-    );
+
+const servicesTabsRow2 = ServiceData.map((service, i) => {
+  let val = <Tab label={service.pageName} value={i} key={service.pageName} />;
+  if (i < 3) {
+    val = null;
   }
+  return val;
 });
+
 const allServices = ServiceData.map((service) => {
   return (
     <div key={service.pageName}>
@@ -80,14 +73,14 @@ class ServicesGrid extends React.Component {
               value={this.state.slideIndex}
               style={{ marginTop: '30px' }}
             >
-              {allServicesTabs1}
+              {servicesTabsRow1}
             </Tabs>
             <Tabs
               onChange={this.handleChange}
               value={this.state.slideIndex}
               style={{ marginTop: '0px' }}
             >
-              {allServicesTabs2}
+              {servicesTabsRow2}
             </Tabs>
           </MediaQuery>
           <MediaQuery minWidth={600}>

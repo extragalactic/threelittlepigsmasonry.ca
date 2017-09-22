@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import TopCarousel from './TopCarousel';
 import ServicesGrid from './ServicesGrid';
 import AboutUs from './AboutUs';
