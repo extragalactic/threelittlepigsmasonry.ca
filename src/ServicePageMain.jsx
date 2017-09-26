@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import RaisedButton from 'material-ui/RaisedButton';
-// import { Tabs, Tab } from 'material-ui/Tabs';
-import { Tabs, Tab } from 'material-ui-scrollable-tabs/Tabs';
+// import RaisedButton from 'material-ui/RaisedButton';
 import ServiceData from './ServiceData';
 import ServicePage from './ServicePage';
 import GetQuote from './GetQuote';
+import ServicesTabsNav from './ServicesTabsNav';
 
 
 const StyledServicePage = styled.section`
@@ -22,29 +21,44 @@ const StyledServicePage = styled.section`
     text-align: left;  
   }
 `;
+/*
+const allServices = ServiceData.map((service) => {
+  return (
+    <div key={service.pageName}>
+      <ServicePage serviceType={service.pageName} openChat={openChat} />
+    </div>
+  );
+});
+*/
 
 class ServicePageMain extends React.Component {
-  static getAllServicesPages() {
-    const pages = ServiceData.map((service) => {
-      return (
-        <Tab label={service.title} key={service.pageName}>
-          <ServicePage serviceType={service.pageName} />
-        </Tab>
-      );
-    });
-    return pages;
-  }
-
   constructor(props) {
     super(props);
+
+    this.serviceType = props.match.params.type;
     this.state = {
       modalIsOpen: false,
+      // find selected tab index based on page name
+      selectedTab: ServiceData.indexOf(ServiceData.find((obj) => {
+        return obj.pageName === this.serviceType;
+      })),
     };
     this.openChat = this.openChat.bind(this);
     this.closeChat = this.closeChat.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.allServices = this.allServices.bind(this);
+  }
 
-    this.serviceType = props.match.params.type;
-    // this.serviceData = ServiceData.find((service) => { return service.pageName === this.serviceType; });
+  allServices() {
+    return (
+      ServiceData.map((service) => {
+        return (
+          <div key={service.pageName}>
+            <ServicePage serviceType={service.pageName} openChat={this.openChat} />
+          </div>
+        );
+      })
+    );
   }
 
   openChat() {
@@ -59,18 +73,17 @@ class ServicePageMain extends React.Component {
     });
   }
 
+  handleChange(value) {
+    this.setState({
+      selectedTab: value,
+    });
+  }
 
   render() {
     return (
       <StyledServicePage>
-        <Tabs
-          tabType="scrollable-buttons"
-          style={{ marginTop: '25px', marginBottom: '-30px' }}
-        >
-          {ServicePageMain.getAllServicesPages()}
-        </Tabs>
+        <ServicesTabsNav pageContent={this.allServices()} startIndex={this.state.selectedTab} />
 
-        <RaisedButton label="Get Quote" secondary onClick={this.openChat} />
         {this.state.modalIsOpen &&
           <GetQuote closeModal={this.closeChat} />
         }
@@ -78,6 +91,7 @@ class ServicePageMain extends React.Component {
     );
   }
 }
+
 
 ServicePageMain.propTypes = {
   match: PropTypes.object.isRequired,

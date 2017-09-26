@@ -30,15 +30,14 @@ class Testimonials extends React.Component {
       placeId: 'ChIJ74NmW2vTKogRAVn6jOwdYUI',
     }, (place, status) => {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
-        const testimonials = [];
-        place.reviews.forEach((review) => {
-          testimonials.push({
+        const testimonials = place.reviews.map((review) => {
+          return {
             title: '',
             text: review.text,
             name: review.author_name,
             stars: review.rating,
             location: '',
-          });
+          };
         });
         // append old (static) testimonials to the returned array
         this.oldTestimonials.forEach((review) => {

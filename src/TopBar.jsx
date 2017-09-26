@@ -42,7 +42,7 @@ class TopBar extends React.Component {
       </StyledTopBar>
     );
     /*
-      Logo should link back to main page...
+      Logo should link back to main page ...
           title={<div><button onClick={() => { history.push('/'); }} style={{ cursor: 'pointer' }}><img src="/images/3lp-header-bar.png" alt="Three Little Pigs Masonry logo" /></button></div>}
     */
   }
@@ -60,6 +60,7 @@ const MainMenu = (props) => {
     >
       <MenuItem primaryText="Services" onClick={() => { TopBar.goToAnchor('Services'); }} />
       <MenuItem primaryText="About Us" onClick={() => { TopBar.goToAnchor('AboutUs'); }} />
+      <MenuItem primaryText="Photo Gallery" onClick={() => { TopBar.goToAnchor('Photos'); }} />
       <MenuItem primaryText="Testimonials" onClick={() => { TopBar.goToAnchor('Testimonials'); }} />
       <MenuItem primaryText="Service Area" onClick={() => { TopBar.goToAnchor('ServiceArea'); }} />
     </IconMenu>

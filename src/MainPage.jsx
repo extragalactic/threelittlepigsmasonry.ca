@@ -1,12 +1,12 @@
 import React from 'react';
 import TopCarousel from './TopCarousel';
-import ServicesGrid from './ServicesGrid';
+import ServicesThumbContainer from './ServicesThumbContainer';
 import AboutUs from './AboutUs';
 import Testimonials from './Testimonials';
 import Contact from './Contact';
 import TextDivider from './TextDivider';
 import GetQuote from './GetQuote';
-
+import PhotoGallery from './PhotoGallery';
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -35,9 +35,10 @@ class MainPage extends React.Component {
       <div>
         <TopCarousel openChat={this.openChat} />
         <TextDivider quoteID={0} />
-        <div id="Services"><ServicesGrid /></div>
+        <div id="Services"><ServicesThumbContainer /></div>
         <div id="AboutUs"><AboutUs /></div>
         <TextDivider quoteID={1} />
+        <div id="Photos"><PhotoGallery /></div>
         <div id="Testimonials"><Testimonials /></div>
         <div id="ServiceArea"><Contact openChat={this.openChat} /></div>
         {this.state.modalIsOpen &&

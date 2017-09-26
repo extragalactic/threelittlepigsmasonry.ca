@@ -24,7 +24,7 @@ const GlobalStyles = styled.div`
     font-family: sans-serif;
   }
   h1 {
-    font-size: 2.0em;
+    font-size: 1.8em;
     color: #999;
     background-color: #eee;
   }
