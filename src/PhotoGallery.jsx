@@ -77,7 +77,6 @@ class PhotoGallery extends React.Component {
   }
 
   openModal(photo) {
-    console.log('open photo');
     this.setState({
       modalIsOpen: true,
       selectedPhoto: photo,
@@ -85,7 +84,6 @@ class PhotoGallery extends React.Component {
   }
 
   closeModal() {
-    console.log('close photo');
     this.setState({
       modalIsOpen: false,
     });
