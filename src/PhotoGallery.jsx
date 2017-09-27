@@ -3,42 +3,69 @@ import styled from 'styled-components';
 import FlatButton from 'material-ui/FlatButton';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import MediaQuery from 'react-responsive';
-
+// import Axios from 'axios';
+import GalleryImage from './GalleryImage';
+import GalleryDetail from './GalleryDetail';
 
 const StyledGallery = styled.section`
   width: 100%;
   padding-top: 5px;
 `;
-const StyledImg = styled.img`
-  width: 100%;
-`;
+
 
 class PhotoGallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      photos: ['/images/gallery/gallery-sample-1.jpg',
-        '/images/gallery/gallery-sample-2.jpg',
-        '/images/gallery/gallery-sample-3.jpg',
-        '/images/gallery/gallery-sample-4.jpg',
-        '/images/gallery/gallery-sample-5.jpg',
-        '/images/gallery/gallery-sample-6.jpg',
-        '/images/gallery/gallery-sample-7.jpg',
-        '/images/gallery/gallery-sample-8.jpg'],
-      numberToShow: 3,
+      photos: [],
+      numberToShow: 4,
+      modalIsOpen: false,
+      selectedPhoto: '',
     };
     this.numberTotal = this.state.photos.length;
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
-  testimonialCollection(baseNum) {
-    // the default # of items is dependent on the MediaQuery size
+  componentWillMount() {
+    // get list of photos
+    /*
+    Axios.get('/user', {
+      params: {
+        ID: 12345,
+      },
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    */
+    const photos = ['/images/gallery/gallery-sample-1.jpg',
+      '/images/gallery/gallery-sample-2.jpg',
+      '/images/gallery/gallery-sample-3.jpg',
+      '/images/gallery/gallery-sample-4.jpg',
+      '/images/gallery/gallery-sample-5.jpg',
+      '/images/gallery/gallery-sample-6.jpg',
+      '/images/gallery/gallery-sample-7.jpg',
+      '/images/gallery/gallery-sample-8.jpg'];
+    this.numberTotal = photos.length;
+
+    this.setState({
+      photos,
+    });
+  }
+
+  getPhotos(baseNum) {
+    // the default # of items to show is dependent on the MediaQuery size
     return (
       this.state.photos.map((photo, i) => {
         let val = (
-          <StyledImg
+          <GalleryImage
             key={i}
-            src={photo}
-            alt=""
+            photo={photo}
+            openModal={this.openModal}
           />
         );
         if (i >= this.state.numberToShow + baseNum) {
@@ -49,29 +76,47 @@ class PhotoGallery extends React.Component {
     );
   }
 
+  openModal(photo) {
+    console.log('open photo');
+    this.setState({
+      modalIsOpen: true,
+      selectedPhoto: photo,
+    });
+  }
+
+  closeModal() {
+    console.log('close photo');
+    this.setState({
+      modalIsOpen: false,
+    });
+  }
+
   render() {
     return (
       <StyledGallery>
+        {this.state.modalIsOpen &&
+          <GalleryDetail photo={this.state.selectedPhoto} closeModal={this.closeModal} />
+        }
         <h2>Photo Gallery</h2>
-        <ResponsiveMasonry columnsCountBreakPoints={{ 200: 1, 450: 2, 700: 3, 1000: 4 }}>
+        <ResponsiveMasonry columnsCountBreakPoints={{ 200: 2, 450: 3, 700: 4, 1000: 5 }}>
           <MediaQuery minWidth={1} maxWidth={449}>
             <Masonry gutter={'5px'}>
-              {this.testimonialCollection(0)}
+              {this.getPhotos(0)}
             </Masonry>
           </MediaQuery>
           <MediaQuery minWidth={450} maxWidth={699}>
             <Masonry gutter={'5px'}>
-              {this.testimonialCollection(2)}
+              {this.getPhotos(3)}
             </Masonry>
           </MediaQuery>
           <MediaQuery minWidth={700} maxWidth={999}>
             <Masonry gutter={'5px'}>
-              {this.testimonialCollection(4)}
+              {this.getPhotos(6)}
             </Masonry>
           </MediaQuery>
           <MediaQuery minWidth={1000}>
             <Masonry gutter={'5px'}>
-              {this.testimonialCollection(8)}
+              {this.getPhotos(10)}
             </Masonry>
           </MediaQuery>
         </ResponsiveMasonry>

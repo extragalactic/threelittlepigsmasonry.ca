@@ -13,7 +13,7 @@ const StyledApp = styled.section`
   text-align: center;
   position: relative;
   margin: auto;
-  width: 95%;
+  width: 100%;
   flex: 1;
 `;
 

@@ -24,7 +24,6 @@ const StyledServiceThumbnail = styled.section`
     max-width: 500px;
     box-shadow: 3px 3px #777;
   }
-
 `;
 
 const ServiceThumbnail = (props) => {
@@ -33,15 +32,17 @@ const ServiceThumbnail = (props) => {
       <StyledServiceThumbnail>
         <h3>{props.service.title}</h3>
         <img src={props.service.imgSrc} alt="" />
-        <p>{props.service.summary}</p>
         <div>
-          <RaisedButton
-            style={{ padding: '10px' }}
-            labelStyle={{ fontSize: '0.8em' }}
-            label="Learn more..."
-            secondary
-            onClick={() => { history.push(`/services/${props.service.pageName}`); }}
-          />
+          <p>{props.service.summary}</p>
+          <div>
+            <RaisedButton
+              style={{ padding: '10px' }}
+              labelStyle={{ fontSize: '0.8em' }}
+              label="Learn more..."
+              secondary
+              onClick={() => { history.push(`/services/${props.service.pageName}`); }}
+            />
+          </div>
         </div>
       </StyledServiceThumbnail>
     </LazyLoad>

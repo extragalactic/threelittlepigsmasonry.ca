@@ -14,7 +14,9 @@ const StyledAboutUs = styled.section`
   p {
     font-size: 1.0em;
     text-align: left;
-    text-justify: auto;    
+    text-justify: auto;  
+    padding-left: 10px;
+    padding-right: 10px;  
   }
 `;
 

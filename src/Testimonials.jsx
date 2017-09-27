@@ -4,6 +4,8 @@ import FlatButton from 'material-ui/FlatButton';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import TestimonialCard from './TestimonialCard';
 import TestimonialData from './TestimonialData';
+import MediaQuery from 'react-responsive';
+
 
 const google = window.google;
 
@@ -16,7 +18,7 @@ class Testimonials extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      numberToShow: 6,
+      numberToShow: 3,
       testimonials: [],
     };
     this.oldTestimonials = TestimonialData;
@@ -51,22 +53,44 @@ class Testimonials extends React.Component {
     });
   }
 
-  render() {
-    const testimonialCollection = this.state.testimonials.map((review, i) => {
-      let val = <TestimonialCard review={review} key={i} />;
-      if (i >= this.state.numberToShow) {
-        val = null;
-      }
-      return val;
-    });
+  getTestimonials(baseNum) {
+    // the default # of items to show is dependent on the MediaQuery size
+    return (
+      this.state.testimonials.map((review, i) => {
+        let val = <TestimonialCard review={review} key={i} />;
+        if (i >= this.state.numberToShow + baseNum) {
+          val = null;
+        }
+        return val;
+      })
+    );
+  }
 
+  render() {
     return (
       <StyledTestimonials>
         <h2>Testimonials</h2>
         <ResponsiveMasonry columnsCountBreakPoints={{ 200: 1, 450: 2, 700: 3, 1000: 4 }}>
-          <Masonry>
-            {testimonialCollection}
-          </Masonry>
+          <MediaQuery minWidth={1} maxWidth={449}>
+            <Masonry gutter={'5px'}>
+              {this.getTestimonials(0)}
+            </Masonry>
+          </MediaQuery>
+          <MediaQuery minWidth={450} maxWidth={699}>
+            <Masonry gutter={'5px'}>
+              {this.getTestimonials(2)}
+            </Masonry>
+          </MediaQuery>
+          <MediaQuery minWidth={700} maxWidth={999}>
+            <Masonry gutter={'5px'}>
+              {this.getTestimonials(4)}
+            </Masonry>
+          </MediaQuery>
+          <MediaQuery minWidth={1000}>
+            <Masonry gutter={'5px'}>
+              {this.getTestimonials(8)}
+            </Masonry>
+          </MediaQuery>
         </ResponsiveMasonry>
         {this.state.numberToShow < this.numberTotal &&
           <div>

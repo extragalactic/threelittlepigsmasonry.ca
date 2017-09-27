@@ -2,10 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import SlideShow from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import RaisedButton from 'material-ui/RaisedButton';
 import PhoneIcon from 'material-ui/svg-icons/communication/call';
+import MediaQuery from 'react-responsive';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const TopDiv = styled.div`
   width: 100%;
@@ -82,12 +83,14 @@ const TopCarousel = (props) => {
   return (
     <TopDiv>
       <SlideShow {...settings}>
-        <div><SlickSlide src="./images/sample-photo-3.jpg" alt="" /></div>
         <div><SlickSlide src="./images/sample-photo-1.jpg" alt="" /></div>
+        <div><SlickSlide src="./images/sample-photo-3.jpg" alt="" /></div>
         <div><SlickSlide src="./images/sample-photo-2.jpg" alt="" /></div>
       </SlideShow>
       <StyledCarouselContent>
-        <StyledTagline src="./images/tagline-modified.png" alt="Warranties that blow the others away!" />
+        <MediaQuery minWidth={600}>
+          <StyledTagline src="./images/tagline-modified.png" alt="Warranties that blow the others away!" />
+        </MediaQuery>
         <StyledQuoteRequest>
           <h4>Click here for a quote!</h4>
           <RaisedButton label="Get Quote" secondary onClick={openChat} />

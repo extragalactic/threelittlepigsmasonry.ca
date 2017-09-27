@@ -21,15 +21,7 @@ const StyledServicePage = styled.section`
     text-align: left;  
   }
 `;
-/*
-const allServices = ServiceData.map((service) => {
-  return (
-    <div key={service.pageName}>
-      <ServicePage serviceType={service.pageName} openChat={openChat} />
-    </div>
-  );
-});
-*/
+
 
 class ServicePageMain extends React.Component {
   constructor(props) {
@@ -91,7 +83,6 @@ class ServicePageMain extends React.Component {
     );
   }
 }
-
 
 ServicePageMain.propTypes = {
   match: PropTypes.object.isRequired,

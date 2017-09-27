@@ -8,8 +8,9 @@ import ServicesTabsNav from './ServicesTabsNav';
 const StyledServicesGrid = styled.section`
   padding-top: 5px;
 `;
-const StyledGridContainer = styled.section`
+const StyledNavContainer = styled.section`
   margin-top: -25px;
+  padding: 0px 10px;
 `;
 
 const allServices = ServiceData.map((service) => {
@@ -33,9 +34,9 @@ class ServicesThumbContainer extends React.Component {
     return (
       <StyledServicesGrid>
         <h2>Our Services</h2>
-        <StyledGridContainer>
+        <StyledNavContainer>
           <ServicesTabsNav pageContent={allServices} />
-        </StyledGridContainer>
+        </StyledNavContainer>
       </StyledServicesGrid>
     );
   }

@@ -7,6 +7,7 @@ import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 // import history from './history';
 
+
 const StyledTopBar = styled.section`
   display: flex;
   justify-content: 'left';
