@@ -22,9 +22,12 @@ class PhotoGallery extends React.Component {
       modalIsOpen: false,
       selectedPhoto: '',
     };
-    this.numberTotal = this.state.photos.length;
+    this.numberTotal = 0;
+    this.numPhotosModifier = 0;
+    this.numPhotosByScreenSize = { XS: 0, S: 3, M: 6, L: 10 }; // num default based on screen size
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.getDefaultNum = this.getDefaultNum.bind(this);
   }
 
   componentWillMount() {
@@ -76,6 +79,12 @@ class PhotoGallery extends React.Component {
     );
   }
 
+  getDefaultNum(screenSize) {
+    // get default num phots based on screen size
+    this.numPhotosModifier = this.numPhotosByScreenSize[screenSize];
+    return this.numPhotosModifier;
+  }
+
   openModal(photo) {
     this.setState({
       modalIsOpen: true,
@@ -89,6 +98,7 @@ class PhotoGallery extends React.Component {
     });
   }
 
+
   render() {
     return (
       <StyledGallery>
@@ -99,22 +109,22 @@ class PhotoGallery extends React.Component {
         <ResponsiveMasonry columnsCountBreakPoints={{ 200: 2, 450: 3, 700: 4, 1000: 5 }}>
           <MediaQuery minWidth={1} maxWidth={449}>
             <Masonry gutter={'5px'}>
-              {this.getPhotos(0)}
+              {this.getPhotos(this.getDefaultNum('XS'))}
             </Masonry>
           </MediaQuery>
           <MediaQuery minWidth={450} maxWidth={699}>
             <Masonry gutter={'5px'}>
-              {this.getPhotos(3)}
+              {this.getPhotos(this.getDefaultNum('S'))}
             </Masonry>
           </MediaQuery>
           <MediaQuery minWidth={700} maxWidth={999}>
             <Masonry gutter={'5px'}>
-              {this.getPhotos(6)}
+              {this.getPhotos(this.getDefaultNum('M'))}
             </Masonry>
           </MediaQuery>
           <MediaQuery minWidth={1000}>
             <Masonry gutter={'5px'}>
-              {this.getPhotos(10)}
+              {this.getPhotos(this.getDefaultNum('L'))}
             </Masonry>
           </MediaQuery>
         </ResponsiveMasonry>

@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import TopBar from './TopBar';
 import Footer from './Footer';
 import MainPage from './MainPage';
 import ServicePageMain from './ServicePageMain';
@@ -79,7 +78,6 @@ const App = () => {
     <StyledApp>
       <MuiThemeProvider muiTheme={myMuiTheme}>
         <GlobalStyles>
-          <TopBar />
           <Switch>
             <Route exact path="/" component={MainPage} />
             <Route path="/services/:type" component={ServicePageMain} />

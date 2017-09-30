@@ -1,17 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-// import RaisedButton from 'material-ui/RaisedButton';
 import ServiceData from './ServiceData';
 import ServicePage from './ServicePage';
 import GetQuote from './GetQuote';
 import ServicesTabsNav from './ServicesTabsNav';
+import TopBar from './TopBar';
 
 
 const StyledServicePage = styled.section`
   padding: 5px;
   padding-bottom: 30px;
-  margin-top: -30px;
+  margin-top: 0px;
+  position: relative;
+  z-index: 0;
 
   h1 {
     text-align: left;
@@ -20,6 +22,10 @@ const StyledServicePage = styled.section`
     font-size: 1.0em;
     text-align: left;  
   }
+`;
+
+const StyledNavContainer = styled.div`
+  margin-top: -30px;
 `;
 
 
@@ -74,8 +80,10 @@ class ServicePageMain extends React.Component {
   render() {
     return (
       <StyledServicePage>
-        <ServicesTabsNav pageContent={this.allServices()} startIndex={this.state.selectedTab} />
-
+        <TopBar />
+        <StyledNavContainer>
+          <ServicesTabsNav pageContent={this.allServices()} startIndex={this.state.selectedTab} />
+        </StyledNavContainer>
         {this.state.modalIsOpen &&
           <GetQuote closeModal={this.closeChat} />
         }

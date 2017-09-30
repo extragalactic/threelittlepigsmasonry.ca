@@ -93,8 +93,20 @@ class ServicePage extends React.Component {
       swipeToSlide: false,
       nextArrow: <Arrow />,
       prevArrow: <Arrow />,
-      responsive: [{ breakpoint: 600, settings: { slidesToShow: 2 } }, { breakpoint: 1000, settings: { slidesToShow: 2 } }],
+      responsive: [
+        { breakpoint: 600, settings: { slidesToShow: 1, slidesToScroll: 1 } },
+        { breakpoint: 1000, settings: { slidesToShow: 2, slidesToScroll: 2 } },
+      ],
     };
+  }
+
+  getSlides() {
+    return this.serviceData.photos.map((photoPair) => {
+      return photoPair.map((photoSrc) => {
+        const imgSrc = `/images/before-and-after-pics/${photoSrc}`;
+        return <div><SlickSlide src={imgSrc} alt="" /></div>;
+      });
+    });
   }
 
   render() {
@@ -102,13 +114,9 @@ class ServicePage extends React.Component {
       <StyledServicePage>
         <h1>{this.serviceData.title}</h1>
         <StyledSlideshow {...this.settings}>
-          <div><SlickSlide src="/images/before-and-after-pics/parging1-before.jpg" alt="" /></div>
-          <div><SlickSlide src="/images/before-and-after-pics/parging1-after.jpg" alt="" /></div>
-          <div><SlickSlide src="/images/before-and-after-pics/parging2-before.jpg" alt="" /></div>
-          <div><SlickSlide src="/images/before-and-after-pics/parging2-after.jpg" alt="" /></div>
-          <div><SlickSlide src="/images/before-and-after-pics/wall1-before.jpg" alt="" /></div>
-          <div><SlickSlide src="/images/before-and-after-pics/wall1-after.jpg" alt="" /></div>
+          {this.getSlides()}
         </StyledSlideshow>
+        {/* ToDo: add a floating Before/After text over photos */}
         <StyledSubheading>
           <p>(Before & After Photos)</p>
         </StyledSubheading>
@@ -118,9 +126,7 @@ class ServicePage extends React.Component {
           <h6>{this.serviceData.subtitle2}</h6>
           <div><p>{this.serviceData.content2}</p></div>
         </StyledMain>
-
         <RaisedButton label="Get Quote" secondary onClick={this.props.openChat} />
-
       </StyledServicePage>
     );
   }

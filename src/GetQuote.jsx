@@ -1,20 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 import RaisedButton from 'material-ui/RaisedButton';
-// import Dialog from 'material-ui/Dialog';
 import Iframe from 'react-iframe';
-import Dimensions from 'react-dimensions';
+import AriaModal from 'react-aria-modal';
+// Note: npm uninstall these if not using...
+// import Dialog from 'material-ui/Dialog';
 // import FullscreenDialog from 'material-ui-fullscreen-dialog';
 // import Modal from 'react-modal';
-import AriaModal from 'react-aria-modal';
 
-/*
-const modalHeader = styled.div`
-  z-index: 100;
-  margin-top: 200px;
+
+const StyledGetQuote = styled.div`
+  position: 'absolute';
+  zIndex: 9999;
 `;
-*/
+
+const modalIframe = {
+  position: 'absolute',
+  top: '1%',
+  left: '1%',
+  bottom: '2%',
+  width: '98%',
+  height: '95%',
+};
+
+const modalHeader = {
+  position: 'absolute',
+  top: '2%',
+  right: '4%',
+};
 
 class GetQuote extends React.Component {
   constructor(props) {
@@ -26,39 +40,40 @@ class GetQuote extends React.Component {
 
   render() {
     return (
-      <div>
+      <StyledGetQuote>
         <AriaModal
           titleText="Three Little Pigs Quote Tool"
           /* initialFocus="#user-input" */
           verticalyCenter
+          onExit={this.props.closeModal}
           underlayStyle={{ paddingTop: '0em', top: '0px', left: '0px' }}
         >
           <div className="modal">
-            <div className="modal-body">
+            <div>
               <Iframe
-                url="http://localhost:8000"
-                width="95%"
-                height="85%"
-                display="initial"
-                position="absolute"
-                styles={{ top: '60px', left: '2.5%' }}
+                styles={modalIframe}
+                url="http://172.16.2.202:8000"
+                width="350"
+                height="400"
+                frameborder="0"
               />
             </div>
-            <div className="modalHeader">
+            <div style={modalHeader}>
               <RaisedButton
-                label="Close"
-                primary
+                label="return"
+                secondary
                 onTouchTap={this.props.closeModal}
               />
             </div>
           </div>
         </AriaModal>
-      </div>
+      </StyledGetQuote>
     );
   }
 }
+
 GetQuote.propTypes = {
   closeModal: PropTypes.func.isRequired,
 };
 
-export default Dimensions()(GetQuote);
+export default GetQuote;

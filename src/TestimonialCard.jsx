@@ -32,7 +32,6 @@ const TestimonialCard = (props) => {
   return (
     <LazyLoad height={200}>
       <StyledItem>
-        <h6>{props.review.title}</h6>
         {Array(props.review.stars).fill().map((val, i) => {
           return (
             <StarIcon key={i} color={'#D4AF37'} style={{ width: 15, height: 15, float: 'left' }} />

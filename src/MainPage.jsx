@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 import TopCarousel from './TopCarousel';
 import ServicesThumbContainer from './ServicesThumbContainer';
 import AboutUs from './AboutUs';
@@ -7,6 +8,12 @@ import Contact from './Contact';
 import TextDivider from './TextDivider';
 import GetQuote from './GetQuote';
 import PhotoGallery from './PhotoGallery';
+import TopBar from './TopBar';
+
+const StyledMainPage = styled.section`
+  position: relative;
+  z-index: 0;
+`;
 
 class MainPage extends React.Component {
   constructor(props) {
@@ -32,7 +39,11 @@ class MainPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <StyledMainPage>
+        <TopBar />
+        {this.state.modalIsOpen &&
+          <GetQuote closeModal={this.closeChat} />
+        }
         <TopCarousel openChat={this.openChat} />
         <TextDivider quoteID={0} />
         <div id="Services"><ServicesThumbContainer /></div>
@@ -41,10 +52,7 @@ class MainPage extends React.Component {
         <div id="Photos"><PhotoGallery /></div>
         <div id="Testimonials"><Testimonials /></div>
         <div id="ServiceArea"><Contact openChat={this.openChat} /></div>
-        {this.state.modalIsOpen &&
-          <GetQuote closeModal={this.closeChat} />
-        }
-      </div>
+      </StyledMainPage>
     );
   }
 }
