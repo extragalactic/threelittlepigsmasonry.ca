@@ -5,12 +5,14 @@ import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-// import history from './history';
+
 
 const StyledTopBar = styled.section`
-  display: flex;
   justify-content: 'left';
   background-color: #841F27;
+  background: linear-gradient(#841F27, #b9202c);
+  posiiton: absolute;
+  z-index: 1;
 
   img { 
     float: left;
@@ -41,7 +43,7 @@ class TopBar extends React.Component {
       </StyledTopBar>
     );
     /*
-      Logo should link back to main page...
+      Logo should link back to main page ...
           title={<div><button onClick={() => { history.push('/'); }} style={{ cursor: 'pointer' }}><img src="/images/3lp-header-bar.png" alt="Three Little Pigs Masonry logo" /></button></div>}
     */
   }
@@ -59,6 +61,7 @@ const MainMenu = (props) => {
     >
       <MenuItem primaryText="Services" onClick={() => { TopBar.goToAnchor('Services'); }} />
       <MenuItem primaryText="About Us" onClick={() => { TopBar.goToAnchor('AboutUs'); }} />
+      <MenuItem primaryText="Photo Gallery" onClick={() => { TopBar.goToAnchor('Photos'); }} />
       <MenuItem primaryText="Testimonials" onClick={() => { TopBar.goToAnchor('Testimonials'); }} />
       <MenuItem primaryText="Service Area" onClick={() => { TopBar.goToAnchor('ServiceArea'); }} />
     </IconMenu>
