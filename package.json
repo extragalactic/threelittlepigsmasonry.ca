@@ -3,11 +3,30 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^15.6.1",
+    "history": "^4.7.2",
+    "material-ui": "^0.19.1",
+    "material-ui-fullscreen-dialog": "^0.7.0",
+    "prop-types": "^15.5.10",
+    "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "styled-components": "^2.1.1"
+    "react-lazyload": "^2.2.7",
+    "react-masonry-component": "^5.0.7",
+    "react-masonry-infinite": "^1.2.1",
+    "react-modal": "^2.3.2",
+    "react-responsive-masonry": "^1.2.3",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-slick": "^0.15.0",
+    "react-tap-event-plugin": "^2.0.1",
+    "slick-carousel": "^1.7.1",
+    "styled-components": "^2.1.2"
   },
   "devDependencies": {
+    "eslint": "^4.6.1",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^7.3.0",
     "react-scripts": "0.9.5"
   },
   "scripts": {

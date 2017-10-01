@@ -1,37 +1,51 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
-import logo from '../public/tplogo.png';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import './App.css';
+import TopBar from './TopBar';
+import Footer from './Footer';
+import MainPage from './MainPage';
+import ServicePage from './ServicePage';
 
-const Button = styled.button`
-  background: palevioletred;
-  border-radius: 3px;
-  border: none;
-  color: white;
-  width: 100px;  
-  height: 100px; 
+const StyledApp = styled.section`
+  text-align: center;
+  position: relative;
   margin: auto;
-}
-  display: flex;
-  justify-content: flex-end;
+  width: 95%;
+  flex: 1;
 `;
 
+const muiTheme = getMuiTheme({
+  palette: {
+    primary1Color: '#841F27',
+    accent1Color: '#0a0',
+  },
+  appBar: {
+    height: '100%',
+  },
+});
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+injectTapEventPlugin();
+
+const App = () => {
+  return (
+    <StyledApp>
+      <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
+        <div>
+          <TopBar />
+          <Switch>
+            <Route exact path="/" component={MainPage} />
+            <Route path="/services/:type" component={ServicePage} />
+            <Route component={MainPage} />
+          </Switch>
+          <Footer />
         </div>
-        <div
-        
-        >
-      <Button />
-      </div>
-      </div>
-    );
-  }
-}
+      </MuiThemeProvider>
+    </StyledApp>
+  );
+};
 
 export default App;
