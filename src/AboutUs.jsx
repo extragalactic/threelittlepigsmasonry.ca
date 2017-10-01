@@ -5,7 +5,7 @@ import AboutUsFull from './AboutUsFull';
 const StyledAboutUs = styled.section`
   background-color: #fff;
   min-height: 200px;
-  padding-top: 20px;
+  padding-top: 5px;
 
   img {
     float: left;
@@ -14,7 +14,9 @@ const StyledAboutUs = styled.section`
   p {
     font-size: 1.0em;
     text-align: left;
-    text-justify: auto;    
+    text-justify: auto;  
+    padding-left: 10px;
+    padding-right: 10px;  
   }
 `;
 

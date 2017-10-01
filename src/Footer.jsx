@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const StyledFooter = styled.section`
   font-size: 10;
   color: #888;
+  padding-bottom: 20px;
 `;
 
 const Footer = () => {
