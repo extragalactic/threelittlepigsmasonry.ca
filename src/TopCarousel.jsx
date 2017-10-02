@@ -55,7 +55,6 @@ const StyledQuoteRequest = styled.div`
     color: #fff;
     text-shadow: 1px 1px #444;    
   }
-
   @media (max-width: 600px) {
     margin-top: -10px;
     h4 {

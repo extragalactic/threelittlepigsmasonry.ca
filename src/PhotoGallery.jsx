@@ -99,6 +99,10 @@ class PhotoGallery extends React.Component {
     });
   }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7d7a257da47c1f4f4945939550340b01eb195d3c
   render() {
     return (
       <StyledGallery>

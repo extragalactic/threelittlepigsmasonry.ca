@@ -1,4 +1,3 @@
-
 const services = [
   { pageName: 'Brick',
     imgSrc: 'http://lorempixel.com/240/150/city/1',
