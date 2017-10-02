@@ -14,7 +14,6 @@ const StyledGalleryImage = styled.div`
 
 const GalleryImage = (props) => {
   const launchFullsize = () => {
-    // console.log('launch photo');
     props.openModal(props.photo);
   };
 
