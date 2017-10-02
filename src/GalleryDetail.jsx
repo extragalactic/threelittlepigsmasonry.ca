@@ -55,7 +55,7 @@ const GalleryDetail = (props) => {
   );
 };
 
-//         contentStyle={{ width: '100%', maxWidth: 'none', top: '0px' }}
+//        contentStyle={{ width: '100%', maxWidth: 'none', top: '0px' }}
 
 
 /*
