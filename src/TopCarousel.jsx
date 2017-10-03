@@ -8,6 +8,7 @@ import MediaQuery from 'react-responsive';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+
 const TopDiv = styled.div`
   width: 100%;
   height: 0px;
@@ -45,22 +46,41 @@ const StyledTagline = styled.img`
 `;
 const StyledQuoteRequest = styled.div`
   text-align: left;
+
   h4 {
     color: #fff;
-    padding: 0;
-    margin: 0;
-    text-shadow: 2px 2px #444;
+    margin: 0px 0px 5px 0px;
+    background-color: rgba(0,0,0,0.5);
+    padding: 5px;
+    border-radius: 0.5em;
   }
   p {
     color: #fff;
     text-shadow: 1px 1px #444;    
   }
+  > div {
+    width: 245px;
+  }
   @media (max-width: 600px) {
-    margin-top: -10px;
+    margin-top: -35px;
     h4 {
       font-size: 1.0em;
     }
   }
+`;
+const StyledPhoneSection = styled.div`
+  padding: 3px 3px 0px 10px;
+  margin-top: 5px;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 0.5em;  
+
+  h6 {
+    color: #fff;
+    font-size: 1.0em !important;
+    padding-top: 5px;
+    padding-bottom: 20px;
+    margin-top -5px;
+  }  
 `;
 
 const TopCarousel = (props) => {
@@ -91,12 +111,12 @@ const TopCarousel = (props) => {
           <StyledTagline src="./images/tagline-modified.png" alt="Warranties that blow the others away!" />
         </MediaQuery>
         <StyledQuoteRequest>
-          <h4>Click here for a quote!</h4>
-          <RaisedButton label="Get Quote" secondary onClick={openChat} />
-          <br />
-          <PhoneIcon color={'#fff'} style={{ width: 50, height: 50, float: 'left' }} />
-          <p>or give us a call at:</p>
-          <h4>905-508-0500 or 416-595-0100</h4>
+          <RaisedButton label="Click here for a quote!" secondary onClick={openChat} />
+          <StyledPhoneSection>
+            <PhoneIcon color={'#fff'} style={{ width: 50, height: 50, float: 'left' }} />
+            <p>or give us a call at:</p>
+            <h6><a href="tel:+19055080500">905-508-0500</a> or <a href="tel:+14165950100">416-595-0100</a></h6>
+          </StyledPhoneSection>
         </StyledQuoteRequest>
       </StyledCarouselContent>
     </TopDiv>
