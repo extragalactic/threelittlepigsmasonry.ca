@@ -8,6 +8,7 @@ import Footer from './Footer';
 import MainPage from './MainPage';
 import ServicePageMain from './ServicePageMain';
 
+
 const StyledApp = styled.section`
   text-align: center;
   position: relative;
@@ -22,6 +23,17 @@ const GlobalStyles = styled.div`
     padding: 0;
     font-family: sans-serif;
   }
+  a:link, a:visited {
+    color: #0a0;
+    background-color: #fff;
+    text-decoration: none;
+    padding: 3px;
+  }
+  a:hover, a:active {
+    color: #0f0;
+    text-decoration: none;
+    padding: 3px;     
+  }  
   h1 {
     font-size: 1.8em;
     color: #999;
@@ -46,9 +58,10 @@ const GlobalStyles = styled.div`
   }
   h6 {
     font-size: 1.1em; 
-    color: #841F27;
   }  
 `;
+
+//     color: #841F27;
 
 const muiTheme = getMuiTheme({
   palette: {

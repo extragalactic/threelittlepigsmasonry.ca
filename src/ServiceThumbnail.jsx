@@ -6,8 +6,7 @@ import PropTypes from 'prop-types';
 import history from './history';
 
 const StyledServiceThumbnail = styled.section`
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 0px 5px 5px 5px;
   width: 95wh;
   text-align: center;
 

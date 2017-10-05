@@ -23,7 +23,6 @@ const StyledServicePage = styled.section`
     text-align: left;  
   }
 `;
-
 const StyledNavContainer = styled.div`
   margin-top: -30px;
 `;

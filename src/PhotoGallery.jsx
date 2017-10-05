@@ -103,7 +103,7 @@ class PhotoGallery extends React.Component {
     return (
       <StyledGallery>
         {this.state.modalIsOpen &&
-          <GalleryDetail photo={this.state.selectedPhoto} closeModal={this.closeModal} />
+          <GalleryDetail selectedPhoto={this.state.selectedPhoto} photos={this.state.photos} closeModal={this.closeModal} />
         }
         <h2>Photo Gallery</h2>
         <ResponsiveMasonry columnsCountBreakPoints={{ 200: 2, 450: 3, 700: 4, 1000: 5 }}>
