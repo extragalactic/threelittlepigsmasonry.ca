@@ -7,6 +7,8 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import Footer from './Footer';
 import MainPage from './MainPage';
 import ServicePageMain from './ServicePageMain';
+import LandingPageBase from './LandingPageBase';
+
 
 const StyledApp = styled.section`
   text-align: center;
@@ -93,6 +95,7 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={MainPage} />
             <Route path="/services/:type" component={ServicePageMain} />
+            <Route path="/promo/:page" component={LandingPageBase} />
             <Route component={MainPage} />
           </Switch>
           <Footer />

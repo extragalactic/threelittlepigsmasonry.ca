@@ -6,7 +6,7 @@ import SwipeableViews from 'react-swipeable-views';
 import MediaQuery from 'react-responsive';
 import ServiceData from './ServiceData';
 
-// styled-components needs this small workaround to pass in a custom prop when wrapping another component to prevent an 'unknonwn prop' warning
+// styled-components needs this small workaround to pass in a custom prop when wrapping another component to prevent an 'unknown prop' warning
 const StyledTabs = styled(({ isBottomRow, ...rest }) => { return <Tabs {...rest} />; })`
   margin-top: ${(props) => { return props.isBottomRow ? 0 : 30; }}px;
 `;

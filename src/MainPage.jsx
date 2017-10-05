@@ -9,6 +9,8 @@ import TextDivider from './TextDivider';
 import GetQuote from './GetQuote';
 import PhotoGallery from './PhotoGallery';
 import TopBar from './TopBar';
+import LaunchChatButton from './LaunchChatButton';
+
 
 const StyledMainPage = styled.section`
   position: relative;
@@ -52,6 +54,7 @@ class MainPage extends React.Component {
         <div id="Photos"><PhotoGallery /></div>
         <div id="Testimonials"><Testimonials /></div>
         <div id="ServiceArea"><Contact openChat={this.openChat} /></div>
+        <LaunchChatButton openChat={this.openChat} />
       </StyledMainPage>
     );
   }

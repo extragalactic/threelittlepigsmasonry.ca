@@ -31,10 +31,11 @@ const styles = {
 };
 
 const StyledGalleryDetail = styled.div`
-  margin: 20px 10px;
+  margin: 5px 5px;
 
   img {
     width: 100%;
+    border: 1px solid #000;
   }
 `;
 const StyledGetQuote = styled.div`
@@ -52,7 +53,7 @@ const StyledSlideshow = styled(SlideShow)`
 const modalHeader = {
   position: 'absolute',
   top: '2%',
-  right: '4%',
+  right: '3%',
 };
 
 const gallerySettings = {
