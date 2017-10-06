@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import RaisedButton from 'material-ui/RaisedButton';
-import LazyLoad from 'react-lazyload';
+// import LazyLoad from 'react-lazyload';
 import PropTypes from 'prop-types';
 import history from './history';
 
 const StyledServiceThumbnail = styled.section`
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 0px 5px 5px 5px;
   width: 95wh;
   text-align: center;
 
@@ -28,24 +27,22 @@ const StyledServiceThumbnail = styled.section`
 
 const ServiceThumbnail = (props) => {
   return (
-    <LazyLoad height={200}>
-      <StyledServiceThumbnail>
-        <h3>{props.service.title}</h3>
-        <img src={props.service.imgSrc} alt="" />
+    <StyledServiceThumbnail>
+      <h3>{props.service.title}</h3>
+      <img src={props.service.imgSrc} alt="" />
+      <div>
+        <p>{props.service.summary}</p>
         <div>
-          <p>{props.service.summary}</p>
-          <div>
-            <RaisedButton
-              style={{ padding: '10px' }}
-              labelStyle={{ fontSize: '0.8em' }}
-              label="Learn more..."
-              secondary
-              onClick={() => { history.push(`/services/${props.service.pageName}`); }}
-            />
-          </div>
+          <RaisedButton
+            style={{ padding: '10px' }}
+            labelStyle={{ fontSize: '0.8em' }}
+            label="Learn more..."
+            secondary
+            onClick={() => { history.push(`/services/${props.service.pageName}`); }}
+          />
         </div>
-      </StyledServiceThumbnail>
-    </LazyLoad>
+      </div>
+    </StyledServiceThumbnail>
   );
 };
 

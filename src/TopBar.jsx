@@ -8,7 +8,8 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 
 const StyledTopBar = styled.section`
-  justify-content: 'left';
+  justify-content: left;
+  margin-left: -20px;
   background-color: #841F27;
   background: linear-gradient(#841F27, #b9202c);
   posiiton: absolute;
@@ -32,11 +33,13 @@ class TopBar extends React.Component {
     return false;
   }
 
+  // 
+
   render() {
     return (
       <StyledTopBar>
         <AppBar
-          title={<div><a href=""><img src="/images/3lp-header-bar.png" alt="Three Little Pigs Masonry" /></a></div>}
+          title={<div><a href="" style={{ backgroundColor: '#841F27' }}><img src="/images/3lp-header-bar.png" alt="Three Little Pigs Masonry" /></a></div>}
           showMenuIconButton={false}
           iconElementRight={<MainMenu />}
         />

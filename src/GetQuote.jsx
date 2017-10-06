@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import RaisedButton from 'material-ui/RaisedButton';
 import Iframe from 'react-iframe';
 import AriaModal from 'react-aria-modal';
+import MediaQuery from 'react-responsive';
+
 // Note: npm uninstall these if not using...
 // import Dialog from 'material-ui/Dialog';
 // import FullscreenDialog from 'material-ui-fullscreen-dialog';
@@ -11,8 +13,19 @@ import AriaModal from 'react-aria-modal';
 
 
 const StyledGetQuote = styled.div`
-  position: 'absolute';
   zIndex: 9999;
+`;
+const StyledCorner = styled.div`
+  position: absolute;
+  top: 2%;
+  right: 3%;
+
+  > div {
+    width: 120px;
+  }
+  img {
+    width: 100%;
+  }
 `;
 
 const modalIframe = {
@@ -24,53 +37,53 @@ const modalIframe = {
   height: '95%',
 };
 
-const modalHeader = {
-  position: 'absolute',
-  top: '2%',
-  right: '4%',
-};
 
-class GetQuote extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      modalIsOpen: false,
-    };
-  }
+// Note: this needs to be switched to the production URL
+const CHAT_URL = 'http://52.15.129.218';
 
-  render() {
-    return (
-      <StyledGetQuote>
-        <AriaModal
-          titleText="Three Little Pigs Quote Tool"
-          /* initialFocus="#user-input" */
-          verticalyCenter
-          onExit={this.props.closeModal}
-          underlayStyle={{ paddingTop: '0em', top: '0px', left: '0px' }}
-        >
-          <div className="modal">
+const GetQuote = (props) => {
+  return (
+    <StyledGetQuote>
+      <AriaModal
+        titleText="Three Little Pigs Quote Tool"
+        /* initialFocus="#user-input" */
+        verticalyCenter
+        onExit={props.closeModal}
+        underlayStyle={{ paddingTop: '0em', top: '0px', left: '0px' }}
+      >
+        <div>
+          <div>
+            <Iframe
+              styles={modalIframe}
+              url={CHAT_URL}
+              width="350"
+              height="400"
+              frameborder="0"
+            />
+          </div>
+          <StyledCorner>
             <div>
-              <Iframe
-                styles={modalIframe}
-                url="http://172.16.2.202:8000"
-                width="350"
-                height="400"
-                frameborder="0"
-              />
-            </div>
-            <div style={modalHeader}>
               <RaisedButton
                 label="return"
                 secondary
-                onTouchTap={this.props.closeModal}
+                onTouchTap={props.closeModal}
+                style={{ width: '100%' }}
               />
+              <div>
+                <MediaQuery minDeviceWidth={800} orientation="landscape">
+                  <img src="/images/test-pig.jpg" alt="" />
+                </MediaQuery>
+                <MediaQuery orientation="portrait">
+                  <img src="/images/test-pig.jpg" alt="" />
+                </MediaQuery>
+              </div>
             </div>
-          </div>
-        </AriaModal>
-      </StyledGetQuote>
-    );
-  }
-}
+          </StyledCorner>
+        </div>
+      </AriaModal>
+    </StyledGetQuote>
+  );
+};
 
 GetQuote.propTypes = {
   closeModal: PropTypes.func.isRequired,

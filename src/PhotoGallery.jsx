@@ -81,6 +81,7 @@ class PhotoGallery extends React.Component {
 
   getDefaultNum(screenSize) {
     // get default num phots based on screen size
+    // (the default number of pics is still not fully working when resizing the browser... is likely not noticeable though)
     this.numPhotosModifier = this.numPhotosByScreenSize[screenSize];
     return this.numPhotosModifier;
   }
@@ -98,12 +99,11 @@ class PhotoGallery extends React.Component {
     });
   }
 
-
   render() {
     return (
       <StyledGallery>
         {this.state.modalIsOpen &&
-          <GalleryDetail photo={this.state.selectedPhoto} closeModal={this.closeModal} />
+          <GalleryDetail selectedPhoto={this.state.selectedPhoto} photos={this.state.photos} closeModal={this.closeModal} />
         }
         <h2>Photo Gallery</h2>
         <ResponsiveMasonry columnsCountBreakPoints={{ 200: 2, 450: 3, 700: 4, 1000: 5 }}>
