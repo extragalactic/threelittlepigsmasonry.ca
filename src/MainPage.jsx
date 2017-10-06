@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Launcher } from 'react-chat-window';
+import { Launcher } from './chat/index';
 import TopCarousel from './TopCarousel';
 import ServicesThumbContainer from './ServicesThumbContainer';
 import AboutUs from './AboutUs';
@@ -10,7 +10,7 @@ import TextDivider from './TextDivider';
 import GetQuote from './GetQuote';
 import PhotoGallery from './PhotoGallery';
 import TopBar from './TopBar';
-import returnLexResponse from './util/LexBot.js';
+import returnLexResponse from './util/LexBot';
 
 const StyledMainPage = styled.section`
   position: relative;
@@ -22,7 +22,15 @@ class MainPage extends React.Component {
     super(props);
     this.state = {
       modalIsOpen: false,
-      messageList: [],
+      messageList: [
+        {
+          author: 'them',
+          data: {
+            text: 'Welcome to Three Little Pigs Masonry, Is there something I can do to help you?',
+          },
+          type: 'text',
+        },
+      ],
       newMessagesCount: 0,
       isOpen: false,
     };
@@ -30,12 +38,18 @@ class MainPage extends React.Component {
     this.closeChat = this.closeChat.bind(this);
     this._onMessageWasSent = this._onMessageWasSent.bind(this);
     this._sendMessage = this._sendMessage.bind(this);
-    this.handleClick = this._handleClick.bind(this);
+    this._handleClick = this._handleClick.bind(this);
   }
-
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        isOpen: true,
+      });
+    }, 10000);
+  }
   openChat() {
     this.setState({
-      isOpen: true,
+      isOpen: !this.state.isOpen,
     });
   }
 
@@ -98,13 +112,12 @@ class MainPage extends React.Component {
         <div id="Photos"><PhotoGallery /></div>
         <div id="Testimonials"><Testimonials /></div>
         <div id="ServiceArea"><Contact openChat={this.openChat} /></div>
-
         <Launcher
           style={{
             position: 'absolute',
           }}
           agentProfile={{
-            teamName: 'Get an estiamte!',
+            teamName: 'GET AN ESTIMATE!',
             imageUrl: 'https://s3.ca-central-1.amazonaws.com/tlpm/pictures/imageedit_1_3880336731.png',
           }}
           onMessageWasSent={this._onMessageWasSent}
@@ -119,8 +132,3 @@ class MainPage extends React.Component {
 }
 
 export default MainPage;
-
-/*
-import LaunchChatButton from './LaunchChatButton';
- <LaunchChatButton openChat={this.openChat} />
-*/
