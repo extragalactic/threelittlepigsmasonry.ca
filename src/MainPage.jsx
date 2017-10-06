@@ -10,7 +10,6 @@ import TextDivider from './TextDivider';
 import GetQuote from './GetQuote';
 import PhotoGallery from './PhotoGallery';
 import TopBar from './TopBar';
-//import LaunchChatButton from './LaunchChatButton';
 
 const StyledMainPage = styled.section`
   position: relative;
@@ -112,6 +111,6 @@ export default MainPage;
 
 
 /*
-
+import LaunchChatButton from './LaunchChatButton';
  <LaunchChatButton openChat={this.openChat} />
 */
