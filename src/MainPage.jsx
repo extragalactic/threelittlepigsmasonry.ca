@@ -10,6 +10,7 @@ import TextDivider from './TextDivider';
 import GetQuote from './GetQuote';
 import PhotoGallery from './PhotoGallery';
 import TopBar from './TopBar';
+import returnLexResponse from './util/LexBot.js';
 
 const StyledMainPage = styled.section`
   position: relative;
@@ -33,7 +34,6 @@ class MainPage extends React.Component {
   }
 
   openChat() {
-    console.log(this.state)
     this.setState({
       isOpen: true,
     });
@@ -45,24 +45,37 @@ class MainPage extends React.Component {
     });
   }
   _onMessageWasSent(message) {
-    console.log(message)
-    this.setState({
-      messageList: [...this.state.messageList, message]
-    })
+    returnLexResponse(message.data.text).then((res) => {
+      const response = {
+        author: 'them',
+        data: {
+          text: res,
+        },
+        type: 'text',
+      };
+
+      this.setState({
+        messageList: [...this.state.messageList, message, response],
+      });
+    });
   }
 
   _sendMessage(text) {
-    console.log('SENT', text)
     if (text.length > 0) {
-      const newMessagesCount = this.state.isOpen ? this.state.newMessagesCount : this.state.newMessagesCount + 1
+      const newMessagesCount = this.state.isOpen
+        ? this.state.newMessagesCount
+        : this.state.newMessagesCount + 1;
       this.setState({
-        newMessagesCount: newMessagesCount,
-        messageList: [...this.state.messageList, {
-          author: 'them',
-          type: 'text',
-          data: { text }
-        }]
-      })
+        newMessagesCount,
+        messageList: [
+          ...this.state.messageList,
+          {
+            author: 'them',
+            type: 'text',
+            data: { text },
+          },
+        ],
+      });
     }
   }
 
@@ -76,9 +89,7 @@ class MainPage extends React.Component {
     return (
       <StyledMainPage>
         <TopBar />
-        {this.state.modalIsOpen &&
-          <GetQuote closeModal={this.closeChat} />
-        }
+        {this.state.modalIsOpen && <GetQuote closeModal={this.closeChat} />}
         <TopCarousel openChat={this.openChat} />
         <TextDivider quoteID={0} />
         <div id="Services"><ServicesThumbContainer /></div>
@@ -94,7 +105,7 @@ class MainPage extends React.Component {
           }}
           agentProfile={{
             teamName: 'Get an estiamte!',
-            imageUrl: 'https://s3.ca-central-1.amazonaws.com/tlpm/pictures/imageedit_1_3880336731.png'
+            imageUrl: 'https://s3.ca-central-1.amazonaws.com/tlpm/pictures/imageedit_1_3880336731.png',
           }}
           onMessageWasSent={this._onMessageWasSent}
           messageList={this.state.messageList}
@@ -108,7 +119,6 @@ class MainPage extends React.Component {
 }
 
 export default MainPage;
-
 
 /*
 import LaunchChatButton from './LaunchChatButton';
