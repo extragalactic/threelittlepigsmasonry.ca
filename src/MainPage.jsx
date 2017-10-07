@@ -117,7 +117,7 @@ class MainPage extends React.Component {
             position: 'absolute',
           }}
           agentProfile={{
-            teamName: 'GET AN ESTIMATE!',
+            teamName: 'ThirdPig',
             imageUrl: 'https://s3.ca-central-1.amazonaws.com/tlpm/pictures/imageedit_1_3880336731.png',
           }}
           onMessageWasSent={this._onMessageWasSent}

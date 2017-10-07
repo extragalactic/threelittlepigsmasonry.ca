@@ -8,6 +8,7 @@ import MediaQuery from 'react-responsive';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+const location = window.location;
 const TopDiv = styled.div`
   width: 100%;
   height: 0px;
