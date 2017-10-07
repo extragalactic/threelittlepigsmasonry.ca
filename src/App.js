@@ -23,13 +23,13 @@ const GlobalStyles = styled.div`
     font-family: sans-serif;
   }
   a:link, a:visited {
-    color: #0a0;
+    color: #26070a;
     background-color: #fff;
     text-decoration: none;
     padding: 3px;
   }
   a:hover, a:active {
-    color: #0f0;
+    color: #c65757;
     text-decoration: none;
     padding: 3px;     
   }  
@@ -66,7 +66,7 @@ const muiTheme = getMuiTheme({
   palette: {
     primary1Color: '#841F27',
     accent1Color: '#fff',
-    alternateTextColor: '#0a0',
+    alternateTextColor: '#1a0000',
   },
   appBar: {
     height: '100%',
