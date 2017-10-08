@@ -1,7 +1,7 @@
 .sc-chat-window {
   width: 370px;
   height: calc(100% - 120px);
-  max-height: 590px;
+  max-height: 520px;
   position: fixed;
   right: 25px;
   bottom: 100px;
@@ -14,6 +14,8 @@
   transition: 0.3s ease-in-out;
   border-radius: 10px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow: visible;
+  
 }
 
 .sc-chat-window.closed {

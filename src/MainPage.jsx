@@ -102,7 +102,6 @@ class MainPage extends React.Component {
   render() {
     return (
       <StyledMainPage>
-        <TopBar />
         {this.state.modalIsOpen && <GetQuote closeModal={this.closeChat} />}
         <TopCarousel openChat={this.openChat} />
         <TextDivider quoteID={0} />

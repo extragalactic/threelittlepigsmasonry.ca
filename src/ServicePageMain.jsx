@@ -79,7 +79,6 @@ class ServicePageMain extends React.Component {
   render() {
     return (
       <StyledServicePage>
-        <TopBar />
         <StyledNavContainer>
           <ServicesTabsNav pageContent={this.allServices()} startIndex={this.state.selectedTab} />
         </StyledNavContainer>

@@ -131,10 +131,14 @@ const TopCarousel = (props) => {
               buttonStyle={{
                 backgroundColor: '#a65959',
                 borderRadius: 20,
+                fontFamily: 'sans-serif',
+                
               }}
               style={{
                 borderRadius: 20,
-                marginTop: 5,
+                marginTop: 10,
+                fontFamily: 'sans-serif',
+                
               }}
             />
             <PhoneIcon color={'#fff'} style={{ width: 50, height: 50, float: 'left' }} />
