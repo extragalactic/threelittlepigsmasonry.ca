@@ -6,15 +6,11 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
-
 const StyledTopBar = styled.section`
   justify-content: left;
   margin-left: -20px;
   background-color: #841F27;
   background: linear-gradient(#841F27, #b9202c);
-  posiiton: absolute;
-  z-index: 1;
-
   img { 
     float: left;
     height: 70px;
@@ -42,6 +38,7 @@ class TopBar extends React.Component {
           title={<div><a href="" style={{ backgroundColor: '#841F27' }}><img src="/images/3lp-header-bar.png" alt="Three Little Pigs Masonry" /></a></div>}
           showMenuIconButton={false}
           iconElementRight={<MainMenu />}
+          style={{ position: 'static', top: 0 }} 
         />
       </StyledTopBar>
     );

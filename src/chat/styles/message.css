@@ -3,6 +3,8 @@
   margin: auto;
   padding-bottom: 10px;
   display: flex;
+  z-index: 3;
+  
 }
 
 .sc-message--content {
