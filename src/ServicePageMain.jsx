@@ -79,8 +79,13 @@ class ServicePageMain extends React.Component {
       };
 
       this.setState({
-        messageList: [...this.state.messageList, message, response],
+        messageList: [...this.state.messageList, message],
       });
+      setTimeout(() => {
+        this.setState({
+          messageList: [...this.state.messageList, response],
+        });
+      }, 2000);
     });
   }
 
@@ -135,7 +140,7 @@ class ServicePageMain extends React.Component {
             position: 'absolute',
           }}
           agentProfile={{
-            teamName: 'ThirdPig',
+            teamName: 'Third Pig',
             imageUrl: 'https://s3.ca-central-1.amazonaws.com/tlpm/pictures/imageedit_1_3880336731.png',
           }}
           onMessageWasSent={this._onMessageWasSent}

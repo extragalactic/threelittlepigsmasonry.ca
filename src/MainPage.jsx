@@ -68,16 +68,19 @@ class MainPage extends React.Component {
       };
 
       this.setState({
-        messageList: [...this.state.messageList, message, response],
+        messageList: [...this.state.messageList, message],
       });
+      setTimeout(() => {
+        this.setState({
+          messageList: [...this.state.messageList, response],
+        });
+      }, 2000);
     });
   }
 
   _sendMessage(text) {
     if (text.length > 0) {
-      const newMessagesCount = this.state.isOpen
-        ? this.state.newMessagesCount
-        : this.state.newMessagesCount + 1;
+      const newMessagesCount = this.state.isOpen ? this.state.newMessagesCount : this.state.newMessagesCount + 1;
       this.setState({
         newMessagesCount,
         messageList: [
@@ -104,18 +107,28 @@ class MainPage extends React.Component {
         {this.state.modalIsOpen && <GetQuote closeModal={this.closeChat} />}
         <TopCarousel openChat={this.openChat} />
         <TextDivider quoteID={0} />
-        <div id="Services"><ServicesThumbContainer /></div>
-        <div id="AboutUs"><AboutUs /></div>
+        <div id="Services">
+          <ServicesThumbContainer />
+        </div>
+        <div id="AboutUs">
+          <AboutUs />
+        </div>
         <TextDivider quoteID={1} />
-        <div id="Photos"><PhotoGallery /></div>
-        <div id="Testimonials"><Testimonials /></div>
-        <div id="ServiceArea"><Contact openChat={this.openChat} /></div>
+        <div id="Photos">
+          <PhotoGallery />
+        </div>
+        <div id="Testimonials">
+          <Testimonials />
+        </div>
+        <div id="ServiceArea">
+          <Contact openChat={this.openChat} />
+        </div>
         <Launcher
           style={{
             position: 'absolute',
           }}
           agentProfile={{
-            teamName: 'ThirdPig',
+            teamName: 'Third Pig',
             imageUrl: 'https://s3.ca-central-1.amazonaws.com/tlpm/pictures/imageedit_1_3880336731.png',
           }}
           onMessageWasSent={this._onMessageWasSent}
