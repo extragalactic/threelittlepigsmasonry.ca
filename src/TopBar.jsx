@@ -10,9 +10,9 @@ import history from './history';
 const StyledTopBar = styled.section`
   justify-content: left;
   margin-left: -20px;
-  background-color: #841F27;
-  background: linear-gradient(#841F27, #b9202c);
-  img { 
+  background-color: #841f27;
+  background: linear-gradient(#841f27, #b9202c);
+  img {
     float: left;
     height: 70px;
     @media (max-width: 1000px) {
@@ -34,11 +34,24 @@ class TopBar extends React.Component {
     return (
       <StyledTopBar>
         <AppBar
-          title={<div><a style={{ backgroundColor: '#841F27' }}><img src="/images/3lp-header-bar.png" alt="Three Little Pigs Masonry" /></a></div>}
+          title={
+            <div>
+              <a style={{ backgroundColor: '#841F27' }}>
+                <img src="/images/3lp-header-bar.png" alt="Three Little Pigs Masonry" />
+              </a>
+            </div>
+          }
           showMenuIconButton={false}
           iconElementRight={<MainMenu />}
-          style={{ position: 'static', top: 0 }}
-          onTouchTap={() => history.push('/')}
+          style={{
+            position: 'static',
+            top: 0,
+            display: 'flex',
+            alignItems: 'center',
+          }}
+          onTouchTap={() => {
+            return history.push('/');
+          }}
         />
       </StyledTopBar>
     );
@@ -54,16 +67,43 @@ const MainMenu = (props) => {
     <IconMenu
       {...props}
       iconButtonElement={
-        <IconButton><MoreVertIcon /></IconButton>
+        <IconButton>
+          <MoreVertIcon />
+        </IconButton>
       }
       targetOrigin={{ horizontal: 'right', vertical: 'top' }}
       anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
     >
-      <MenuItem primaryText="Services" onClick={() => { TopBar.goToAnchor('Services'); }} />
-      <MenuItem primaryText="About Us" onClick={() => { TopBar.goToAnchor('AboutUs'); }} />
-      <MenuItem primaryText="Photo Gallery" onClick={() => { TopBar.goToAnchor('Photos'); }} />
-      <MenuItem primaryText="Testimonials" onClick={() => { TopBar.goToAnchor('Testimonials'); }} />
-      <MenuItem primaryText="Service Area" onClick={() => { TopBar.goToAnchor('ServiceArea'); }} />
+      <MenuItem
+        primaryText="Services"
+        onClick={() => {
+          TopBar.goToAnchor('Services');
+        }}
+      />
+      <MenuItem
+        primaryText="About Us"
+        onClick={() => {
+          TopBar.goToAnchor('AboutUs');
+        }}
+      />
+      <MenuItem
+        primaryText="Photo Gallery"
+        onClick={() => {
+          TopBar.goToAnchor('Photos');
+        }}
+      />
+      <MenuItem
+        primaryText="Testimonials"
+        onClick={() => {
+          TopBar.goToAnchor('Testimonials');
+        }}
+      />
+      <MenuItem
+        primaryText="Service Area"
+        onClick={() => {
+          TopBar.goToAnchor('ServiceArea');
+        }}
+      />
     </IconMenu>
   );
 };
