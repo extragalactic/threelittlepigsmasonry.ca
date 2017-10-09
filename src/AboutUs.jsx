@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import AboutUsFull from './AboutUsFull';
+import MediaQuery from 'react-responsive';
 
 const StyledAboutUs = styled.section`
   background-color: #fff;
@@ -32,7 +33,9 @@ const AboutUs = () => {
     <StyledAboutUs>
       <h2>Our Commitment</h2>
       <StyledTextwithLogo>
-        <img src="./images/logo-small.jpg" alt="Three Little Pigs Logo" />
+        <MediaQuery minWidth={800}>
+          <img src="./images/logo-small.jpg" alt="Three Little Pigs Logo" />
+        </MediaQuery>
         <StyledText>
           <p>
             Family owned and operated, we have been proudly serving homeowners since 2004. Our masonry history begins
