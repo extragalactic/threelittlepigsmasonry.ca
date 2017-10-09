@@ -9,7 +9,6 @@ import Contact from './Contact';
 import TextDivider from './TextDivider';
 import GetQuote from './GetQuote';
 import PhotoGallery from './PhotoGallery';
-import TopBar from './TopBar';
 import returnLexResponse from './util/LexBot';
 
 const StyledMainPage = styled.section`

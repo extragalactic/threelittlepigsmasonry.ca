@@ -5,6 +5,7 @@ import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import history from './history';
 
 const StyledTopBar = styled.section`
   justify-content: left;
@@ -29,16 +30,15 @@ class TopBar extends React.Component {
     return false;
   }
 
-  // 
-
   render() {
     return (
       <StyledTopBar>
         <AppBar
-          title={<div><a href="" style={{ backgroundColor: '#841F27' }}><img src="/images/3lp-header-bar.png" alt="Three Little Pigs Masonry" /></a></div>}
+          title={<div><a style={{ backgroundColor: '#841F27' }}><img src="/images/3lp-header-bar.png" alt="Three Little Pigs Masonry" /></a></div>}
           showMenuIconButton={false}
           iconElementRight={<MainMenu />}
-          style={{ position: 'static', top: 0 }} 
+          style={{ position: 'static', top: 0 }}
+          onTouchTap={() => history.push('/')}
         />
       </StyledTopBar>
     );

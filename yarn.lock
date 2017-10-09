@@ -1727,7 +1727,7 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-create-react-class@^15.5.2, create-react-class@^15.6.0:
+create-react-class@^15.5.2, create-react-class@^15.6.0, create-react-class@^15.6.2:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.2.tgz#cf1ed15f12aad7f14ef5f2dfe05e6c42f91ef02a"
   dependencies:
@@ -5722,6 +5722,13 @@ react-addons-transition-group@^15.4.0:
   dependencies:
     react-transition-group "^1.2.0"
 
+react-anything-sortable@^1.7.3:
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/react-anything-sortable/-/react-anything-sortable-1.7.3.tgz#974985e80afffb1c2ccb450b82dca3784db4f427"
+  dependencies:
+    create-react-class "^15.5.2"
+    prop-types "^15.5.8"
+
 react-aria-modal@^2.7.2:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/react-aria-modal/-/react-aria-modal-2.10.0.tgz#70f39a4e7d89cd9c20ec58c1f0e07c6b536fb51c"
@@ -5730,9 +5737,9 @@ react-aria-modal@^2.7.2:
     no-scroll "^2.0.0"
     react-displace "^2.1.4"
 
-"react-chat-window@git+https://github.com/NextWaveSolutions/react-chat-window.git":
-  version "1.0.2"
-  resolved "git+https://github.com/NextWaveSolutions/react-chat-window.git#1c24582ffdca5a22cd81258c7cfcb34e79e4f5a6"
+react-chat-window@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/react-chat-window/-/react-chat-window-1.0.5.tgz#5b647abab97130459d749ae91fd06635635252a8"
   dependencies:
     emoji-js "3.2.2"
     gh-pages "^1.0.0"
