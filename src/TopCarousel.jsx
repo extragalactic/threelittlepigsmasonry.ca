@@ -100,7 +100,7 @@ const TopCarousel = (props) => {
     return location.assign('tel:+19055080500');
   };
   const FourOneSix = () => {
-    return location.assign('tel:+19055080500');
+    return location.assign('tel:+14165950100');
   };
 
   return (
