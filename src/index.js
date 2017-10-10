@@ -2,11 +2,11 @@
 
 // injectGlobal template is used since styled-components cannot normally style the body tag
 injectGlobal`
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
 `;
 
 import React from 'react';
@@ -17,8 +17,8 @@ import history from './history';
 import App from './App';
 
 ReactDOM.render(
-  <Router history={history}>
-    <App />
-  </Router>,
-  document.getElementById('root'),
+<Router history={history}>
+  <App />
+</Router>,
+document.getElementById('root'),
 );

@@ -16,9 +16,7 @@ const StyledImg = styled.img`
   float: left;
   @media (max-width: 600px) {
     float: none;
-  }
-
-`;
+  }`;
 
 class AboutUsFull extends React.Component {
   constructor() {
@@ -50,7 +48,9 @@ class AboutUsFull extends React.Component {
     ];
     return (
       <StyledAbout>
-        <FlatButton labelStyle={{ fontSize: '1.0em', padding: '5px 10px' }} label="Read the full story" primary onClick={this.openModal} />
+        <FlatButton
+          className={'button'}
+          labelStyle={{ fontSize: '1.0em', padding: '5px 10px' }} label="Read the full story" primary onClick={this.openModal} />
         <Dialog
           title="The History of Three Little Pigs Masonry"
           actions={actions}
