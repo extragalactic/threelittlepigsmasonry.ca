@@ -18,10 +18,16 @@ const StyledItem = styled.div`
     text-align: justify;
     text-justify: auto;
     font-size: 0.9em;
+    color: #555;
+  }
+  .starBar {
+    background-color: #6d84b4;
+    padding: 2px 2px 2px 6px;
+    height: 1.1em;
   }
 `;
 const StyledSignature = styled.p`
-  color: #777;
+  color: #999;
   font-style: italic;
   padding-bottom: 15px;
   margin-top: -5px;
@@ -31,12 +37,14 @@ const TestimonialCard = (props) => {
   return (
     <LazyLoad height={200}>
       <StyledItem>
-        {Array(props.review.stars).fill().map((val, i) => {
-          return (
-            <StarIcon key={i} color={'#D4AF37'} style={{ width: 15, height: 15, float: 'left' }} />
-          );
-        })
-        }
+        <div className="starBar">
+          {Array(props.review.stars).fill().map((val, i) => {
+            return (
+              <StarIcon key={i} color={'#FFD700'} style={{ width: 15, height: 15, float: 'left' }} />
+            );
+          })
+          }
+        </div>
         <p>{props.review.text}</p>
         <StyledSignature>
           {props.review.name}

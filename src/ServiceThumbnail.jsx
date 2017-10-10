@@ -21,7 +21,7 @@ const StyledServiceThumbnail = styled.section`
     min-height: 200px;
     width: 100%;
     max-width: 500px;
-    box-shadow: 3px 3px #777;
+    border: 1px solid #000;
   }
 `;
 

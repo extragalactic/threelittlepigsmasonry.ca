@@ -21,7 +21,7 @@ const GlobalStyles = styled.div`
   body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'Open Sans', sans-serif;
   }
   a:link, a:visited {
     color: #0a0;

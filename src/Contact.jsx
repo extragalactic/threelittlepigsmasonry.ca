@@ -31,7 +31,7 @@ const StyledArea = styled.div`
   }  
   img {
     width: 100%;
-    box-shadow: 3px 3px #aaa;
+    border: 1px solid #000;
   }
 `;
 const StyledColumns = styled(Columns)`

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import FlatButton from 'material-ui/FlatButton';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import MediaQuery from 'react-responsive';
-// import Axios from 'axios';
+import Axios from 'axios';
 import GalleryImage from './GalleryImage';
 import GalleryDetail from './GalleryDetail';
 
@@ -32,19 +32,21 @@ class PhotoGallery extends React.Component {
 
   componentWillMount() {
     // get list of photos
-    /*
-    Axios.get('/user', {
-      params: {
-        ID: 12345,
-      },
-    })
+    let photos = [];
+    Axios.get('https://tlpm.ca/webimages')
       .then((response) => {
-        console.log(response);
+        photos = response.data.map((photo) => {
+          return photo.url;
+        });
+        this.numberTotal = photos.length;
+        this.setState({
+          photos,
+        });
       })
       .catch((error) => {
         console.log(error);
       });
-    */
+    /*
     const photos = ['/images/gallery/gallery-sample-1.jpg',
       '/images/gallery/gallery-sample-2.jpg',
       '/images/gallery/gallery-sample-3.jpg',
@@ -54,10 +56,10 @@ class PhotoGallery extends React.Component {
       '/images/gallery/gallery-sample-7.jpg',
       '/images/gallery/gallery-sample-8.jpg'];
     this.numberTotal = photos.length;
-
     this.setState({
       photos,
     });
+    */
   }
 
   getPhotos(baseNum) {
