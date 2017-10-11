@@ -23,7 +23,7 @@ const StyledArea = styled.div`
 
   @media (max-width: 500px) {
     width: 95%;
-    min-width: 310px;
+    min-width: 280px;
   }
   div {
     text-align: center;

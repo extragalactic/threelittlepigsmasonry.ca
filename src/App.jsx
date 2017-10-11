@@ -5,9 +5,10 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import Footer from './Footer';
-import TopBar from './TopBar'
+import TopBar from './TopBar';
 import MainPage from './MainPage';
 import ServicePageMain from './ServicePageMain';
+// import './App.css';
 
 const StyledApp = styled.section`
   text-align: center;
@@ -24,8 +25,8 @@ const GlobalStyles = styled.div`
     font-family: 'Open Sans', sans-serif;
   }
   a:link, a:visited {
-    color: #26070a;
-    background-color: #fff;
+    color: #fff;
+    background-color: none;
     text-decoration: none;
     padding: 3px;
   }

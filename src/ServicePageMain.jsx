@@ -6,6 +6,8 @@ import ServicePage from './ServicePage';
 import ServicesTabsNav from './ServicesTabsNav';
 import { Launcher } from './chat/index';
 import returnLexResponse from './util/LexBot';
+import ScrollToTopOnMount from './util/ScrollToTopOnMount';
+
 
 const StyledServicePage = styled.section`
   padding: 5px;
@@ -132,6 +134,7 @@ class ServicePageMain extends React.Component {
   render() {
     return (
       <StyledServicePage>
+        <ScrollToTopOnMount />
         <StyledNavContainer>
           <ServicesTabsNav pageContent={this.allServices()} startIndex={this.state.selectedTab} />
         </StyledNavContainer>

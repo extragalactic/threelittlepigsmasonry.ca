@@ -87,8 +87,8 @@ const TopCarousel = (props) => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 1000,
-    autoplaySpeed: 6000,
+    speed: 750,
+    autoplaySpeed: 4000,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
@@ -107,13 +107,13 @@ const TopCarousel = (props) => {
     <TopDiv>
       <SlideShow {...settings}>
         <div>
-          <SlickSlide src="./images/sample-photo-1.jpg" alt="" />
+          <SlickSlide src="/images/intro/intro2.jpg" alt="" />
         </div>
         <div>
-          <SlickSlide src="./images/sample-photo-3.jpg" alt="" />
+          <SlickSlide src="/images/intro/intro1.jpg" alt="" />
         </div>
         <div>
-          <SlickSlide src="./images/sample-photo-2.jpg" alt="" />
+          <SlickSlide src="/images/intro/intro3.jpg" alt="" />
         </div>
       </SlideShow>
       <StyledCarouselContent>
@@ -132,19 +132,17 @@ const TopCarousel = (props) => {
                 backgroundColor: '#a65959',
                 borderRadius: 20,
                 fontFamily: 'sans-serif',
-                
               }}
               style={{
                 borderRadius: 20,
                 marginTop: 10,
                 fontFamily: 'sans-serif',
-                
               }}
             />
             <PhoneIcon color={'#fff'} style={{ width: 50, height: 50, float: 'left' }} />
             <p>or give us a call at:</p>
-            <h6>                       
-            <a onClick={NineOhFive}>905-508-0500</a> or <a onClick={FourOneSix}>416-595-0100</a>
+            <h6>
+              <a href="tel:+19055080500">905-508-0500</a> or <a href="tel:+14165950100">416-595-0100</a>
             </h6>
           </StyledPhoneSection>
         </StyledQuoteRequest>
@@ -152,6 +150,8 @@ const TopCarousel = (props) => {
     </TopDiv>
   );
 };
+
+//  <a onClick={NineOhFive}>905-508-0500</a> or <a onClick={FourOneSix}>416-595-0100</a>
 
 TopCarousel.propTypes = {
   openChat: PropTypes.func.isRequired,

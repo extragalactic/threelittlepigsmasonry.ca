@@ -21,6 +21,9 @@ const StyledTopBar = styled.section`
     @media (max-width: 600px) {
       height: 40px;
     }
+    @media (max-width: 550px) {
+      height: 35px;
+    }    
   }
 `;
 

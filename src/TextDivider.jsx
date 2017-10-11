@@ -24,7 +24,7 @@ const StyledDivider = styled.section`
 `;
 
 const quoteIDs = [
-  { title: 'Our Mission', body: 'To provide the best masonry product and service in the GTA!' },
+  { title: 'Our Mission', body: 'Providing high quality masonry restoration & renovation services for the GTA home and business owner.' },
   { title: 'Premium Warranty!', body: '"These guys have the best warranty. I am totally satisfied with their service."' },
 ];
 
