@@ -118,7 +118,7 @@ const TopCarousel = (props) => {
       </SlideShow>
       <StyledCarouselContent>
         <MediaQuery minWidth={600}>
-          <StyledTagline src="./images/tagline-modified.png" alt="Warranties that blow the others away!" />
+          <StyledTagline src="./images/wolf-blow.png" alt="Warranties that blow the others away!" />
         </MediaQuery>
         <StyledQuoteRequest>
           <StyledPhoneSection>
