@@ -53,7 +53,7 @@ class ServicesTabsNav extends React.Component {
   render() {
     return (
       <div>
-        <MediaQuery minWidth={1} maxWidth={599}>
+        <MediaQuery minWidth={1} maxWidth={624}>
           <StyledTabs
             onChange={this.handleChange}
             value={this.state.selectedTab}
@@ -68,7 +68,7 @@ class ServicesTabsNav extends React.Component {
             {servicesTabsRow2}
           </StyledTabs>
         </MediaQuery>
-        <MediaQuery minWidth={600}>
+        <MediaQuery minWidth={625}>
           <StyledTabs
             onChange={this.handleChange}
             value={this.state.selectedTab}

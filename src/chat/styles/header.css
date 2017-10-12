@@ -23,12 +23,11 @@
   padding: 10px;
   flex: 1;
   user-select: none;
-  cursor: pointer;
+  cursor: default;
   border-radius: 5px;
 }
 
 .sc-header--team-name:hover {
-  background: #4882ed;
 }
 
 .sc-header--close-button {

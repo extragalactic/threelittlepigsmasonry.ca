@@ -30,7 +30,7 @@ const StyledCarouselContent = styled.section`
   margin-left: 20px;
 `;
 const StyledTagline = styled.img`
-  margin-top: -20px;
+  margin-top: -50px;
   margin-left: -15px;
   padding-bottom: 10px;
   width: 700px;

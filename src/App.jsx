@@ -62,7 +62,6 @@ const GlobalStyles = styled.div`
   }  
 `;
 
-//     color: #841F27;
 
 const muiTheme = getMuiTheme({
   palette: {

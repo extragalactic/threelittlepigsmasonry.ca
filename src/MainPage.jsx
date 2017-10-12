@@ -128,8 +128,8 @@ class MainPage extends React.Component {
             position: 'absolute',
           }}
           agentProfile={{
-            teamName: 'Third Pig',
-            imageUrl: 'https://s3.ca-central-1.amazonaws.com/tlpm/pictures/imageedit_1_3880336731.png',
+            teamName: 'Automated Estimator Pig',
+            imageUrl: '/images/PigBot_small.png',
           }}
           onMessageWasSent={this._onMessageWasSent}
           messageList={this.state.messageList}

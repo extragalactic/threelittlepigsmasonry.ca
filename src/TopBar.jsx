@@ -14,18 +14,23 @@ const StyledTopBar = styled.section`
   background: linear-gradient(#841f27, #b9202c);
   img {
     float: left;
-    height: 70px;
+    padding: 3px;
+    height: 120px;
     @media (max-width: 1000px) {
-      height: 55px;
+      height: 105px;
     }
     @media (max-width: 600px) {
-      height: 40px;
+      height: 85px;
     }
-    @media (max-width: 550px) {
-      height: 35px;
+    @media (max-width: 450px) {
+      height: 68px;
+    }    
+    @media (max-width: 370px) {
+      height: 50px;
     }    
   }
 `;
+
 
 class TopBar extends React.Component {
   static goToAnchor(anchor) {
@@ -40,7 +45,7 @@ class TopBar extends React.Component {
           title={
             <div>
               <a style={{ backgroundColor: '#841F27' }}>
-                <img src="/images/3lp-header-bar.png" alt="Three Little Pigs Masonry" />
+                <img src="/images/3LPM-title-white.png" alt="Three Little Pigs Masonry" />
               </a>
             </div>
           }
@@ -52,16 +57,9 @@ class TopBar extends React.Component {
             display: 'flex',
             alignItems: 'center',
           }}
-          onTouchTap={() => {
-            return history.push('/');
-          }}
         />
       </StyledTopBar>
     );
-    /*
-      Logo should link back to main page ...
-          title={<div><button onClick={() => { history.push('/'); }} style={{ cursor: 'pointer' }}><img src="/images/3lp-header-bar.png" alt="Three Little Pigs Masonry logo" /></button></div>}
-    */
   }
 }
 
