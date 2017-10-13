@@ -13,7 +13,6 @@ import MediaQuery from 'react-responsive';
 
 
 const StyledGetQuote = styled.div`
-  zIndex: 9999;
 `;
 const StyledCorner = styled.div`
   position: absolute;

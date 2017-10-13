@@ -5,9 +5,10 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import Footer from './Footer';
-import TopBar from './TopBar'
+import TopBar from './TopBar';
 import MainPage from './MainPage';
 import ServicePageMain from './ServicePageMain';
+// import './App.css';
 
 const StyledApp = styled.section`
   text-align: center;
@@ -21,11 +22,11 @@ const GlobalStyles = styled.div`
   body {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'Open Sans', sans-serif;
   }
   a:link, a:visited {
-    color: #26070a;
-    background-color: #fff;
+    color: #fff;
+    background-color: none;
     text-decoration: none;
     padding: 3px;
   }
@@ -61,7 +62,6 @@ const GlobalStyles = styled.div`
   }  
 `;
 
-//     color: #841F27;
 
 const muiTheme = getMuiTheme({
   palette: {
@@ -93,6 +93,22 @@ const App = () => {
           <TopBar />
           <Switch>
             <Route exact path="/" component={MainPage} />
+
+            <Route path="/services/brick-repair" component={MainPage} />
+            <Route path="/services/basement-waterproofing" component={MainPage} />
+            <Route path="/services/chimneys--stone-chimneys" component={MainPage} />
+            <Route path="/services/concrete-repair" component={MainPage} />
+            <Route path="/services/concrete-step-repair" component={MainPage} />
+            <Route path="/services/flagstone" component={MainPage} />
+            <Route path="/services/concrete-walkways" component={MainPage} />
+            <Route path="/services/foundations--piling--footings" component={MainPage} />
+            <Route path="/services/masonry-repairs" component={MainPage} />
+            <Route path="/services/parging--foundation-repairs" component={MainPage} />
+            <Route path="/services/retaining-walls" component={MainPage} />
+            <Route path="/services/stone-refacing" component={MainPage} />
+            <Route path="/services/stone-refacing-for-stucco-wood-and-siding" component={MainPage} />
+            <Route path="/services/window-sills" component={MainPage} />
+
             <Route path="/services/:type" component={ServicePageMain} />
             <Route component={MainPage} />
           </Switch>

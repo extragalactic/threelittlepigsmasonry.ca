@@ -30,7 +30,7 @@ const StyledCarouselContent = styled.section`
   margin-left: 20px;
 `;
 const StyledTagline = styled.img`
-  margin-top: -20px;
+  margin-top: -50px;
   margin-left: -15px;
   padding-bottom: 10px;
   width: 700px;
@@ -87,38 +87,35 @@ const TopCarousel = (props) => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 1000,
-    autoplaySpeed: 6000,
+    speed: 750,
+    autoplaySpeed: 4000,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
     fade: true,
     autoplay: true,
     lazyLoad: false,
+    pauseOnHover: false,
   };
+  /*
   const NineOhFive = () => {
     return location.assign('tel:+19055080500');
   };
   const FourOneSix = () => {
     return location.assign('tel:+14165950100');
   };
-
+  */
   return (
     <TopDiv>
       <SlideShow {...settings}>
-        <div>
-          <SlickSlide src="./images/sample-photo-1.jpg" alt="" />
-        </div>
-        <div>
-          <SlickSlide src="./images/sample-photo-3.jpg" alt="" />
-        </div>
-        <div>
-          <SlickSlide src="./images/sample-photo-2.jpg" alt="" />
-        </div>
+        <div><SlickSlide src="/images/intro/intro2.jpg" alt="" /></div>
+        <div><SlickSlide src="/images/intro/intro4.jpg" alt="" /></div>
+        <div><SlickSlide src="/images/intro/intro1.jpg" alt="" /></div>
+        <div><SlickSlide src="/images/intro/intro3.jpg" alt="" /></div>
       </SlideShow>
       <StyledCarouselContent>
-        <MediaQuery minWidth={600}>
-          <StyledTagline src="./images/tagline-modified.png" alt="Warranties that blow the others away!" />
+        <MediaQuery minWidth={601}>
+          <StyledTagline src="/images/wolf-blow.png" alt="Warranties that blow the others away!" />
         </MediaQuery>
         <StyledQuoteRequest>
           <StyledPhoneSection>
@@ -132,19 +129,17 @@ const TopCarousel = (props) => {
                 backgroundColor: '#a65959',
                 borderRadius: 20,
                 fontFamily: 'sans-serif',
-                
               }}
               style={{
                 borderRadius: 20,
                 marginTop: 10,
                 fontFamily: 'sans-serif',
-                
               }}
             />
             <PhoneIcon color={'#fff'} style={{ width: 50, height: 50, float: 'left' }} />
             <p>or give us a call at:</p>
-            <h6>                       
-            <a onClick={NineOhFive}>905-508-0500</a> or <a onClick={FourOneSix}>416-595-0100</a>
+            <h6>
+              <a href="tel:+19055080500">905-508-0500</a> or <a href="tel:+14165950100">416-595-0100</a>
             </h6>
           </StyledPhoneSection>
         </StyledQuoteRequest>
@@ -152,6 +147,8 @@ const TopCarousel = (props) => {
     </TopDiv>
   );
 };
+
+//  <a onClick={NineOhFive}>905-508-0500</a> or <a onClick={FourOneSix}>416-595-0100</a>
 
 TopCarousel.propTypes = {
   openChat: PropTypes.func.isRequired,

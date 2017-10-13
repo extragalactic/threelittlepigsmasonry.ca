@@ -6,6 +6,8 @@ import ServicePage from './ServicePage';
 import ServicesTabsNav from './ServicesTabsNav';
 import { Launcher } from './chat/index';
 import returnLexResponse from './util/LexBot';
+import ScrollToTopOnMount from './util/ScrollToTopOnMount';
+
 
 const StyledServicePage = styled.section`
   padding: 5px;
@@ -41,7 +43,7 @@ class ServicePageMain extends React.Component {
         {
           author: 'them',
           data: {
-            text: 'Welcome to Three Little Pigs Masonry, Is there something I can do to help you?',
+            text: 'Welcome to Three Little Pigs Masonry. How can I help you?',
           },
           type: 'text',
         },
@@ -132,6 +134,7 @@ class ServicePageMain extends React.Component {
   render() {
     return (
       <StyledServicePage>
+        <ScrollToTopOnMount />
         <StyledNavContainer>
           <ServicesTabsNav pageContent={this.allServices()} startIndex={this.state.selectedTab} />
         </StyledNavContainer>
@@ -140,8 +143,8 @@ class ServicePageMain extends React.Component {
             position: 'absolute',
           }}
           agentProfile={{
-            teamName: 'Third Pig',
-            imageUrl: 'https://s3.ca-central-1.amazonaws.com/tlpm/pictures/imageedit_1_3880336731.png',
+            teamName: 'Automated Estimator Pig',
+            imageUrl: '/images/PigBot_small.png',
           }}
           onMessageWasSent={this._onMessageWasSent}
           messageList={this.state.messageList}

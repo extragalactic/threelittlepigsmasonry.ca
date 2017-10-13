@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import FlatButton from 'material-ui/FlatButton';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
+import MediaQuery from 'react-responsive';
 import TestimonialCard from './TestimonialCard';
 import TestimonialData from './TestimonialData';
-import MediaQuery from 'react-responsive';
 
 
 const google = window.google;

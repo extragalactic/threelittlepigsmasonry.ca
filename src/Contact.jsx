@@ -23,7 +23,7 @@ const StyledArea = styled.div`
 
   @media (max-width: 500px) {
     width: 95%;
-    min-width: 310px;
+    min-width: 280px;
   }
   div {
     text-align: center;
@@ -31,7 +31,7 @@ const StyledArea = styled.div`
   }  
   img {
     width: 100%;
-    box-shadow: 3px 3px #aaa;
+    border: 1px solid #000;
   }
 `;
 const StyledColumns = styled(Columns)`
@@ -80,7 +80,7 @@ const Contact = (props) => {
       <h2>Service Area</h2>
       <section>
         <StyledArea>
-          <img src="./images/service-area-map.jpg" alt="service area" />
+          <img src="/images/service-area-map.jpg" alt="service area" />
         </StyledArea>
         <StyledArea style={{ paddingLeft: '15px', paddingRight: '10px' }}>
           <p>Three Little Pigs Masonry services a large part of the Greater Toronto Area. If you live in one of the areas listed below, let&#39;s get started! <br /><br />You can call us at <b>905-508-0500</b> or <b>416-595-0100</b>, or for an immediate estimate just click on the button below:</p>

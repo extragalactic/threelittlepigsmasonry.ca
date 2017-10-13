@@ -1,0 +1,267 @@
+<!doctype html>
+<html ⚡>
+<head>
+<meta charset="utf-8">
+<script async src="https://cdn.ampproject.org/v0.js"></script>
+<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+<script async custom-element="amp-fit-text" src="https://cdn.ampproject.org/v0/amp-fit-text-0.1.js"></script>
+<script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
+<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+<!-- Note: be sure to use the amp-font component... -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic|Libre+Baskerville" rel="stylesheet" type="text/css">
+<link rel="canonical" href="http://www.3lpm.ca">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+<style amp-custom>
+  body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    line-height: 1.6;
+    background-color: #eee;
+  }
+  h1 {
+    font-family: 'Libre Baskerville';
+    font-size: 1.2em;
+    color: #841F27;
+    margin-left: 5px;
+  }
+  p {
+    padding: 5px;
+    margin: 0px 5px;
+    background-color: #fff;
+  }
+  .nameTag {
+    font-style: italic;
+    color: #999;
+  }
+  .topbar {
+    background-color: #841F27;
+  }
+  .headerImg {
+    margin-left: 10px;
+    background-color: #841F27;
+  }
+  .contentBlock {
+    background-color: #fff;
+    margin: 0px 10px 10px 10px;
+    padding: 5px 0px;
+  }
+  .centerBlock {
+    text-align: center;
+  }
+  .buttonRow {
+    padding-bottom: 10px;
+  }
+  .carousel {
+    margin-bottom: 5px;
+  }
+  .testimonialContainer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  .testimonialCard {
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: justify;
+    font-size: 0.9em;
+    color: #666;
+    line-height: 1.3;    
+  }
+  .testimonialTitleBar {
+    height: 1.4em;
+    background-color: #6d84b4;
+    color: #FFD700;
+    padding: 2px 2px 2px 6px;
+    margin-top: -5px;
+  }
+  .footer p {
+    color: #777;
+    background-color: #eee;
+    margin: 15px;
+  }
+  .btn {
+    background: #3b5998;
+    background-image: -webkit-linear-gradient(top, #6d84b4, #3b5998);
+    background-image: -moz-linear-gradient(top, #6d84b4, #3b5998);
+    background-image: -ms-linear-gradient(top, #6d84b4, #3b5998);
+    background-image: -o-linear-gradient(top, #6d84b4, #3b5998);
+    background-image: linear-gradient(to bottom, #6d84b4, #3b5998);
+    font-family: Arial;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  .btn:hover {
+    background: #3b5998;
+    background-image: -webkit-linear-gradient(top, #afbdd4, #3b5998);
+    background-image: -moz-linear-gradient(top, #afbdd4, #3b5998);
+    background-image: -ms-linear-gradient(top, #afbdd4, #3b5998);
+    background-image: -o-linear-gradient(top, #afbdd4, #3b5998);
+    background-image: linear-gradient(to bottom, #afbdd4, #3b5998);
+    text-decoration: none;
+    cursor: pointer;
+  } 
+  .btn:visited, .btn:active, .btn:focus {
+    outline: none;  
+  }
+  .btnLarge {
+    -webkit-border-radius: 18;
+    -moz-border-radius: 18;
+    border-radius: 18px;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+  }
+  .btnSmall {
+    -webkit-border-radius: 12;
+    -moz-border-radius: 12;
+    border-radius: 12px;
+    font-size: 16px;
+    padding: 8px 15px 8px 15px;
+  }  
+</style>
+
+<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+</head>
+
+<body>
+  <amp-fit-text 
+    class="topbar"
+    width="425"
+    height="60"
+    layout="responsive"
+  >
+    <amp-img 
+      class="headerImg"
+      src="images/3lp-header-bar.png"
+      width="425"
+      height="60"
+      layout="responsive"
+      srcset="images/3lp-header-bar.png 800w, images/3lp-header-bar-small.png 500w"
+      sizes="(min-width: 650px) 50vw, 80vw">
+    </amp-img>
+  </amp-fit-text>
+
+  <amp-carousel
+    id="carousel-with-preview" 
+    class="carousel"
+    width="400"
+    height="250"
+    type="slides"
+    layout="responsive"
+  >
+    <amp-img src="/images/intro/intro2.jpg"
+      width="1280"
+      height="800"
+      layout="responsive">
+    </amp-img>
+    <amp-img src="/images/intro/intro1.jpg"
+      width="1280"
+      height="800"
+      layout="responsive">
+    </amp-img>
+    <amp-img src="/images/intro/intro3.jpg"
+      width="1280"
+      height="800"
+      layout="responsive">
+    </amp-img>
+    <amp-img src="/images/intro/intro4.jpg"
+      width="1280"
+      height="800"
+      layout="responsive">
+  </amp-img>    
+  </amp-carousel>
+  <div class="carousel-preview centerBlock">
+    <button on="tap:carousel-with-preview.goToSlide(index=0)">
+      <amp-img src="/images/intro/intro2-thumb.jpg"
+        width="60"
+        height="38"
+        alt="Three Little Pigs"></amp-img>
+    </button>
+    <button on="tap:carousel-with-preview.goToSlide(index=1)">
+      <amp-img src="/images/intro/intro1-thumb.jpg"
+        width="60"
+        height="38"
+        alt="Three Little Pigs"></amp-img>
+    </button>
+    <button on="tap:carousel-with-preview.goToSlide(index=2)">
+      <amp-img src="/images/intro/intro3-thumb.jpg"
+        width="60"
+        height="38"
+        alt="Three Little Pigs"></amp-img>
+    </button>
+    <button on="tap:carousel-with-preview.goToSlide(index=3)">
+      <amp-img src="/images/intro/intro4-thumb.jpg"
+        width="60"
+        height="38"
+        alt="Three Little Pigs"></amp-img>
+    </button>    
+  </div>  
+  <amp-fit-text 
+    width="300"
+    height="130"
+    max-font-size="20"
+    min-font-size="15"
+    layout="responsive"
+  >
+    <div class="contentBlock">
+      <h1>Premium Work, Amazing Warranty!</h1>
+      <p>Family owned and operated, we have been proudly serving homeowners since 2004. Our masonry is the absolute best in the industry, and we also have the best moustaches. We also do beards, but our moustaches blow the competition away.</p>
+  </div>
+  </amp-fit-text>
+  <div class="centerBlock buttonRow">
+    <a href="index.html#Services" target="_self">
+      <button
+        class="btn btnLarge"
+      >
+        Learn More!
+      </button>
+    </a>
+  </div>
+  <amp-fit-text 
+    width="300"
+    height="40"
+    max-font-size="18"
+    min-font-size="15"
+    layout="responsive"
+  >
+    <div class="contentBlock testimonialCard">
+      <h1>See what our customers say...</h1>
+    </div>
+  </amp-fit-text>
+
+  <div class="">
+    <amp-list width="auto"
+      height="400"
+      layout="fixed-height"
+      src="data/amp-testimonials.json"
+      class="">
+      <template type="amp-mustache"
+        id="amp-template-id">
+        <div class="testimonialCard contentBlock">
+          <div class="testimonialTitleBar">★★★★★</div>
+          <p>{{text}}</p>
+          <p class="nameTag">{{name}}</p>
+        </div>
+      </template>
+    </amp-list>  
+  </div>
+  <div class="centerBlock buttonRow">
+    <a href="index.html#Testimonials" target="_self">
+      <button
+        class="btn btnSmall"
+      >
+        Read More Testimonials
+      </button>
+    </a>
+  </div>
+  <amp-img 
+    src="/images/tagline-modified.png"
+    width="730"
+    height="209"
+    layout="responsive">
+  </amp-img> 
+  <div class="centerBlock footer">
+    <p>Copyright &#169; 2017 Three Little Pigs Masonry</p>
+  </div>
+</body>
