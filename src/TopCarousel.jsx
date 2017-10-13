@@ -95,30 +95,27 @@ const TopCarousel = (props) => {
     fade: true,
     autoplay: true,
     lazyLoad: false,
+    pauseOnHover: false,
   };
+  /*
   const NineOhFive = () => {
     return location.assign('tel:+19055080500');
   };
   const FourOneSix = () => {
     return location.assign('tel:+14165950100');
   };
-
+  */
   return (
     <TopDiv>
       <SlideShow {...settings}>
-        <div>
-          <SlickSlide src="/images/intro/intro2.jpg" alt="" />
-        </div>
-        <div>
-          <SlickSlide src="/images/intro/intro1.jpg" alt="" />
-        </div>
-        <div>
-          <SlickSlide src="/images/intro/intro3.jpg" alt="" />
-        </div>
+        <div><SlickSlide src="/images/intro/intro2.jpg" alt="" /></div>
+        <div><SlickSlide src="/images/intro/intro4.jpg" alt="" /></div>
+        <div><SlickSlide src="/images/intro/intro1.jpg" alt="" /></div>
+        <div><SlickSlide src="/images/intro/intro3.jpg" alt="" /></div>
       </SlideShow>
       <StyledCarouselContent>
-        <MediaQuery minWidth={600}>
-          <StyledTagline src="./images/wolf-blow.png" alt="Warranties that blow the others away!" />
+        <MediaQuery minWidth={601}>
+          <StyledTagline src="/images/wolf-blow.png" alt="Warranties that blow the others away!" />
         </MediaQuery>
         <StyledQuoteRequest>
           <StyledPhoneSection>

@@ -1,5 +1,5 @@
 const services = [
-  { pageName: 'Refacing',
+  { pageName: 'refacing',
     imgSrc: 'service_stone_refacing.jpg',
     title: 'Stone Refacing',
     summary: 'The condition of your chimney is very important for many reasons. Even an unused chimney must be maintained to avoid water penetration that can cause exterior as well as interior damage.',
@@ -14,7 +14,7 @@ const services = [
     ],
   },
 
-  { pageName: 'Flagstone',
+  { pageName: 'flagstone',
     imgSrc: 'service_flagstone.jpg',
     title: 'Flagstone',
     summary: 'Concrete cracks are a common problem throughout the GTA. The majority of these cracks are caused by the failure to ensure proper reinforcement at time of installation. Concrete is useless without reinforcement.',
@@ -29,7 +29,7 @@ const services = [
     ],
   },
 
-  { pageName: 'Walls',
+  { pageName: 'walls',
     imgSrc: 'service_retainingwalls.jpg',
     title: 'Retaining Walls',
     summary: 'When Three Little Pigs Masonry is hired to install flagstone, the existing foundation must be sound or the life of the final product will be short.',
@@ -44,7 +44,7 @@ const services = [
     ],
   },
 
-  { pageName: 'Brick/Stone',
+  { pageName: 'brick-stone',
     imgSrc: 'service_brickstone_repair.jpg',
     title: 'Brick & Stone Repairs',
     summary: 'Stone refacing has become a popular way to enhance the exterior beauty of your home using stone products.',
@@ -59,7 +59,7 @@ const services = [
     ],
   },
 
-  { pageName: 'Foundation',
+  { pageName: 'foundation',
     imgSrc: 'service_foundation_repair.jpg',
     title: 'Foundation Repairs',
     summary: 'Properly installed window sills are essential for the complete building envelope. Brick window sills tend to breakdown for a number of reasons.',
@@ -74,7 +74,7 @@ const services = [
     ],
   },
 
-  { pageName: 'Concrete',
+  { pageName: 'concrete',
     imgSrc: 'service_concrete.jpg',
     title: 'Concrete Repairs',
     summary: 'With basement waterproofing, usually we have to excavate the problem area or areas right down to the footing. We then check the weeping tile to make sure that after we leave the area that it is in good shape.',

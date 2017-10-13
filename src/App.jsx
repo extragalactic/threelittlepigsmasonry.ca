@@ -93,6 +93,22 @@ const App = () => {
           <TopBar />
           <Switch>
             <Route exact path="/" component={MainPage} />
+
+            <Route path="/services/brick-repair" component={MainPage} />
+            <Route path="/services/basement-waterproofing" component={MainPage} />
+            <Route path="/services/chimneys--stone-chimneys" component={MainPage} />
+            <Route path="/services/concrete-repair" component={MainPage} />
+            <Route path="/services/concrete-step-repair" component={MainPage} />
+            <Route path="/services/flagstone" component={MainPage} />
+            <Route path="/services/concrete-walkways" component={MainPage} />
+            <Route path="/services/foundations--piling--footings" component={MainPage} />
+            <Route path="/services/masonry-repairs" component={MainPage} />
+            <Route path="/services/parging--foundation-repairs" component={MainPage} />
+            <Route path="/services/retaining-walls" component={MainPage} />
+            <Route path="/services/stone-refacing" component={MainPage} />
+            <Route path="/services/stone-refacing-for-stucco-wood-and-siding" component={MainPage} />
+            <Route path="/services/window-sills" component={MainPage} />
+
             <Route path="/services/:type" component={ServicePageMain} />
             <Route component={MainPage} />
           </Switch>

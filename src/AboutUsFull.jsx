@@ -14,6 +14,7 @@ const StyledImg = styled.img`
   margin-top: 10px;
   margin-right: 10px;
   float: left;
+  border: 1px solid #000;
   @media (max-width: 600px) {
     float: none;
   }`;
@@ -68,7 +69,7 @@ class AboutUsFull extends React.Component {
           <li>In 1983, our estimator started his own commercial company and achieved two first place awards from the Canadian Masonry Contractors Association (CMCA).</li>
           <li>In 1992, he won the Best Masonry Workmanship for the Yoahan Shopping Centre in Richmond B.C.</li>
           <li>In 1993, he won Best Innovative Creation by designing a particular concrete block for Concorde Adex (Our Estimator’s Team, Ocean Cement Products, and Dr. Mike Hatzinakolous- Fero Corp.).</li>
-          <p>In 2004, our estimator and partner launched Three Little Pigs Masonry, a full service masonry company for the homeowner. His many years of experience allow him to help homeowners with many permanent solutions to their problems where other competitors have failed to succeed. If we cannot serve any of your specific construction needs, we can definitely put you in touch with another reputable subcontractor or general contractor who specializes in this field.</p>
+          <p>In 2004, our estimator and partner launched Three Little Pigs Masonry, a full service masonry company for the homeowner. His many years of experience allow him to help homeowners with many permanent solutions to their problems where other competitors have failed to succeed.</p>
         </Dialog>
       </StyledAbout>
     );

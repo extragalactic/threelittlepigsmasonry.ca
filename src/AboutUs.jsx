@@ -34,7 +34,7 @@ const AboutUs = () => {
       <h2>Our Commitment</h2>
       <StyledTextwithLogo>
         <MediaQuery minWidth={800}>
-          <img src="./images/logo-small.jpg" alt="Three Little Pigs Logo" />
+          <img src="/images/logo-small.jpg" alt="Three Little Pigs Logo" />
         </MediaQuery>
         <StyledText>
           <p>
@@ -45,9 +45,7 @@ const AboutUs = () => {
           <p>
             In 2004, our estimator and partner launched Three Little Pigs Masonry, a full service masonry company for
             the homeowner. His many years of experience allow him to help homeowners with many permanent solutions to
-            their problems where other competitors have failed to succeed. If we cannot serve any of your specific
-            construction needs, we can definitely put you in touch with another reputable subcontractor or general
-            contractor who specializes in this field.
+            their problems where other competitors have failed to succeed.
           </p>
         </StyledText>
       </StyledTextwithLogo>

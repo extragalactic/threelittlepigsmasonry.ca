@@ -43,7 +43,7 @@ class ServicePageMain extends React.Component {
         {
           author: 'them',
           data: {
-            text: 'Welcome to Three Little Pigs Masonry, Is there something I can do to help you?',
+            text: 'Welcome to Three Little Pigs Masonry. How can I help you?',
           },
           type: 'text',
         },
@@ -143,8 +143,8 @@ class ServicePageMain extends React.Component {
             position: 'absolute',
           }}
           agentProfile={{
-            teamName: 'Third Pig',
-            imageUrl: 'https://s3.ca-central-1.amazonaws.com/tlpm/pictures/imageedit_1_3880336731.png',
+            teamName: 'Automated Estimator Pig',
+            imageUrl: '/images/PigBot_small.png',
           }}
           onMessageWasSent={this._onMessageWasSent}
           messageList={this.state.messageList}
