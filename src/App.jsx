@@ -109,6 +109,11 @@ const App = () => {
             <Route path="/services/stone-refacing-for-stucco-wood-and-siding" component={MainPage} />
             <Route path="/services/window-sills" component={MainPage} />
 
+            <Route path="/services/our-commitment" component={MainPage} />
+            <Route path="/services/our-history" component={MainPage} />
+            <Route path="/services/testimonials" component={MainPage} />
+            <Route path="/services/contact-us" component={MainPage} />
+
             <Route path="/services/:type" component={ServicePageMain} />
             <Route component={MainPage} />
           </Switch>

@@ -44,7 +44,7 @@ class MainPage extends React.Component {
       this.setState({
         isOpen: true,
       });
-    }, 10000);
+    }, 30000);
   }
   openChat() {
     this.setState({
