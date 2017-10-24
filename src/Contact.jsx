@@ -67,8 +67,7 @@ const queries = [{
   query: 'min-width: 1000px',
 }];
 
-/* NOTE: This component needs to be renamed 
-(is not longer for contact, and is confusing) */
+/* Note: This component should be renamed (is not longer for contact, and is confusing) */
 
 const serviceAreaList = ['Aurora', 'Bethesda', 'Bradford', 'Brampton', 'Etobicoke', 'Gormley', 'Holland Landing', 'Kettleby', 'King City', 'Maple', 'Markham', 'Mississauga', 'Newmarket', 'Nobleton', 'North York', 'Oak Ridges', 'Oakville', 'Richmond Hill', 'Scarborough', 'Sharon', 'Stouffville', 'Thornhill', 'Toronto', 'Unionville', 'Vandor'];
 

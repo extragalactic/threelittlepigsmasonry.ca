@@ -34,7 +34,6 @@ const ServiceThumbnail = (props) => {
         <p>{props.service.summary}</p>
         <div>
           <RaisedButton
-            style={{ padding: '10px' }}
             labelStyle={{ fontSize: '0.8em' }}
             label="Learn more..."
             secondary

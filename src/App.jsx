@@ -8,7 +8,7 @@ import Footer from './Footer';
 import TopBar from './TopBar';
 import MainPage from './MainPage';
 import ServicePageMain from './ServicePageMain';
-// import './App.css';
+// import './App.css'; /* using this css for testing */
 
 const StyledApp = styled.section`
   text-align: center;
@@ -48,17 +48,17 @@ const GlobalStyles = styled.div`
     padding: 5px 0px;
   }
   h3 {
-    font-size: 1.2em;
+    font-size: 1.3em;
   }
   h4 {
-    font-size: 1.3em;
-  }
-  h5 {
-    font-size: 1.3em;
+    font-size: 1.2em;
     color: #841F27; 
   }
+  h5 {
+    font-size: 1.1em;
+  }
   h6 {
-    font-size: 1.1em; 
+    font-size: 1.0em; 
   }  
 `;
 
@@ -66,7 +66,8 @@ const GlobalStyles = styled.div`
 const muiTheme = getMuiTheme({
   palette: {
     primary1Color: '#841F27',
-    accent1Color: '#fff',
+    primary2Color: '#f00',
+    accent1Color: '#f00',
     alternateTextColor: '#1a0000',
   },
   appBar: {
@@ -79,6 +80,16 @@ const muiTheme = getMuiTheme({
     backgroundColor: '#fff',
     textColor: '#000',
     fontSize: '1.0em',
+  },
+  raisedButton: {
+    primaryTextColor: '#fff',
+    secondaryTextColor: '#fff',
+    primaryColor: '#a00',
+    secondaryColor: '#1DA1F2', /* this is 'Twitter Blue' */
+    color: 'rgba(255, 0, 0, 0.87)',
+  },
+  dropDownMenu: {
+    accentColor: '#000',
   },
 });
 const myMuiTheme = getMuiTheme(muiTheme);
@@ -94,25 +105,24 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={MainPage} />
 
-            <Route path="/services/brick-repair" component={MainPage} />
-            <Route path="/services/basement-waterproofing" component={MainPage} />
-            <Route path="/services/chimneys--stone-chimneys" component={MainPage} />
-            <Route path="/services/concrete-repair" component={MainPage} />
-            <Route path="/services/concrete-step-repair" component={MainPage} />
-            <Route path="/services/flagstone" component={MainPage} />
-            <Route path="/services/concrete-walkways" component={MainPage} />
-            <Route path="/services/foundations--piling--footings" component={MainPage} />
-            <Route path="/services/masonry-repairs" component={MainPage} />
-            <Route path="/services/parging--foundation-repairs" component={MainPage} />
-            <Route path="/services/retaining-walls" component={MainPage} />
-            <Route path="/services/stone-refacing" component={MainPage} />
-            <Route path="/services/stone-refacing-for-stucco-wood-and-siding" component={MainPage} />
-            <Route path="/services/window-sills" component={MainPage} />
+            <Route path="/services/brick-repair" render={(props) => { return <ServicePageMain redirect="brick-stone" {...props} />; }} />
+            <Route path="/services/basement-waterproofing" render={(props) => { return <ServicePageMain redirect="foundation" {...props} />; }} />
+            <Route path="/services/chimneys--stone-chimneys" render={(props) => { return <ServicePageMain redirect="brick-stone" {...props} />; }} />
+            <Route path="/services/concrete-repair" render={(props) => { return <ServicePageMain redirect="concrete" {...props} />; }} />
+            <Route path="/services/concrete-step-repair" render={(props) => { return <ServicePageMain redirect="concrete" {...props} />; }} />
+            <Route path="/services/concrete-walkways" render={(props) => { return <ServicePageMain redirect="concrete" {...props} />; }} />
+            <Route path="/services/foundations--piling--footings" render={(props) => { return <ServicePageMain redirect="foundation" {...props} />; }} />
+            <Route path="/services/masonry-repairs" render={(props) => { return <ServicePageMain redirect="brick-stone" {...props} />; }} />
+            <Route path="/services/parging--foundation-repairs" render={(props) => { return <ServicePageMain redirect="foundation" {...props} />; }} />
+            <Route path="/services/retaining-walls" render={(props) => { return <ServicePageMain redirect="walls" {...props} />; }} />
+            <Route path="/services/stone-refacing" render={(props) => { return <ServicePageMain redirect="refacing" {...props} />; }} />
+            <Route path="/services/stone-refacing-for-stucco-wood-and-siding" render={(props) => { return <ServicePageMain redirect="refacing" {...props} />; }} />
+            <Route path="/services/window-sills" render={(props) => { return <ServicePageMain redirect="brick-stone" {...props} />; }} />
 
-            <Route path="/services/our-commitment" component={MainPage} />
-            <Route path="/services/our-history" component={MainPage} />
-            <Route path="/services/testimonials" component={MainPage} />
-            <Route path="/services/contact-us" component={MainPage} />
+            <Route path="/our-commitment" render={(props) => { return <MainPage anchor="about-us" {...props} />; }} />
+            <Route path="/our-history" render={(props) => { return <MainPage anchor="about-us" {...props} />; }} />
+            <Route path="/testimonials" render={(props) => { return <MainPage anchor="testimonials" {...props} />; }} />
+            <Route path="/contact-us" render={(props) => { return <MainPage anchor="service-area" {...props} />; }} />
 
             <Route path="/services/:type" component={ServicePageMain} />
             <Route component={MainPage} />
@@ -123,6 +133,5 @@ const App = () => {
     </StyledApp>
   );
 };
-
 
 export default App;

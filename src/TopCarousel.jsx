@@ -101,14 +101,7 @@ const TopCarousel = (props) => {
     lazyLoad: false,
     pauseOnHover: false,
   };
-  /*
-  const NineOhFive = () => {
-    return location.assign('tel:+19055080500');
-  };
-  const FourOneSix = () => {
-    return location.assign('tel:+14165950100');
-  };
-  */
+
   return (
     <TopDiv>
       <SlideShow {...settings}>
@@ -127,15 +120,10 @@ const TopCarousel = (props) => {
               label="Click here for a quote!"
               secondary
               onClick={openChat}
-              backgroundColor={'blue'}
-              labelColor={'blue'}
               buttonStyle={{
-                backgroundColor: '#a65959',
-                borderRadius: 20,
                 fontFamily: 'sans-serif',
               }}
               style={{
-                borderRadius: 20,
                 marginTop: 10,
                 fontFamily: 'sans-serif',
               }}
@@ -151,8 +139,6 @@ const TopCarousel = (props) => {
     </TopDiv>
   );
 };
-
-//  <a onClick={NineOhFive}>905-508-0500</a> or <a onClick={FourOneSix}>416-595-0100</a>
 
 TopCarousel.propTypes = {
   openChat: PropTypes.func.isRequired,

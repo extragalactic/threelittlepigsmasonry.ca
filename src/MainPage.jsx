@@ -39,6 +39,13 @@ class MainPage extends React.Component {
     this._sendMessage = this._sendMessage.bind(this);
     this._handleClick = this._handleClick.bind(this);
   }
+
+  componentWillMount() {
+    if (this.props.anchor !== undefined) {
+     document.location = `${document.location.protocol}//${document.location.host}/#${this.props.anchor}`;
+    }
+  }
+
   componentDidMount() {
     setTimeout(() => {
       this.setState({
@@ -107,20 +114,20 @@ class MainPage extends React.Component {
         {this.state.modalIsOpen && <GetQuote closeModal={this.closeChat} />}
         <TopCarousel openChat={this.openChat} />
         <TextDivider quoteID={0} />
-        <div id="Services">
+        <div id="services">
           <ServicesThumbContainer />
         </div>
-        <div id="AboutUs">
+        <div id="about-us">
           <AboutUs />
         </div>
         <TextDivider quoteID={1} />
-        <div id="Photos">
+        <div id="photos">
           <PhotoGallery />
         </div>
-        <div id="Testimonials">
+        <div id="testimonials">
           <Testimonials />
         </div>
-        <div id="ServiceArea">
+        <div id="service-area">
           <Contact openChat={this.openChat} />
         </div>
         <Launcher
