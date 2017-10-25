@@ -5,7 +5,7 @@ import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import history from './history';
+// import history from './history';
 
 const StyledTopBar = styled.div`
   justify-content: left;
@@ -16,15 +16,19 @@ const StyledTopBar = styled.div`
   img {
     float: left;
     padding: 3px;
-    height: 120px;
+    margin-left: -5px;
+    height: 175px;
     @media (max-width: 1000px) {
-      height: 105px;
+      height: 165px;
     }
-    @media (max-width: 600px) {
-      height: 85px;
+    @media (max-width: 750px) {
+      height: 130px;
+    }    
+    @media (max-width: 650px) {
+      height: 90px;
     }
     @media (max-width: 450px) {
-      height: 68px;
+      height: 80px;
     }    
     @media (max-width: 370px) {
       height: 50px;
@@ -75,35 +79,36 @@ const MainMenu = (props) => {
       }
       targetOrigin={{ horizontal: 'right', vertical: 'top' }}
       anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+      iconStyle={{ fill: 'rgba(255, 255, 255, 0.87)' }}
     >
       <MenuItem
         primaryText="Services"
         onClick={() => {
-          TopBar.goToAnchor('Services');
+          TopBar.goToAnchor('services');
         }}
       />
       <MenuItem
         primaryText="About Us"
         onClick={() => {
-          TopBar.goToAnchor('AboutUs');
+          TopBar.goToAnchor('about-us');
         }}
       />
       <MenuItem
         primaryText="Photo Gallery"
         onClick={() => {
-          TopBar.goToAnchor('Photos');
+          TopBar.goToAnchor('photos');
         }}
       />
       <MenuItem
         primaryText="Testimonials"
         onClick={() => {
-          TopBar.goToAnchor('Testimonials');
+          TopBar.goToAnchor('testimonials');
         }}
       />
       <MenuItem
         primaryText="Service Area"
         onClick={() => {
-          TopBar.goToAnchor('ServiceArea');
+          TopBar.goToAnchor('service-area');
         }}
       />
     </IconMenu>

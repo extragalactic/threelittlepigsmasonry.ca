@@ -11,7 +11,7 @@ import ScrollToTopOnMount from './util/ScrollToTopOnMount';
 
 const StyledServicePage = styled.section`
   padding: 5px;
-  padding-bottom: 30px;
+  padding-bottom: 0px;
   margin-top: 0px;
   position: relative;
   z-index: 0;
@@ -24,13 +24,21 @@ const StyledServicePage = styled.section`
     text-align: left;
   }
 `;
-const StyledNavContainer = styled.div`margin-top: -30px;`;
+const StyledNavContainer = styled.div`
+  margin-top: -30px;
+`;
 
 class ServicePageMain extends React.Component {
   constructor(props) {
     super(props);
 
-    this.serviceType = props.match.params.type;
+    if (props.redirect === '') {
+      // url mapping from old site
+      this.serviceType = props.match.params.type;
+    } else {
+      // goto service type page
+      this.serviceType = props.redirect;
+    }
     this.state = {
       modalIsOpen: false,
       // find selected tab index based on page name
@@ -134,7 +142,7 @@ class ServicePageMain extends React.Component {
   render() {
     return (
       <StyledServicePage>
-        <ScrollToTopOnMount />
+        <ScrollToTopOnMount /> { /* resets page position to top */ }
         <StyledNavContainer>
           <ServicesTabsNav pageContent={this.allServices()} startIndex={this.state.selectedTab} />
         </StyledNavContainer>
@@ -158,7 +166,12 @@ class ServicePageMain extends React.Component {
 }
 
 ServicePageMain.propTypes = {
-  match: PropTypes.object.isRequired,
+  match: PropTypes.object,
+  redirect: PropTypes.string,
+};
+ServicePageMain.defaultProps = {
+  match: null,
+  redirect: '',
 };
 
 export default ServicePageMain;

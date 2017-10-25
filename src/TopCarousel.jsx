@@ -14,7 +14,6 @@ const TopDiv = styled.div`
   height: 0px;
   position: relative;
   padding-bottom: 62%;
-  zindex: 100;
   @media (max-width: 1000px) {
     padding-bottom: 61%;
   }
@@ -34,12 +33,17 @@ const StyledTagline = styled.img`
   margin-left: -15px;
   padding-bottom: 10px;
   width: 700px;
+  margin-top: -90px;
+  margin-left: -20px;
+
   @media (max-width: 1000px) {
-    width: 500px;
+    width: 550px;
+    margin-top: -90px;
+    margin-left: -20px;
   }
-  @media (max-width: 600px) {
-    width: 300px;
-    margin-top: -50px;
+  @media (max-width: 650px) {
+    width: 400px;
+    margin-top: -70px;
   }
 `;
 const StyledQuoteRequest = styled.div`
@@ -59,8 +63,8 @@ const StyledQuoteRequest = styled.div`
   > div {
     width: 245px;
   }
-  @media (max-width: 600px) {
-    margin-top: -35px;
+  @media (max-width: 650px) {
+    margin-top: -20px;
     h4 {
       font-size: 1em;
     }
@@ -97,14 +101,7 @@ const TopCarousel = (props) => {
     lazyLoad: false,
     pauseOnHover: false,
   };
-  /*
-  const NineOhFive = () => {
-    return location.assign('tel:+19055080500');
-  };
-  const FourOneSix = () => {
-    return location.assign('tel:+14165950100');
-  };
-  */
+
   return (
     <TopDiv>
       <SlideShow {...settings}>
@@ -114,8 +111,8 @@ const TopCarousel = (props) => {
         <div><SlickSlide src="/images/intro/intro3.jpg" alt="" /></div>
       </SlideShow>
       <StyledCarouselContent>
-        <MediaQuery minWidth={601}>
-          <StyledTagline src="/images/wolf-blow.png" alt="Warranties that blow the others away!" />
+        <MediaQuery minWidth={451}>
+          <StyledTagline src="/images/LogoBanner.png" alt="Warranties that blow the others away!" />
         </MediaQuery>
         <StyledQuoteRequest>
           <StyledPhoneSection>
@@ -123,15 +120,10 @@ const TopCarousel = (props) => {
               label="Click here for a quote!"
               secondary
               onClick={openChat}
-              backgroundColor={'blue'}
-              labelColor={'blue'}
               buttonStyle={{
-                backgroundColor: '#a65959',
-                borderRadius: 20,
                 fontFamily: 'sans-serif',
               }}
               style={{
-                borderRadius: 20,
                 marginTop: 10,
                 fontFamily: 'sans-serif',
               }}
@@ -147,8 +139,6 @@ const TopCarousel = (props) => {
     </TopDiv>
   );
 };
-
-//  <a onClick={NineOhFive}>905-508-0500</a> or <a onClick={FourOneSix}>416-595-0100</a>
 
 TopCarousel.propTypes = {
   openChat: PropTypes.func.isRequired,

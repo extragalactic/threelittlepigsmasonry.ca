@@ -10,7 +10,7 @@ import history from './history';
 
 const StyledServicePage = styled.section`
   padding: 5px;
-  padding-bottom: 5px;
+  padding-bottom: 25px;
   margin-top: -40px;
 
   h1 {
@@ -39,7 +39,7 @@ const StyledSubheading = styled.div`
 `;
 const StyledMain = styled.div`
   padding: 20px 5px 15px 5px;
-  margin-top: -40px;
+  margin-top: -30px;
   text-align: left;
 
   div {
@@ -48,7 +48,9 @@ const StyledMain = styled.div`
     margin-bottom: -10px;
   }
 `;
-
+const StyledParagraph = styled.div`
+  padding-bottom: 5px;
+`;
 
 const Arrow = (props) => {
   const { className, style, onClick } = props;
@@ -109,6 +111,26 @@ class ServicePage extends React.Component {
     });
   }
 
+  getContent() {
+    return this.serviceData.content.map((section, i) => {
+      return (
+        <div key={section.title}>
+          {
+            i === 0 ? <h4>{section.title}</h4> : <h5>{section.title}</h5>}
+          {
+            section.text.map((body) => {
+              return (
+                <StyledParagraph key={body.substring(0, 20)}>
+                  <p>{body}</p>
+                </StyledParagraph>
+              );
+            })
+          }
+        </div>
+      );
+    });
+  }
+
   render() {
     return (
       <StyledServicePage>
@@ -121,10 +143,9 @@ class ServicePage extends React.Component {
           <p>(Before & After Photos)</p>
         </StyledSubheading>
         <StyledMain>
-          <h4>{this.serviceData.subtitle1}</h4>
-          <div><p>{this.serviceData.content1}</p></div>
-          <h6>{this.serviceData.subtitle2}</h6>
-          <div><p>{this.serviceData.content2}</p></div>
+          <div>
+            {this.getContent()}
+          </div>
         </StyledMain>
         <RaisedButton label="Get Quote" secondary onClick={this.props.openChat} />
       </StyledServicePage>
