@@ -14,9 +14,12 @@ const services = [
       },
     ],
     photos: [
-      ['parging1-before.jpg', 'parging1-after.jpg'],
-      ['parging2-before.jpg', 'parging2-after.jpg'],
-      ['wall1-before.jpg', 'wall1-after.jpg'],
+      ['refacing/stone1-before.jpg', 'refacing/stone1-after.jpg'],
+      ['refacing/stone2-before.jpg', 'refacing/stone2-after.jpg'],
+      ['refacing/stone3-before.jpg', 'refacing/stone3-after.jpg'],
+      ['refacing/stone4-before.jpg', 'refacing/stone4-after.jpg'],
+      ['refacing/stone5-before.jpg', 'refacing/stone5-after.jpg'],
+      ['refacing/stone6-before.jpg', 'refacing/stone6-after.jpg'],
     ],
   },
   // ------- Flagstone -------
@@ -34,9 +37,8 @@ const services = [
       },
     ],
     photos: [
-      ['parging1-before.jpg', 'parging1-after.jpg'],
-      ['parging2-before.jpg', 'parging2-after.jpg'],
-      ['wall1-before.jpg', 'wall1-after.jpg'],
+      ['flagstone/flagstone1-before.jpg', 'flagstone/flagstone1-after.jpg'],
+      ['flagstone/flagstone2-before.jpg', 'flagstone/flagstone2-after.jpg'],
     ],
   },
   // ------- Walls -------
@@ -50,9 +52,7 @@ const services = [
       },
     ],
     photos: [
-      ['parging1-before.jpg', 'parging1-after.jpg'],
-      ['parging2-before.jpg', 'parging2-after.jpg'],
-      ['wall1-before.jpg', 'wall1-after.jpg'],
+      ['walls/wall1-before.jpg', 'walls/wall1-after.jpg'],
     ],
   },
   // ------- Brick & Stone -------
@@ -70,9 +70,13 @@ const services = [
       },
     ],
     photos: [
-      ['parging1-before.jpg', 'parging1-after.jpg'],
-      ['parging2-before.jpg', 'parging2-after.jpg'],
-      ['wall1-before.jpg', 'wall1-after.jpg'],
+      ['brick-stone/brick1-before.jpg', 'brick-stone/brick1-after.jpg'],
+      ['brick-stone/brick2-before.jpg', 'brick-stone/brick2-after.jpg'],
+      ['brick-stone/brick3-before.jpg', 'brick-stone/brick3-after.jpg'],
+      ['brick-stone/chimney1-before.jpg', 'brick-stone/chimney1-after.jpg'],
+      ['brick-stone/steps3-before.jpg', 'brick-stone/steps3-after.jpg'],
+      ['brick-stone/window1-before.jpg', 'brick-stone/window1-after.jpg'],
+      ['brick-stone/window2-before.jpg', 'brick-stone/window2-after.jpg'],
     ],
   },
   // ------- Foundation -------
@@ -90,9 +94,12 @@ const services = [
       },
     ],
     photos: [
-      ['parging1-before.jpg', 'parging1-after.jpg'],
-      ['parging2-before.jpg', 'parging2-after.jpg'],
-      ['wall1-before.jpg', 'wall1-after.jpg'],
+      ['foundation/parging1-before.jpg', 'foundation/parging1-after.jpg'],
+      ['foundation/parging2-before.jpg', 'foundation/parging2-after.jpg'],
+      ['foundation/parging3-before.jpg', 'foundation/parging3-after.jpg'],
+      ['foundation/parging4-before.jpg', 'foundation/parging4-after.jpg'],
+      ['foundation/parging5-before.jpg', 'foundation/parging5-after.jpg'],
+      ['foundation/parging6-before.jpg', 'foundation/parging6-after.jpg'],
     ],
   },
   // ------- Concrete -------
@@ -118,9 +125,11 @@ const services = [
       },
     ],
     photos: [
-      ['parging1-before.jpg', 'parging1-after.jpg'],
-      ['parging2-before.jpg', 'parging2-after.jpg'],
-      ['wall1-before.jpg', 'wall1-after.jpg'],
+      ['concrete/concrete1-before.jpg', 'concrete/concrete1-after.jpg'],
+      ['concrete/concrete2-before.jpg', 'concrete/concrete2-after.jpg'],
+      ['concrete/steps1-before.jpg', 'concrete/steps1-after.jpg'],
+      ['concrete/steps2-before.jpg', 'concrete/steps2-after.jpg'],
+      ['concrete/sidewalk1-before.jpg', 'concrete/sidewalk1-after.jpg'],
     ],
   },
 ];
