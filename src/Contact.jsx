@@ -33,6 +33,14 @@ const StyledArea = styled.div`
     width: 100%;
     border: 1px solid #000;
   }
+  a:link, a:visited {
+    color: #c65757 !important; 
+    padding: 0px !important;
+  }
+  a:hover, a:active {
+    color: #d00 !important;
+    padding: 0px !important;     
+  }
 `;
 const StyledColumns = styled(Columns)`
   width: 100%;
@@ -82,7 +90,7 @@ const Contact = (props) => {
           <img src="/images/service-area-map.jpg" alt="service area" />
         </StyledArea>
         <StyledArea style={{ paddingLeft: '15px', paddingRight: '10px' }}>
-          <p>Three Little Pigs Masonry services a large part of the Greater Toronto Area. If you live in one of the areas listed below, let&#39;s get started! <br /><br />You can call us at <b>905-508-0500</b> or <b>416-595-0100</b>, or for an immediate estimate just click on the button below:</p>
+          <p>Three Little Pigs Masonry services a large part of the Greater Toronto Area. If you live in one of the areas listed below, let&#39;s get started! <br /><br />You can call us at <a href="tel:+19055080500">905-508-0500</a> or <a href="tel:+14165950100">416-595-0100</a>, or for an immediate estimate just click on the button below:</p>
           <div>
             <RaisedButton label="Get Quote" secondary onClick={openChat} />
           </div>

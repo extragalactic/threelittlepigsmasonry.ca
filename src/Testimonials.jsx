@@ -31,8 +31,11 @@ class Testimonials extends React.Component {
     service.getDetails({
       placeId: 'ChIJ74NmW2vTKogRAVn6jOwdYUI',
     }, (place, status) => {
+      // map the Google testimonials into an array
       if (status === google.maps.places.PlacesServiceStatus.OK) {
-        const testimonials = place.reviews.map((review) => {
+        const testimonials = place.reviews.filter((review) => {
+          return review.text.length > 30; // filter out one-liner comments
+        }).map((review) => {
           return {
             title: '',
             text: review.text,

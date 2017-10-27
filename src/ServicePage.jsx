@@ -38,7 +38,7 @@ const StyledSubheading = styled.div`
   }
 `;
 const StyledMain = styled.div`
-  padding: 20px 5px 15px 5px;
+  padding: 50px 5px 15px 5px;
   margin-top: -30px;
   text-align: left;
 
@@ -138,10 +138,6 @@ class ServicePage extends React.Component {
         <StyledSlideshow {...this.settings}>
           {this.getSlides()}
         </StyledSlideshow>
-        {/* ToDo: add a floating Before/After text over photos */}
-        <StyledSubheading>
-          <p>(Before & After Photos)</p>
-        </StyledSubheading>
         <StyledMain>
           <div>
             {this.getContent()}

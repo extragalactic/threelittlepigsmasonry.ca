@@ -79,7 +79,7 @@ class ServicesTabsNav extends React.Component {
         <SwipeableViews
           index={this.state.selectedTab}
           onChangeIndex={this.handleChange}
-          style={{ height: '70vh' }}
+          style={{ height: '100%' }}
           containerStyle={{ height: '100%' }}
           slideStyle={{ height: '100%' }}
         >

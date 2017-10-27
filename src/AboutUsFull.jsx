@@ -51,7 +51,11 @@ class AboutUsFull extends React.Component {
       <StyledAbout>
         <FlatButton
           className={'button'}
-          labelStyle={{ fontSize: '1.0em', padding: '5px 10px' }} label="Read the full story" primary onClick={this.openModal} />
+          labelStyle={{ fontSize: '1.0em', padding: '5px 10px' }}
+          label="Read the full story"
+          primary
+          onClick={this.openModal}
+        />
         <Dialog
           title="The History of Three Little Pigs Masonry"
           actions={actions}

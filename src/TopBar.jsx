@@ -39,7 +39,8 @@ const StyledTopBar = styled.div`
 
 class TopBar extends React.Component {
   static goToAnchor(anchor) {
-    document.location = `${document.location.protocol}//${document.location.host}/#${anchor}`;
+    const hashAnchor = anchor === '' ? '' : `/#${anchor}`;
+    document.location = `${document.location.protocol}//${document.location.host}${hashAnchor}`;
     return false;
   }
 
@@ -49,7 +50,12 @@ class TopBar extends React.Component {
         <AppBar
           title={
             <div>
-              <a style={{ backgroundColor: '#841F27' }}>
+              <a
+                onClick={() => { TopBar.goToAnchor(''); }}
+                role="button"
+                aria-hidden
+                style={{ backgroundColor: '#841F27' }}
+              >
                 <img src="/images/3LPM-title-light.png" alt="Three Little Pigs Masonry" />
               </a>
             </div>
