@@ -126,7 +126,7 @@ class ServicePageMain extends React.Component {
   allServices() {
     return ServiceData.map((service) => {
       return (
-        <div key={service.pageName}>
+        <div key={service.pageName} style={{ overflowY: 'auto' }}>
           <ServicePage serviceType={service.pageName} openChat={this.openChat} />
         </div>
       );
@@ -142,9 +142,9 @@ class ServicePageMain extends React.Component {
   render() {
     return (
       <StyledServicePage>
-        <ScrollToTopOnMount /> { /* resets page position to top */ }
+        <ScrollToTopOnMount /> { /* the only purpose of this component is to reset the page position to the top */ }
         <StyledNavContainer>
-          <ServicesTabsNav pageContent={this.allServices()} startIndex={this.state.selectedTab} />
+          <ServicesTabsNav pageContent={this.allServices()} startIndex={this.state.selectedTab} variableHeight />
         </StyledNavContainer>
         <Launcher
           style={{

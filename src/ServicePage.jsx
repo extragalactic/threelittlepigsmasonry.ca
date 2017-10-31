@@ -28,18 +28,9 @@ const StyledSlideshow = styled(SlideShow)`
 const SlickSlide = styled.img`
   width: 97%;
 `;
-const StyledSubheading = styled.div`
-  color: #aaa;
-  text-transform: uppercase;
-  text-align: center;
-  margin-top: 10px;
-  p {
-    display: inline-block;
-  }
-`;
 const StyledMain = styled.div`
   padding: 50px 5px 15px 5px;
-  margin-top: -30px;
+  margin-top: -15px;
   text-align: left;
 
   div {
@@ -50,6 +41,9 @@ const StyledMain = styled.div`
 `;
 const StyledParagraph = styled.div`
   padding-bottom: 5px;
+`;
+const StyledListItem = styled.div`
+  padding-bottom: 25px;
 `;
 
 const Arrow = (props) => {
@@ -113,14 +107,39 @@ class ServicePage extends React.Component {
 
   getContent() {
     return this.serviceData.content.map((section, i) => {
+      if (section.list !== undefined) {
+        // section type "list" displays paragraphs in a bulleted list
+        return (
+          <div key={`${section.title}${i}`}>
+            {
+              section.title !== '' &&
+                section.mainTitle === true ? <h4>{section.title}</h4> : <h5>{section.title}</h5>
+            }
+            <ul>
+              {
+                section.list.map((body) => {
+                  return (
+                    <StyledListItem key={body.substring(0, 30)}>
+                      <li>{body}</li>
+                    </StyledListItem>
+                  );
+                })
+              }
+            </ul>
+          </div>
+        );
+      }
+      // section type "text" displays content as regular paragraphs
       return (
-        <div key={section.title}>
+        <div key={`${section.title}${i}`}>
           {
-            i === 0 ? <h4>{section.title}</h4> : <h5>{section.title}</h5>}
+            section.title !== '' &&
+              section.mainTitle === true ? <h4>{section.title}</h4> : <h5>{section.title}</h5>
+          }
           {
             section.text.map((body) => {
               return (
-                <StyledParagraph key={body.substring(0, 20)}>
+                <StyledParagraph key={body.substring(0, 30)}>
                   <p>{body}</p>
                 </StyledParagraph>
               );

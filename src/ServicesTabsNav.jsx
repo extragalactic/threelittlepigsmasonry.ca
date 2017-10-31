@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import MediaQuery from 'react-responsive';
+import RaisedButton from 'material-ui/RaisedButton';
 import ServiceData from './ServiceData';
 
 // styled-components needs this small workaround to pass in a custom prop when wrapping another component to prevent an 'unknown prop' warning
@@ -42,6 +43,14 @@ class ServicesTabsNav extends React.Component {
       selectedTab: props.startIndex,
     };
     this.handleChange = this.handleChange.bind(this);
+    this.resizePage = this.resizePage.bind(this);
+    this.swipeableViewsRef = null;
+    this.swipeableActions = null;
+  }
+
+  componentDidMount() {
+    console.log('updating height...');
+    this.swipeableViewsRef.updateHeight();
   }
 
   handleChange(value) {
@@ -50,8 +59,15 @@ class ServicesTabsNav extends React.Component {
     });
   }
 
+  // TESTING
+  resizePage() {
+    console.log('resize');
+    this.swipeableViewsRef.updateHeight();    
+  }
+
   render() {
     return (
+      // the media queries determine if the tabs are displayed on 1 or 2 rows
       <div>
         <MediaQuery minWidth={1} maxWidth={624}>
           <StyledTabs
@@ -79,12 +95,14 @@ class ServicesTabsNav extends React.Component {
         <SwipeableViews
           index={this.state.selectedTab}
           onChangeIndex={this.handleChange}
-          style={{ height: '100%' }}
-          containerStyle={{ height: '100%' }}
-          slideStyle={{ height: '100%' }}
+          animateHeight={this.props.variableHeight}
+          animateTransitions={false}
+          action={(actions) => { this.swipeableActions = actions; }}
+          ref={(view) => { this.swipeableViewsRef = view; }}
         >
           {this.props.pageContent}
         </SwipeableViews>
+        <RaisedButton label="Resize" secondary onClick={this.resizePage} />
       </div>
     );
   }
@@ -92,9 +110,17 @@ class ServicesTabsNav extends React.Component {
 ServicesTabsNav.propTypes = {
   pageContent: PropTypes.array.isRequired,
   startIndex: PropTypes.number,
+  variableHeight: PropTypes.bool,
 };
 ServicesTabsNav.defaultProps = {
   startIndex: 0,
+  variableHeight: false,
 };
 
 export default ServicesTabsNav;
+
+/*
+          style={{ height: '100%' }}
+          containerStyle={{ height: '100%' }}
+          slideStyle={{ height: '100%' }}
+*/

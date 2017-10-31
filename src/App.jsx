@@ -37,8 +37,9 @@ const GlobalStyles = styled.div`
   }  
   h1 {
     font-size: 1.8em;
-    color: #999;
+    color: #777;
     background-color: #eee;
+    padding: 3px 5px 3px 5px;
   }
   h2 {
     color: #fff;
@@ -48,14 +49,17 @@ const GlobalStyles = styled.div`
     padding: 5px 0px;
   }
   h3 {
-    font-size: 1.3em;
+    font-size: 1.4em;
   }
   h4 {
-    font-size: 1.2em;
-    color: #841F27; 
+    font-size: 1.3em;
+    color: #777;
+    background-color: #eee;
+    padding: 3px 5px 3px 5px;
   }
   h5 {
     font-size: 1.1em;
+    color: #444;
   }
   h6 {
     font-size: 1.0em; 
