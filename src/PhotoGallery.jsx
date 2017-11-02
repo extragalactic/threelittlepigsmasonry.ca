@@ -36,7 +36,7 @@ class PhotoGallery extends React.Component {
       })
       .then((photos) => {
         this.setState({
-          photos,
+          photos: photos[0].url,
         });
 
         this.numberTotal = photos.length;
