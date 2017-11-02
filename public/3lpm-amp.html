@@ -45,13 +45,17 @@
   .contentBlock {
     background-color: #fff;
     margin: 0px 10px 10px 10px;
-    padding: 5px 0px;
+    padding: 10px 0px;
   }
   .centerBlock {
     text-align: center;
   }
   .buttonRow {
     padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: flex-start;
   }
   .carousel {
     margin-bottom: 5px;
@@ -119,6 +123,9 @@
     font-size: 16px;
     padding: 8px 15px 8px 15px;
   }  
+  .bottomImage {
+    display: flex;
+  }
 </style>
 
 <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
@@ -197,18 +204,19 @@
         alt="Three Little Pigs"></amp-img>
     </button>    
   </div>  
-  <amp-fit-text 
-    width="300"
-    height="130"
-    max-font-size="20"
-    min-font-size="15"
-    layout="responsive"
-  >
+  <amp-fit-text
+    media="(max-width: 549px)" width="300" height="130" max-font-size="20" min-font-size="15" layout="responsive" >
     <div class="contentBlock">
       <h1>Premium Work, Amazing Warranty!</h1>
       <p>Our mission is to provide high quality masonry restoration & renovation services for the GTA home and business owner. Family owned and operated, we have been proudly serving homeowners since 2004.</p>
-  </div>
+    </div>
   </amp-fit-text>
+  <amp-fit-text media="(min-width: 550px)" width="300" height="70" max-font-size="20" min-font-size="15" layout="responsive" >
+    <div class="contentBlock">
+      <h1>Premium Work, Amazing Warranty!</h1>
+      <p>Our mission is to provide high quality masonry restoration & renovation services for the GTA home and business owner. Family owned and operated, we have been proudly serving homeowners since 2004.</p>
+    </div>
+  </amp-fit-text> 
   <div class="centerBlock buttonRow">
     <a href="index.html#services" target="_self">
       <button
@@ -231,11 +239,31 @@
   </amp-fit-text>
 
   <div class="">
-    <amp-list width="auto"
-      height="400"
+    <amp-list 
+      media="(max-width: 549px)"
+      width="auto"
       layout="fixed-height"
+      height="800"
       src="data/amp-testimonials.json"
-      class="">
+    >
+      <template type="amp-mustache"
+        id="amp-template-id">
+        <div class="testimonialCard contentBlock">
+          <div class="testimonialTitleBar">★★★★★</div>
+          <p>{{text}}</p>
+          <p class="nameTag">{{name}}</p>
+        </div>
+      </template>
+    </amp-list>  
+  </div>
+  <div class="">
+    <amp-list
+      media="(min-width: 550px)" 
+      width="auto"
+      layout="fixed-height"
+      height="300"
+      src="data/amp-testimonials.json"
+    >
       <template type="amp-mustache"
         id="amp-template-id">
         <div class="testimonialCard contentBlock">
@@ -256,11 +284,12 @@
     </a>
   </div>
   <amp-img 
-    src="/images/tagline-modified.png"
-    width="730"
-    height="209"
-    layout="responsive">
-  </amp-img> 
+    src="/images/LogoBanner-white.png"
+    width="812"
+    height="328"
+    layout="responsive"
+    class="bottomImage">
+  </amp-img>
   <div class="centerBlock footer">
     <p>Copyright &#169; 2017 Three Little Pigs Masonry</p>
   </div>

@@ -32,21 +32,32 @@ class ServicePageMain extends React.Component {
   constructor(props) {
     super(props);
 
-    if (props.redirect === '') {
-      // url mapping from old site
-      this.serviceType = props.match.params.type;
+    if (props.redirect === '') {  
+      if (props.pageName !== undefined) { // (this may no longer get used...)
+        this.serviceType = props.pageName;
+      } else {
+        // goto service type page (default to the 'refacing' page)
+        this.serviceType = props.match.params.type !== undefined ? props.match.params.type : 'refacing';
+      }
     } else {
-      // goto service type page
+      // url mapping from old site
       this.serviceType = props.redirect;
     }
+
+    // find the page's tab index (associated with the array order in ServiceData) based on the page name/type indicated in the URL
+    let selectedTab = ServiceData.indexOf(
+      ServiceData.find((obj) => {
+        return obj.pageName === this.serviceType;
+      }),
+    );
+    // if page name/type is not found, default to the first one
+    if (selectedTab === -1) {
+      selectedTab = 0;
+    }
+
     this.state = {
       modalIsOpen: false,
-      // find selected tab index based on page name
-      selectedTab: ServiceData.indexOf(
-        ServiceData.find((obj) => {
-          return obj.pageName === this.serviceType;
-        }),
-      ),
+      selectedTab,
       messageList: [
         {
           author: 'them',
@@ -168,6 +179,7 @@ class ServicePageMain extends React.Component {
 ServicePageMain.propTypes = {
   match: PropTypes.object,
   redirect: PropTypes.string,
+  pageName: PropTypes.string,
 };
 ServicePageMain.defaultProps = {
   match: null,

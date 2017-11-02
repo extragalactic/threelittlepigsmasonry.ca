@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import SlideShow from 'react-slick';
-// import ArrowIcon from 'material-ui/svg-icons/image/navigate-next';
 import RaisedButton from 'material-ui/RaisedButton';
 import ServiceData from './ServiceData';
 import history from './history';
@@ -51,18 +50,11 @@ const Arrow = (props) => {
   return (
     <div
       className={className}
-      style={{ ...style, display: 'block', background: '#841F27' }}
+      style={{...style, display: 'block', background: '#777', height: '60px', lineHeight: '80px' }}
       onClick={onClick}
     />
-    // <ArrowIcon color={'#841F27'} style={{ width: 15, height: 15, float: 'left' }} />
   );
 };
-Arrow.propTypes = {
-  className: PropTypes.string,
-  style: PropTypes.object,
-  onClick: PropTypes.func,
-};
-
 
 class ServicePage extends React.Component {
   static gotoSection(section) {
@@ -87,8 +79,8 @@ class ServicePage extends React.Component {
       lazyLoad: false,
       swipe: true,
       swipeToSlide: false,
-      nextArrow: <Arrow />,
       prevArrow: <Arrow />,
+      nextArrow: <Arrow />,
       responsive: [
         { breakpoint: 600, settings: { slidesToShow: 1, slidesToScroll: 1 } },
         { breakpoint: 1000, settings: { slidesToShow: 2, slidesToScroll: 2 } },
@@ -110,7 +102,7 @@ class ServicePage extends React.Component {
       if (section.list !== undefined) {
         // section type "list" displays paragraphs in a bulleted list
         return (
-          <div key={`${section.title}${i}`}>
+          <div key={`${section.title}${i}`}> {/* ...just a creative way to get a unique key, linter still doesn't like the "i" */}
             {
               section.title !== '' &&
                 section.mainTitle === true ? <h4>{section.title}</h4> : <h5>{section.title}</h5>

@@ -109,26 +109,30 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={MainPage} />
 
-            <Route path="/services/brick-repair" render={(props) => { return <ServicePageMain redirect="brick-stone" {...props} />; }} />
-            <Route path="/services/basement-waterproofing" render={(props) => { return <ServicePageMain redirect="foundation" {...props} />; }} />
-            <Route path="/services/chimneys--stone-chimneys" render={(props) => { return <ServicePageMain redirect="brick-stone" {...props} />; }} />
+            {/* Route re-directs from old website, linking to different Services pages */}
+            <Route path="/services/brick-repair" render={(props) => { return <ServicePageMain redirect="masonry" {...props} />; }} />
+            <Route path="/services/basement-waterproofing" render={(props) => { return <ServicePageMain redirect="foundations" {...props} />; }} />
+            <Route path="/services/chimneys--stone-chimneys" render={(props) => { return <ServicePageMain redirect="masonry" {...props} />; }} />
             <Route path="/services/concrete-repair" render={(props) => { return <ServicePageMain redirect="concrete" {...props} />; }} />
             <Route path="/services/concrete-step-repair" render={(props) => { return <ServicePageMain redirect="concrete" {...props} />; }} />
             <Route path="/services/concrete-walkways" render={(props) => { return <ServicePageMain redirect="concrete" {...props} />; }} />
-            <Route path="/services/foundations--piling--footings" render={(props) => { return <ServicePageMain redirect="foundation" {...props} />; }} />
-            <Route path="/services/masonry-repairs" render={(props) => { return <ServicePageMain redirect="brick-stone" {...props} />; }} />
-            <Route path="/services/parging--foundation-repairs" render={(props) => { return <ServicePageMain redirect="foundation" {...props} />; }} />
+            <Route path="/services/foundations--piling--footings" render={(props) => { return <ServicePageMain redirect="foundations" {...props} />; }} />
+            <Route path="/services/masonry-repairs" render={(props) => { return <ServicePageMain redirect="masonry" {...props} />; }} />
+            <Route path="/services/parging--foundation-repairs" render={(props) => { return <ServicePageMain redirect="foundations" {...props} />; }} />
             <Route path="/services/retaining-walls" render={(props) => { return <ServicePageMain redirect="walls" {...props} />; }} />
             <Route path="/services/stone-refacing" render={(props) => { return <ServicePageMain redirect="refacing" {...props} />; }} />
             <Route path="/services/stone-refacing-for-stucco-wood-and-siding" render={(props) => { return <ServicePageMain redirect="refacing" {...props} />; }} />
-            <Route path="/services/window-sills" render={(props) => { return <ServicePageMain redirect="brick-stone" {...props} />; }} />
+            <Route path="/services/window-sills" render={(props) => { return <ServicePageMain redirect="masonry" {...props} />; }} />
 
+            {/* Route re-directs from old website, linking to anchors on the main page  */}
             <Route path="/our-commitment" render={(props) => { return <MainPage anchor="about-us" {...props} />; }} />
             <Route path="/our-history" render={(props) => { return <MainPage anchor="about-us" {...props} />; }} />
             <Route path="/testimonials" render={(props) => { return <MainPage anchor="testimonials" {...props} />; }} />
             <Route path="/contact-us" render={(props) => { return <MainPage anchor="service-area" {...props} />; }} />
 
+            {/* New routes */}          
             <Route path="/services/:type" component={ServicePageMain} />
+            <Route path="/services" component={ServicePageMain} />
             <Route component={MainPage} />
           </Switch>
           <Footer />

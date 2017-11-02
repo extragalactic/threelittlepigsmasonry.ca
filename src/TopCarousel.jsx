@@ -75,6 +75,7 @@ const StyledPhoneSection = styled.div`
   margin-top: 5px;
   background-color: rgba(0,0,0,0.5);
   border-radius: 0.5em;
+  height: 120px;
 
   h6 {
     color: #fff;
@@ -116,23 +117,31 @@ const TopCarousel = (props) => {
         </MediaQuery>
         <StyledQuoteRequest>
           <StyledPhoneSection>
-            <RaisedButton
-              label="Click here for a quote!"
-              secondary
-              onClick={openChat}
-              buttonStyle={{
-                fontFamily: 'sans-serif',
-              }}
-              style={{
-                marginTop: 10,
-                fontFamily: 'sans-serif',
-              }}
-            />
-            <PhoneIcon color={'#fff'} style={{ width: 50, height: 50, float: 'left' }} />
-            <p>or give us a call at:</p>
-            <h6>
-              <a href="tel:+19055080500">905-508-0500</a> or <a href="tel:+14165950100">416-595-0100</a>
-            </h6>
+            <div>
+              <RaisedButton
+                label="Click here for a quote!"
+                secondary
+                onClick={openChat}
+                buttonStyle={{
+                  fontFamily: 'sans-serif',
+                  paddingLeft: '5px',
+                  paddingRight: '5px',
+                }}
+                style={{
+                  marginTop: 10,
+                  fontFamily: 'sans-serif',
+                }}
+              />
+            </div>
+            <div>
+              <PhoneIcon color={'#fff'} style={{ width: 50, height: 50, float: 'left' }} />
+              <p style={{ float: 'left' }}>or give us a call at:</p>
+            </div>
+            <div>
+              <h6 style={{ float: 'left' }}>
+                <a href="tel:+19055080500">905-508-0500</a> or <a href="tel:+14165950100">416-595-0100</a>
+              </h6>
+            </div>
           </StyledPhoneSection>
         </StyledQuoteRequest>
       </StyledCarouselContent>

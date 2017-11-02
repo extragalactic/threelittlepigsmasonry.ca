@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import MediaQuery from 'react-responsive';
-import RaisedButton from 'material-ui/RaisedButton';
 import ServiceData from './ServiceData';
 
 // styled-components needs this small workaround to pass in a custom prop when wrapping another component to prevent an 'unknown prop' warning
@@ -43,26 +42,23 @@ class ServicesTabsNav extends React.Component {
       selectedTab: props.startIndex,
     };
     this.handleChange = this.handleChange.bind(this);
-    this.resizePage = this.resizePage.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
     this.swipeableViewsRef = null;
-    this.swipeableActions = null;
   }
 
   componentDidMount() {
-    console.log('updating height...');
-    this.swipeableViewsRef.updateHeight();
+    // This is a solution to ensure the height calculation occurs after the DOM is fully rendered. Otherwise, componentDidMount() fires before the DOM is rendered which caused the height calc to fail (this is unexpected React behavior)
+    setTimeout(() => {
+      window.requestAnimationFrame(() => {
+        this.swipeableViewsRef.updateHeight();
+      });
+    }, 10);
   }
 
   handleChange(value) {
     this.setState({
       selectedTab: value,
     });
-  }
-
-  // TESTING
-  resizePage() {
-    console.log('resize');
-    this.swipeableViewsRef.updateHeight();    
   }
 
   render() {
@@ -97,12 +93,10 @@ class ServicesTabsNav extends React.Component {
           onChangeIndex={this.handleChange}
           animateHeight={this.props.variableHeight}
           animateTransitions={false}
-          action={(actions) => { this.swipeableActions = actions; }}
           ref={(view) => { this.swipeableViewsRef = view; }}
         >
           {this.props.pageContent}
         </SwipeableViews>
-        <RaisedButton label="Resize" secondary onClick={this.resizePage} />
       </div>
     );
   }
