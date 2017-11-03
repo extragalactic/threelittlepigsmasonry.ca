@@ -44,8 +44,8 @@
   }
   .contentBlock {
     background-color: #fff;
-    margin: 0px 10px 10px 10px;
-    padding: 10px 0px;
+    margin: 0px 10px 20px 10px;
+    padding: 5px 0px 20px 0px;
   }
   .centerBlock {
     text-align: center;
@@ -59,6 +59,9 @@
   }
   .carousel {
     margin-bottom: 5px;
+  }
+  .preview-button {
+    border: 1px solid #ddd;
   }
   .testimonialContainer {
     display: flex;
@@ -98,11 +101,11 @@
   }
   .btn:hover {
     background: #1DA1F2;
-    background-image: -webkit-linear-gradient(top, #afbdd4, #1DA1F2);
-    background-image: -moz-linear-gradient(top, #afbdd4, #1DA1F2);
-    background-image: -ms-linear-gradient(top, #afbdd4, #1DA1F2);
-    background-image: -o-linear-gradient(top, #afbdd4, #1DA1F2);
-    background-image: linear-gradient(to bottom, #afbdd4, #1DA1F2);
+    background-image: -webkit-linear-gradient(top, #99ceef, #1DA1F2);
+    background-image: -moz-linear-gradient(top, #99ceef, #1DA1F2);
+    background-image: -ms-linear-gradient(top, #99ceef, #1DA1F2);
+    background-image: -o-linear-gradient(top, #99ceef, #1DA1F2);
+    background-image: linear-gradient(to bottom, #99ceef, #1DA1F2);
     text-decoration: none;
     cursor: pointer;
   } 
@@ -110,11 +113,12 @@
     outline: none;  
   }
   .btnLarge {
-    -webkit-border-radius: 18;
-    -moz-border-radius: 18;
-    border-radius: 18px;
-    font-size: 20px;
+    -webkit-border-radius: 5;
+    -moz-border-radius: 5;
+    border-radius: 5px;
+    font-size: 5px;
     padding: 10px 20px 10px 20px;
+    font-size: 18px;
   }
   .btnSmall {
     -webkit-border-radius: 12;
@@ -179,25 +183,25 @@
   </amp-img>    
   </amp-carousel>
   <div class="carousel-preview centerBlock">
-    <button on="tap:carousel-with-preview.goToSlide(index=0)">
+    <button on="tap:carousel-with-preview.goToSlide(index=0)" class="preview-button">
       <amp-img src="/images/intro/intro2-thumb.jpg"
         width="60"
         height="38"
         alt="Three Little Pigs"></amp-img>
     </button>
-    <button on="tap:carousel-with-preview.goToSlide(index=1)">
+    <button on="tap:carousel-with-preview.goToSlide(index=1)" class="preview-button">
       <amp-img src="/images/intro/intro1-thumb.jpg"
         width="60"
         height="38"
         alt="Three Little Pigs"></amp-img>
     </button>
-    <button on="tap:carousel-with-preview.goToSlide(index=2)">
+    <button on="tap:carousel-with-preview.goToSlide(index=2)" class="preview-button">
       <amp-img src="/images/intro/intro3-thumb.jpg"
         width="60"
         height="38"
         alt="Three Little Pigs"></amp-img>
     </button>
-    <button on="tap:carousel-with-preview.goToSlide(index=3)">
+    <button on="tap:carousel-with-preview.goToSlide(index=3)" class="preview-button">
       <amp-img src="/images/intro/intro4-thumb.jpg"
         width="60"
         height="38"
@@ -205,13 +209,13 @@
     </button>    
   </div>  
   <amp-fit-text
-    media="(max-width: 549px)" width="300" height="130" max-font-size="20" min-font-size="15" layout="responsive" >
+    media="(max-width: 549px)" width="300" height="140" max-font-size="20" min-font-size="15" layout="responsive" >
     <div class="contentBlock">
       <h1>Premium Work, Amazing Warranty!</h1>
       <p>Our mission is to provide high quality masonry restoration & renovation services for the GTA home and business owner. Family owned and operated, we have been proudly serving homeowners since 2004.</p>
     </div>
   </amp-fit-text>
-  <amp-fit-text media="(min-width: 550px)" width="300" height="70" max-font-size="20" min-font-size="15" layout="responsive" >
+  <amp-fit-text media="(min-width: 550px)" width="300" height="75" max-font-size="20" min-font-size="15" layout="responsive" >
     <div class="contentBlock">
       <h1>Premium Work, Amazing Warranty!</h1>
       <p>Our mission is to provide high quality masonry restoration & renovation services for the GTA home and business owner. Family owned and operated, we have been proudly serving homeowners since 2004.</p>
@@ -238,46 +242,26 @@
     </div>
   </amp-fit-text>
 
-  <div class="">
-    <amp-list 
-      media="(max-width: 549px)"
-      width="auto"
-      layout="fixed-height"
-      height="800"
-      src="data/amp-testimonials.json"
-    >
-      <template type="amp-mustache"
-        id="amp-template-id">
-        <div class="testimonialCard contentBlock">
-          <div class="testimonialTitleBar">★★★★★</div>
-          <p>{{text}}</p>
-          <p class="nameTag">{{name}}</p>
-        </div>
-      </template>
-    </amp-list>  
+  <div class="testimonialCard contentBlock">
+    <div class="testimonialTitleBar">★★★★★</div>
+    <p>I contacted 3 pigs for a quote to repair crumbling stone work. Tyler came out to look and take photos (I didn't even need to be home), then Darren phoned me. Darren was extremely knowledgeable and gave me lots of advice on the phone. It turns out it would be a big job ($50,000), but rather than give me hard sell about why I should go ahead, he actually explained why it might be best to leave it and monitor the situation over the next few years. I was very impressed that customer service is more important to them than getting work. I would absolutely trust them in future because I know they are not going to try to rip me off. Highly recommended.</p>
+    <p class="nameTag">private user</p>
   </div>
-  <div class="">
-    <amp-list
-      media="(min-width: 550px)" 
-      width="auto"
-      layout="fixed-height"
-      height="300"
-      src="data/amp-testimonials.json"
-    >
-      <template type="amp-mustache"
-        id="amp-template-id">
-        <div class="testimonialCard contentBlock">
-          <div class="testimonialTitleBar">★★★★★</div>
-          <p>{{text}}</p>
-          <p class="nameTag">{{name}}</p>
-        </div>
-      </template>
-    </amp-list>  
+  <div class="testimonialCard contentBlock">
+    <div class="testimonialTitleBar">★★★★★</div>
+    <p>e just had four brick window sills replaced with limestone sills. The entire process from initial contact, on site estimator, contact with the chief estimator, quoting, financial arrangements, and replacement, was carried out in a very professional manner. We would like to highlight the craftsmanship and personable talents of Patrick and his assistant. They were polite, clean, attentive to detail, respectful and punctual. We highly recommend them and the entire team at Three Little Pigs Masonry.</p>
+    <p class="nameTag">Mark</p>
   </div>
+  <div class="testimonialCard contentBlock">
+    <div class="testimonialTitleBar">★★★★★</div>
+    <p>Very happy with the quality of their work and their customer service! The first call was friendly and the estimate was arranged promptly. Contract negotiations and job scheduling went very smoothly. When the time came for the job, the team was fast, clean and professional. They even took the time to assess and complete some extra work to fix an issue we didn't notice prior to that day! From everyone we had dealings with, it's clear that these guys work as one cohesive team and truly take pride in their work and taking care of their clients. I would hire Three Little Pigs Masonry again without a moment's hesitation. Highly recommended!!</p>
+    <p class="nameTag">Olga & Shawn</p>
+  </div>
+
   <div class="centerBlock buttonRow">
     <a href="index.html#testimonials" target="_self">
       <button
-        class="btn btnSmall"
+        class="btn btnLarge"
       >
         Read More Testimonials
       </button>

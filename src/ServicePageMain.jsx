@@ -153,11 +153,7 @@ class ServicePageMain extends React.Component {
   render() {
     return (
       <StyledServicePage>
-<<<<<<< HEAD
         <ScrollToTopOnMount /> { /* the only purpose of this component is to reset the page position to the top */ }
-=======
-        <ScrollToTopOnMount /> { /* resets page position to top */ }
->>>>>>> 6d83e96b4bc1c46070e3d904a18ad60938bb33b3
         <StyledNavContainer>
           <ServicesTabsNav pageContent={this.allServices()} startIndex={this.state.selectedTab} variableHeight />
         </StyledNavContainer>
@@ -183,10 +179,7 @@ class ServicePageMain extends React.Component {
 ServicePageMain.propTypes = {
   match: PropTypes.object,
   redirect: PropTypes.string,
-<<<<<<< HEAD
   pageName: PropTypes.string,
-=======
->>>>>>> 6d83e96b4bc1c46070e3d904a18ad60938bb33b3
 };
 ServicePageMain.defaultProps = {
   match: null,
