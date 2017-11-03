@@ -49,6 +49,7 @@ const GlobalStyles = styled.div`
     padding: 5px 0px;
   }
   h3 {
+<<<<<<< HEAD
     font-size: 1.4em;
   }
   h4 {
@@ -60,6 +61,16 @@ const GlobalStyles = styled.div`
   h5 {
     font-size: 1.1em;
     color: #444;
+=======
+    font-size: 1.3em;
+  }
+  h4 {
+    font-size: 1.2em;
+    color: #841F27; 
+  }
+  h5 {
+    font-size: 1.1em;
+>>>>>>> 6d83e96b4bc1c46070e3d904a18ad60938bb33b3
   }
   h6 {
     font-size: 1.0em; 
@@ -109,6 +120,7 @@ const App = () => {
           <Switch>
             <Route exact path="/" component={MainPage} />
 
+<<<<<<< HEAD
             {/* Route re-directs from old website, linking to different Services pages */}
             <Route path="/services/brick-repair" render={(props) => { return <ServicePageMain redirect="masonry" {...props} />; }} />
             <Route path="/services/basement-waterproofing" render={(props) => { return <ServicePageMain redirect="foundations" {...props} />; }} />
@@ -125,6 +137,22 @@ const App = () => {
             <Route path="/services/window-sills" render={(props) => { return <ServicePageMain redirect="masonry" {...props} />; }} />
 
             {/* Route re-directs from old website, linking to anchors on the main page  */}
+=======
+            <Route path="/services/brick-repair" render={(props) => { return <ServicePageMain redirect="brick-stone" {...props} />; }} />
+            <Route path="/services/basement-waterproofing" render={(props) => { return <ServicePageMain redirect="foundation" {...props} />; }} />
+            <Route path="/services/chimneys--stone-chimneys" render={(props) => { return <ServicePageMain redirect="brick-stone" {...props} />; }} />
+            <Route path="/services/concrete-repair" render={(props) => { return <ServicePageMain redirect="concrete" {...props} />; }} />
+            <Route path="/services/concrete-step-repair" render={(props) => { return <ServicePageMain redirect="concrete" {...props} />; }} />
+            <Route path="/services/concrete-walkways" render={(props) => { return <ServicePageMain redirect="concrete" {...props} />; }} />
+            <Route path="/services/foundations--piling--footings" render={(props) => { return <ServicePageMain redirect="foundation" {...props} />; }} />
+            <Route path="/services/masonry-repairs" render={(props) => { return <ServicePageMain redirect="brick-stone" {...props} />; }} />
+            <Route path="/services/parging--foundation-repairs" render={(props) => { return <ServicePageMain redirect="foundation" {...props} />; }} />
+            <Route path="/services/retaining-walls" render={(props) => { return <ServicePageMain redirect="walls" {...props} />; }} />
+            <Route path="/services/stone-refacing" render={(props) => { return <ServicePageMain redirect="refacing" {...props} />; }} />
+            <Route path="/services/stone-refacing-for-stucco-wood-and-siding" render={(props) => { return <ServicePageMain redirect="refacing" {...props} />; }} />
+            <Route path="/services/window-sills" render={(props) => { return <ServicePageMain redirect="brick-stone" {...props} />; }} />
+
+>>>>>>> 6d83e96b4bc1c46070e3d904a18ad60938bb33b3
             <Route path="/our-commitment" render={(props) => { return <MainPage anchor="about-us" {...props} />; }} />
             <Route path="/our-history" render={(props) => { return <MainPage anchor="about-us" {...props} />; }} />
             <Route path="/testimonials" render={(props) => { return <MainPage anchor="testimonials" {...props} />; }} />

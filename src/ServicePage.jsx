@@ -99,6 +99,7 @@ class ServicePage extends React.Component {
 
   getContent() {
     return this.serviceData.content.map((section, i) => {
+<<<<<<< HEAD
       if (section.list !== undefined) {
         // section type "list" displays paragraphs in a bulleted list
         return (
@@ -132,6 +133,16 @@ class ServicePage extends React.Component {
             section.text.map((body) => {
               return (
                 <StyledParagraph key={body.substring(0, 30)}>
+=======
+      return (
+        <div key={section.title}>
+          {
+            i === 0 ? <h4>{section.title}</h4> : <h5>{section.title}</h5>}
+          {
+            section.text.map((body) => {
+              return (
+                <StyledParagraph key={body.substring(0, 20)}>
+>>>>>>> 6d83e96b4bc1c46070e3d904a18ad60938bb33b3
                   <p>{body}</p>
                 </StyledParagraph>
               );

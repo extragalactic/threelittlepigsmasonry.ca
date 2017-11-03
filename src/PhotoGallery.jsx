@@ -36,17 +36,17 @@ class PhotoGallery extends React.Component {
       })
       .then((photos) => {
         this.setState({
-          photos,
+          photos: photos[0].url,
         });
 
-        this.numberTotal = photos.length;
+        this.numberTotal = photos[0].url.length;
       });
   }
 
   getPhotos(baseNum) {
     // the default # of items to show is dependent on the MediaQuery size
     return this.state.photos.map((photo, i) => {
-      let val = <GalleryImage key={i} photo={photo.url} openModal={this.openModal} />;
+      let val = <GalleryImage key={i} photo={photo} openModal={this.openModal} />;
       if (i >= this.state.numberToShow + baseNum) {
         val = null;
       }
