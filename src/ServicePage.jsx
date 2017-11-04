@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import SlideShow from 'react-slick';
 import RaisedButton from 'material-ui/RaisedButton';
+import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import { WindowResizeListener } from 'react-window-resize-listener';
 import ServiceData from './ServiceData';
 import history from './history';
 
@@ -28,7 +30,7 @@ const SlickSlide = styled.img`
   width: 97%;
 `;
 const StyledMain = styled.div`
-  padding: 50px 5px 15px 5px;
+  padding: 50px 5px 25px 5px;
   margin-top: -15px;
   text-align: left;
 
@@ -99,45 +101,73 @@ class ServicePage extends React.Component {
 
   getContent() {
     return this.serviceData.content.map((section, i) => {
-      if (section.list !== undefined) {
-        // section type "list" displays paragraphs in a bulleted list
-        return (
-          <div key={`${section.title}${i}`}> {/* ...just a creative way to get a unique key, linter still doesn't like the "i" */}
-            {
-              section.title !== '' &&
-                section.mainTitle === true ? <h4>{section.title}</h4> : <h5>{section.title}</h5>
-            }
-            <ul>
+      return (
+        <Card
+          key={`${section.title}`}
+          initiallyExpanded={false}
+          onExpandChange={() => { this.props.refresh(); }}
+        >
+          <CardHeader
+            title={section.title}
+            actAsExpander
+            showExpandableButton
+            titleStyle={{ fontSize: '1.2em', marginTop: '10px', padding: '3px 3px 10px 3px' }}
+            style={{ backgroundColor: '#eee' }}
+          />
+          <CardText expandable >
+            <div>
               {
-                section.list.map((body) => {
+                section.content.map((subsection, i) => {
+                  /* render section as a list */
+                  if (subsection.list !== undefined) {
+                    return (
+                      <div key={`${subsection.title}${i}`}>  
+                        {
+                          subsection.title !== '' &&
+                            subsection.mainTitle === true ? <h4>{subsection.title}</h4> : <h5>{subsection.title}</h5>
+                        }
+                        <ul>
+                          {
+                            subsection.list.map((body) => {
+                              return (
+                                <StyledListItem key={body.substring(0, 30)}>
+                                  <li>{body}</li>
+                                </StyledListItem>
+                              );
+                            })
+                          }
+                        </ul>
+                      </div>
+                    );
+                  }
+                  // else render section as regular paragraphs
                   return (
-                    <StyledListItem key={body.substring(0, 30)}>
-                      <li>{body}</li>
-                    </StyledListItem>
+                    <div key={`${subsection.title}${i}`}>  
+                      {
+                        subsection.title !== '' &&
+                          subsection.mainTitle === true ? <h4>{subsection.title}</h4> : <h5>{subsection.title}</h5>
+                      }
+                      {
+                        subsection.text.map((body) => {
+                          return (
+                            <StyledParagraph key={body.substring(0, 30)}>
+                              <p>{body}</p>
+                            </StyledParagraph>
+                          );
+                        })
+                      }
+                      {
+                        // if it's the last text item in the array, leave a bottom spacer
+                        (i + 1) >= section.content.length &&
+                          <div style={{ paddingBottom: '30px' }} />
+                      }
+                    </div>
                   );
                 })
               }
-            </ul>
-          </div>
-        );
-      }
-      // section type "text" displays content as regular paragraphs
-      return (
-        <div key={`${section.title}${i}`}>
-          {
-            section.title !== '' &&
-              section.mainTitle === true ? <h4>{section.title}</h4> : <h5>{section.title}</h5>
-          }
-          {
-            section.text.map((body) => {
-              return (
-                <StyledParagraph key={body.substring(0, 30)}>
-                  <p>{body}</p>
-                </StyledParagraph>
-              );
-            })
-          }
-        </div>
+            </div>
+          </CardText>
+        </Card>
       );
     });
   }
@@ -155,6 +185,11 @@ class ServicePage extends React.Component {
           </div>
         </StyledMain>
         <RaisedButton label="Get Quote" secondary onClick={this.props.openChat} />
+        <WindowResizeListener
+          onResize={() => {
+            this.props.refresh();
+          }}
+        />
       </StyledServicePage>
     );
   }
@@ -163,6 +198,7 @@ class ServicePage extends React.Component {
 ServicePage.propTypes = {
   serviceType: PropTypes.string.isRequired,
   openChat: PropTypes.func.isRequired,
+  refresh: PropTypes.func.isRequired,
 };
 
 export default ServicePage;

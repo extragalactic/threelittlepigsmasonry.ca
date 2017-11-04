@@ -95,6 +95,15 @@ const muiTheme = getMuiTheme({
   dropDownMenu: {
     accentColor: '#000',
   },
+  card: {
+    titleColor: '#777',
+    fontWeight: 'bold',
+  },
+  cardMedia: {
+    color: '#fff',
+    overlayContentBackground: '#eee',
+    titleColor: '#777',
+  },
 });
 const myMuiTheme = getMuiTheme(muiTheme);
 

@@ -5,6 +5,7 @@ import { Tabs, Tab } from 'material-ui/Tabs';
 import SwipeableViews from 'react-swipeable-views';
 import MediaQuery from 'react-responsive';
 import ServiceData from './ServiceData';
+import RaisedButton from 'material-ui/RaisedButton';
 
 // styled-components needs this small workaround to pass in a custom prop when wrapping another component to prevent an 'unknown prop' warning
 const StyledTabs = styled(({ isBottomRow, ...rest }) => { return <Tabs {...rest} />; })`
@@ -43,11 +44,12 @@ class ServicesTabsNav extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
+    this.refresh = this.refresh.bind(this);
     this.swipeableViewsRef = null;
   }
 
   componentDidMount() {
-    // This is a solution to ensure the height calculation occurs after the DOM is fully rendered. Otherwise, componentDidMount() fires before the DOM is rendered which caused the height calc to fail (this is unexpected React behavior)
+    // This is a solution to ensure the height calculation occurs after the DOM is fully rendered. Otherwise, componentDidMount() fires before the DOM is rendered which caused the height calc to fail.
     setTimeout(() => {
       window.requestAnimationFrame(() => {
         this.swipeableViewsRef.updateHeight();
@@ -59,6 +61,13 @@ class ServicesTabsNav extends React.Component {
     this.setState({
       selectedTab: value,
     });
+  }
+
+  // This refresh to recalculate the screen height needs to be called *after* the MaterialUI Card gets expanded, but there is no callback to know when the expansion is complete, so instead we'll wait a few milliseconds.
+  refresh() {
+    setTimeout(() => {
+      this.swipeableViewsRef.updateHeight();
+    }, 25);
   }
 
   render() {
@@ -101,20 +110,17 @@ class ServicesTabsNav extends React.Component {
     );
   }
 }
+
 ServicesTabsNav.propTypes = {
   pageContent: PropTypes.array.isRequired,
   startIndex: PropTypes.number,
   variableHeight: PropTypes.bool,
+  refresh: PropTypes.func,
 };
 ServicesTabsNav.defaultProps = {
   startIndex: 0,
   variableHeight: false,
+  refresh: null,
 };
 
 export default ServicesTabsNav;
-
-/*
-          style={{ height: '100%' }}
-          containerStyle={{ height: '100%' }}
-          slideStyle={{ height: '100%' }}
-*/
